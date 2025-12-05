@@ -1,48 +1,72 @@
-let nmbr = Math.floor(Math.random()*20)
-let score = 20
-let highscore =0
-document.querySelector(".btn_check").addEventListener("click", ()=> {
-    let guess = document.querySelector(".guess").value
+"use strict";
 
-    if (guess==false){
-        document.querySelector(".message").textContent="no number"
-    }
-    else if (guess==nmbr){
-        document.querySelector(".message").textContent="you solve the riddle!!!"
-        document.body.style.background="green"
-        document.querySelector(".number").textContent=nmbr
-        if(guess==nmbr){
-            let muultiply= score*3
-            document.querySelector(".highscore").textContent=muultiply
-        }
-        
-        
-    }
-    else if (guess>nmbr){
-        if (score>=0){
-        document.querySelector(".message").textContent="number is Lower"
-        score=score-1
-        document.querySelector(".score").textContent=score
-    }
-    else{
-        document.querySelector(".message").textContent="u lost"
-        
-    }
-    }
-    else if(guess<nmbr){
-        if (score>=0){
-            document.querySelector(".message").textContent="number is Higher"
-            score=score-1
-            document.querySelector(".score").textContent=score
-        }
-        else{
-            document.querySelector(".message").textContent="u lost"
-            
-        }
-    }
-})
+// Generate secret number
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
+let score = 20;
+let highscore = 0;
 
+// Shortcut selector
+const $ = (q) => document.querySelector(q);
 
+// Update message
+const setMessage = (msg) => {
+  $(".message").textContent = msg;
+};
 
-console.log(nmbr)
+// Check Button Click
+$(".btn_check").addEventListener("click", function () {
+  const guess = Number($(".guess").value);
+
+  // No Input
+  if (!guess) {
+    setMessage("⛔ No number!");
+    $(".guess").classList.add("shake");
+    setTimeout(() => $(".guess").classList.remove("shake"), 300);
+    return;
+  }
+
+  // Correct Guess
+  if (guess === secretNumber) {
+    setMessage("🎉 Correct Number!");
+    $("body").style.backgroundColor = "#25cc45";
+    $(".number").textContent = secretNumber;
+    $(".number").classList.add("pop");
+
+    if (score > highscore) {
+      highscore = score;
+      $(".highscore").textContent = highscore;
+    }
+    return;
+  }
+
+  // Wrong Guess
+  if (score > 1) {
+    setMessage(guess > secretNumber ? "📉 Too High!" : "📈 Too Low!");
+    score--;
+    $(".score").textContent = score;
+
+    // little shake animation
+    $(".number").classList.add("shake");
+    setTimeout(() => $(".number").classList.remove("shake"), 200);
+  } else {
+    setMessage("💥 You lost the game!");
+    $(".score").textContent = 0;
+    $("body").style.backgroundColor = "#8b0000";
+  }
+});
+
+// Again Button
+$(".btn_again").addEventListener("click", function () {
+  // Reset values
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+  setMessage("Start guessing...");
+  $(".score").textContent = score;
+  $(".number").textContent = "?";
+  $(".guess").value = "";
+
+  $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
+  $(".number").classList.remove("pop");
+});
