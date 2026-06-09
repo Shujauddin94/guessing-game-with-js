@@ -6,6 +6,7 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
 let highscore = 0;
+console.log("Ready for player guesses.");
 
 // Shortcut selector
 const $ = (q) => document.querySelector(q);
