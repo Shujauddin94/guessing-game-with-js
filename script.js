@@ -1,4 +1,5 @@
 "use strict";
+console.log("Guessing game loaded.");
 
 // Generate secret number
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
