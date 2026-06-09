@@ -71,4 +71,5 @@ $(".btn_again").addEventListener("click", function () {
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   $(".number").classList.remove("pop");
+  console.log("Use the buttons to play again.");
 });
