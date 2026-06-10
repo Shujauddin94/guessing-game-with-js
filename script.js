@@ -68,6 +68,7 @@ $(".btn_again").addEventListener("click", function () {
   $(".score").textContent = score;
   $(".number").textContent = "?";
   $(".guess").value = "";
+  console.log("Game reset for a new round.");
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   $(".number").classList.remove("pop");
