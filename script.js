@@ -23,8 +23,7 @@ $(".btn_check").addEventListener("click", function () {
 
   // No Input
   if (!guess) {
-    setMessage("⛔ No number!");
-    $(".guess").classList.add("shake");
+    setMessage("⛔ No number!");    console.log("No guess input detected.");    $(".guess").classList.add("shake");
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
     return;
   }
