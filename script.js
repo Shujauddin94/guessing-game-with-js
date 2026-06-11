@@ -77,3 +77,4 @@ $(".btn_again").addEventListener("click", function () {
 
 console.log("🎮 Game fully loaded and ready!");
 console.log("⏱️ Timestamp: " + new Date().toLocaleTimeString());
+console.log("✅ All event listeners initialized successfully!");
