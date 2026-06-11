@@ -74,3 +74,5 @@ $(".btn_again").addEventListener("click", function () {
   $(".number").classList.remove("pop");
   console.log("Use the buttons to play again.");
 });
+
+console.log("🎮 Game fully loaded and ready!");
