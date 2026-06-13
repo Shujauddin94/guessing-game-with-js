@@ -17,6 +17,12 @@ const setMessage = (msg) => {
   $(".message").textContent = msg;
 };
 
+// Update score bar
+const updateScoreBar = () => {
+  const percentage = (score / 20) * 100;
+  $(".score-bar-fill").style.width = percentage + "%";
+};
+
 // Function to process guess
 const processGuess = function () {
   const guess = Number($(".guess").value);
@@ -47,6 +53,7 @@ const processGuess = function () {
     setMessage(guess > secretNumber ? "📉 Too High!" : "📈 Too Low!");
     score--;
     $(".score").textContent = score;
+    updateScoreBar();
 
     // little shake animation
     $(".number").classList.add("shake");
@@ -54,6 +61,7 @@ const processGuess = function () {
   } else {
     setMessage("💥 You lost the game!");
     $(".score").textContent = 0;
+    updateScoreBar();
     $("body").style.backgroundColor = "#8b0000";
   }
 };
@@ -76,6 +84,7 @@ $(".btn_again").addEventListener("click", function () {
 
   setMessage("Start guessing...");
   $(".score").textContent = score;
+  updateScoreBar();
   $(".number").textContent = "?";
   $(".guess").value = "";
   console.log("Game reset for a new round.");
