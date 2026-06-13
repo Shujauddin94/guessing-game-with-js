@@ -17,8 +17,8 @@ const setMessage = (msg) => {
   $(".message").textContent = msg;
 };
 
-// Check Button Click
-$(".btn_check").addEventListener("click", function () {
+// Function to process guess
+const processGuess = function () {
   const guess = Number($(".guess").value);
 
   // No Input
@@ -55,6 +55,16 @@ $(".btn_check").addEventListener("click", function () {
     setMessage("💥 You lost the game!");
     $(".score").textContent = 0;
     $("body").style.backgroundColor = "#8b0000";
+  }
+};
+
+// Check Button Click
+$(".btn_check").addEventListener("click", processGuess);
+
+// Allow Enter key on guess input
+$(".guess").addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    processGuess();
   }
 });
 
