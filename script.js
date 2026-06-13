@@ -85,6 +85,13 @@ $(".btn_again").addEventListener("click", function () {
   console.log("Use the buttons to play again.");
 });
 
+// Allow Escape key to reset game
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    $(".btn_again").click();
+  }
+});
+
 console.log("🎮 Game fully loaded and ready!");
 console.log("⏱️ Timestamp: " + new Date().toLocaleTimeString());
 console.log("✅ All event listeners initialized successfully!");
