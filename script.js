@@ -25,11 +25,23 @@ const updateScoreBar = () => {
 
 // Function to process guess
 const processGuess = function () {
-  const guess = Number($(".guess").value);
+  const guessValue = $(".guess").value;
+  const guess = Number(guessValue);
 
   // No Input
-  if (!guess) {
-    setMessage("⛔ No number!");    console.log("No guess input detected.");    $(".guess").classList.add("shake");
+  if (!guessValue) {
+    setMessage("⛔ No number!");
+    console.log("No guess input detected.");
+    $(".guess").classList.add("shake");
+    setTimeout(() => $(".guess").classList.remove("shake"), 300);
+    return;
+  }
+
+  // Invalid range
+  if (guess < 1 || guess > 20) {
+    setMessage("⛔ Please enter a number from 1 to 20.");
+    console.log("Guess out of valid range.");
+    $(".guess").classList.add("shake");
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
     return;
   }
