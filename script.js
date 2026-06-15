@@ -76,6 +76,9 @@ const processGuess = function () {
     updateScoreBar();
     $("body").style.backgroundColor = "#8b0000";
   }
+
+  // Clear input field
+  $(".guess").value = "";
 };
 
 // Check Button Click
