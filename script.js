@@ -6,11 +6,14 @@ console.log("Guessing game initialized.");
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
-let highscore = 0;
+let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
 console.log("Ready for player guesses.");
 
 // Shortcut selector
 const $ = (q) => document.querySelector(q);
+
+// Initialize highscore display
+$(".highscore").textContent = highscore;
 
 // Update message
 const setMessage = (msg) => {
@@ -56,6 +59,7 @@ const processGuess = function () {
     if (score > highscore) {
       highscore = score;
       $(".highscore").textContent = highscore;
+      localStorage.setItem("highscore", highscore);
     }
     return;
   }
