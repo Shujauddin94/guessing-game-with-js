@@ -79,6 +79,7 @@ const processGuess = function () {
 
   // Clear input field
   $(".guess").value = "";
+  $(".guess").focus();
 };
 
 // Check Button Click
