@@ -14,6 +14,7 @@ const $ = (q) => document.querySelector(q);
 
 // Initialize highscore display
 $(".highscore").textContent = highscore;
+$(".guess").focus();
 
 // Update message
 const setMessage = (msg) => {
@@ -111,6 +112,7 @@ $(".btn_again").addEventListener("click", function () {
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   $(".number").classList.remove("pop");
+  $(".guess").focus();
   console.log("Use the buttons to play again.");
 });
 
