@@ -11,7 +11,7 @@ body{
     font-family: sans-serif;
     color: azure;
     background-color: rgba(88, 16, 32, 0.897);
-    
+    min-height: 100vh;
 }
 header{
     position: relative;
@@ -19,11 +19,13 @@ header{
     border-bottom: 7px solid white;
 }
 main{
-    height: 65vh;
+    min-height: 65vh;
     color: aliceblue;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 2rem;
+    padding: 2rem;
 }
 .left{
     width: 52rem;
@@ -101,6 +103,7 @@ h1{
     position: relative;
     bottom: 100px;
     font-size: 2.5rem;
+    max-width: 100%;
 }
 .btn_check{
     font-size: 2.5rem;
