@@ -12,9 +12,15 @@ console.log("Ready for player guesses.");
 // Shortcut selector
 const $ = (q) => document.querySelector(q);
 
+const focusGuessInput = () => {
+  const guessInput = $(".guess");
+  guessInput.focus();
+  guessInput.select();
+};
+
 // Initialize highscore display
 $(".highscore").textContent = highscore;
-$(".guess").focus();
+focusGuessInput();
 
 // Update message
 const setMessage = (msg) => {
@@ -38,6 +44,7 @@ const processGuess = function () {
     console.log("No guess input detected.");
     $(".guess").classList.add("shake");
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
+    focusGuessInput();
     return;
   }
 
@@ -47,6 +54,7 @@ const processGuess = function () {
     console.log("Guess out of valid range.");
     $(".guess").classList.add("shake");
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
+    focusGuessInput();
     return;
   }
 
@@ -84,7 +92,7 @@ const processGuess = function () {
 
   // Clear input field
   $(".guess").value = "";
-  $(".guess").focus();
+  focusGuessInput();
 };
 
 // Check Button Click
@@ -112,7 +120,7 @@ $(".btn_again").addEventListener("click", function () {
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   $(".number").classList.remove("pop");
-  $(".guess").focus();
+  focusGuessInput();
   console.log("Use the buttons to play again.");
 });
 
