@@ -44,12 +44,20 @@ main{
 .btn_again,
 .btn_check {
     transition: transform 0.2s ease, background-color 0.2s ease, filter 0.2s ease;
+    border: none;
+    border-radius: 999px;
 }
 .btn_again:hover,
 .btn_check:hover {
     transform: scale(1.03);
     filter: brightness(1.05);
     cursor: pointer;
+}
+.btn_again:focus-visible,
+.btn_check:focus-visible,
+.guess:focus-visible {
+    outline: 3px solid #ffd700;
+    outline-offset: 3px;
 }
 .right{
     width: 52rem;
@@ -104,6 +112,9 @@ h1{
     bottom: 100px;
     font-size: 2.5rem;
     max-width: 100%;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    text-align: center;
 }
 .btn_check{
     font-size: 2.5rem;
