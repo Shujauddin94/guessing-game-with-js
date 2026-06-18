@@ -18,9 +18,19 @@ const focusGuessInput = () => {
   guessInput.select();
 };
 
+const toggleControls = (isDisabled) => {
+  const guessInput = $(".guess");
+  const checkButton = $(".btn_check");
+
+  guessInput.disabled = isDisabled;
+  checkButton.disabled = isDisabled;
+  checkButton.style.opacity = isDisabled ? "0.6" : "1";
+};
+
 // Initialize highscore display
 $(".highscore").textContent = highscore;
 focusGuessInput();
+toggleControls(false);
 
 // Update message
 const setMessage = (msg) => {
@@ -64,6 +74,7 @@ const processGuess = function () {
     $("body").style.backgroundColor = "#25cc45";
     $(".number").textContent = secretNumber;
     $(".number").classList.add("pop");
+    toggleControls(true);
 
     if (score > highscore) {
       highscore = score;
@@ -88,6 +99,7 @@ const processGuess = function () {
     $(".score").textContent = 0;
     updateScoreBar();
     $("body").style.backgroundColor = "#8b0000";
+    toggleControls(true);
   }
 
   // Clear input field
@@ -120,6 +132,7 @@ $(".btn_again").addEventListener("click", function () {
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   $(".number").classList.remove("pop");
+  toggleControls(false);
   focusGuessInput();
   console.log("Use the buttons to play again.");
 });
