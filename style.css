@@ -121,6 +121,12 @@ h1{
     position: relative;
     top: -128px;
 }
+.hint {
+    color: #f9e6a1;
+    font-size: 1.4rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
 .guess{
     padding: 60px 5px;
     position: relative;

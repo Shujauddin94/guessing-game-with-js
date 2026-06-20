@@ -37,6 +37,10 @@ const setMessage = (msg) => {
   $(".message").textContent = msg;
 };
 
+const setHint = (msg) => {
+  $(".hint").textContent = msg;
+};
+
 // Update score bar
 const updateScoreBar = () => {
   const percentage = (score / 20) * 100;
@@ -68,9 +72,12 @@ const processGuess = function () {
     return;
   }
 
+  const difference = Math.abs(guess - secretNumber);
+
   // Correct Guess
   if (guess === secretNumber) {
     setMessage("🎉 Correct Number!");
+    setHint("🎉 You found the secret number!");
     $("body").style.backgroundColor = "#25cc45";
     $(".number").textContent = secretNumber;
     $(".number").classList.add("pop");
@@ -87,6 +94,15 @@ const processGuess = function () {
   // Wrong Guess
   if (score > 1) {
     setMessage(guess > secretNumber ? "📉 Too High!" : "📈 Too Low!");
+
+    if (difference <= 2) {
+      setHint("🔥 Very close!");
+    } else if (difference <= 5) {
+      setHint("🌡️ Getting warmer");
+    } else {
+      setHint("🧭 Keep trying!");
+    }
+
     score--;
     $(".score").textContent = score;
     updateScoreBar();
@@ -96,6 +112,7 @@ const processGuess = function () {
     setTimeout(() => $(".number").classList.remove("shake"), 200);
   } else {
     setMessage("💥 You lost the game!");
+    setHint(`💥 The number was ${secretNumber}.`);
     $(".score").textContent = 0;
     updateScoreBar();
     $("body").style.backgroundColor = "#8b0000";
@@ -124,6 +141,7 @@ $(".btn_again").addEventListener("click", function () {
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 
   setMessage("Start guessing...");
+  setHint("Hint: We'll tell you if you're close.");
   $(".score").textContent = score;
   updateScoreBar();
   $(".number").textContent = "?";
