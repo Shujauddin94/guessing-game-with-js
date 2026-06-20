@@ -127,6 +127,10 @@ h1{
     margin-top: -1rem;
     margin-bottom: 1rem;
 }
+.label-attempts {
+    font-size: 1.6rem;
+    margin: 0.3rem 0;
+}
 .guess{
     padding: 60px 5px;
     position: relative;

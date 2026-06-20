@@ -6,6 +6,7 @@ console.log("Guessing game initialized.");
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
+let attempts = 0;
 let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
 console.log("Ready for player guesses.");
 
@@ -41,6 +42,10 @@ const setHint = (msg) => {
   $(".hint").textContent = msg;
 };
 
+const updateGuessStats = () => {
+  $(".attempts").textContent = attempts;
+};
+
 // Update score bar
 const updateScoreBar = () => {
   const percentage = (score / 20) * 100;
@@ -71,6 +76,9 @@ const processGuess = function () {
     focusGuessInput();
     return;
   }
+
+  attempts++;
+  updateGuessStats();
 
   const difference = Math.abs(guess - secretNumber);
 
@@ -138,12 +146,14 @@ $(".guess").addEventListener("keypress", function (e) {
 $(".btn_again").addEventListener("click", function () {
   // Reset values
   score = 20;
+  attempts = 0;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 
   setMessage("Start guessing...");
   setHint("Hint: We'll tell you if you're close.");
   $(".score").textContent = score;
   updateScoreBar();
+  updateGuessStats();
   $(".number").textContent = "?";
   $(".guess").value = "";
   console.log("Game reset for a new round.");
