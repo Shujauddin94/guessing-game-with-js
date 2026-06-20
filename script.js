@@ -7,6 +7,7 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
 let attempts = 0;
+let lastGuess = null;
 let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
 console.log("Ready for player guesses.");
 
@@ -44,6 +45,7 @@ const setHint = (msg) => {
 
 const updateGuessStats = () => {
   $(".attempts").textContent = attempts;
+  $(".last-guess").textContent = lastGuess !== null ? lastGuess : "—";
 };
 
 // Update score bar
@@ -78,6 +80,7 @@ const processGuess = function () {
   }
 
   attempts++;
+  lastGuess = guess;
   updateGuessStats();
 
   const difference = Math.abs(guess - secretNumber);
@@ -147,6 +150,7 @@ $(".btn_again").addEventListener("click", function () {
   // Reset values
   score = 20;
   attempts = 0;
+  lastGuess = null;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 
   setMessage("Start guessing...");
