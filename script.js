@@ -43,6 +43,13 @@ const setHint = (msg) => {
   $(".hint").textContent = msg;
 };
 
+const resetGameState = () => {
+  score = 20;
+  attempts = 0;
+  lastGuess = null;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+};
+
 const updateGuessStats = () => {
   $(".attempts").textContent = attempts;
   $(".last-guess").textContent = lastGuess !== null ? lastGuess : "—";
@@ -147,11 +154,7 @@ $(".guess").addEventListener("keypress", function (e) {
 
 // Again Button
 $(".btn_again").addEventListener("click", function () {
-  // Reset values
-  score = 20;
-  attempts = 0;
-  lastGuess = null;
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  resetGameState();
 
   setMessage("Start guessing...");
   setHint("Hint: We'll tell you if you're close.");
