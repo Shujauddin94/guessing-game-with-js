@@ -129,9 +129,14 @@ h1{
     margin-bottom: 1rem;
 }
 .label-attempts,
+.label-history,
 .label-last {
     font-size: 1.6rem;
     margin: 0.3rem 0;
+}
+.history {
+    font-weight: 700;
+    color: #fff3a6;
 }
 .guess{
     padding: 60px 5px;
