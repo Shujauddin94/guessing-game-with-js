@@ -21,6 +21,12 @@ const focusGuessInput = () => {
   guessInput.select();
 };
 
+const markInvalidInput = () => {
+  const guessInput = $(".guess");
+  guessInput.classList.add("guess--invalid");
+  setTimeout(() => guessInput.classList.remove("guess--invalid"), 400);
+};
+
 const toggleControls = (isDisabled) => {
   const guessInput = $(".guess");
   const checkButton = $(".btn_check");
@@ -74,6 +80,7 @@ const processGuess = function () {
     setMessage("⛔ No number!");
     console.log("No guess input detected.");
     $(".guess").classList.add("shake");
+    markInvalidInput();
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
     focusGuessInput();
     return;
@@ -84,6 +91,7 @@ const processGuess = function () {
     setMessage("⛔ Please enter a number from 1 to 20.");
     console.log("Guess out of valid range.");
     $(".guess").classList.add("shake");
+    markInvalidInput();
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
     focusGuessInput();
     return;
@@ -171,6 +179,7 @@ $(".btn_again").addEventListener("click", function () {
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   $(".number").classList.remove("pop");
+  $(".guess").classList.remove("guess--invalid");
   toggleControls(false);
   focusGuessInput();
   console.log("Use the buttons to play again.");
