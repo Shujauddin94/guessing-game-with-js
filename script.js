@@ -117,7 +117,7 @@ const processGuess = function () {
     setHint("🎉 You found the secret number!");
     $("body").style.backgroundColor = "#25cc45";
     $(".number").textContent = secretNumber;
-    $(".number").classList.add("pop");
+    $(".number").classList.add("pop", "win-burst");
     toggleControls(true);
 
     if (score > highscore) {
@@ -182,6 +182,7 @@ $(".btn_again").addEventListener("click", function () {
   updateGuessStats();
   updateRoundDisplay();
   $(".number").textContent = "?";
+  $(".number").classList.remove("win-burst");
   $(".guess").value = "";
   console.log("Game reset for a new round.");
 
