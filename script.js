@@ -9,6 +9,7 @@ let score = 20;
 let attempts = 0;
 let lastGuess = null;
 let previousGuesses = [];
+let round = 1;
 let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
 console.log("Ready for player guesses.");
 
@@ -38,6 +39,11 @@ const toggleControls = (isDisabled) => {
 
 // Initialize highscore display
 $(".highscore").textContent = highscore;
+const updateRoundDisplay = () => {
+  $(".round").textContent = round;
+};
+
+updateRoundDisplay();
 focusGuessInput();
 toggleControls(false);
 
@@ -55,6 +61,7 @@ const resetGameState = () => {
   attempts = 0;
   lastGuess = null;
   previousGuesses = [];
+  round += 1;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 };
 
@@ -173,6 +180,7 @@ $(".btn_again").addEventListener("click", function () {
   $(".score").textContent = score;
   updateScoreBar();
   updateGuessStats();
+  updateRoundDisplay();
   $(".number").textContent = "?";
   $(".guess").value = "";
   console.log("Game reset for a new round.");

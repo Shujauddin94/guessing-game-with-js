@@ -130,10 +130,16 @@ h1{
     margin-bottom: 1rem;
 }
 .label-attempts,
+.label-round,
 .label-history,
 .label-last {
     font-size: 1.6rem;
     margin: 0.3rem 0;
+}
+
+.label-round {
+    color: #ffe8a6;
+    font-weight: 700;
 }
 .history {
     font-weight: 700;
