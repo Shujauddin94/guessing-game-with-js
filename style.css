@@ -235,6 +235,13 @@ h1{
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
+.score-caption {
+  font-size: 1.2rem;
+  color: #ffe8a6;
+  margin-top: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
 .score-bar-fill:hover {
   filter: brightness(1.03);
 }
