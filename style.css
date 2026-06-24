@@ -153,6 +153,12 @@ h1{
     color: #ffe8a6;
     font-weight: 700;
 }
+.round-status {
+    font-size: 1.2rem;
+    color: #dfefff;
+    margin: 0.2rem 0 0.8rem;
+    opacity: 0.85;
+}
 .history {
     font-weight: 700;
     color: #fff3a6;
