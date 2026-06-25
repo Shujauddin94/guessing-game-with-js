@@ -22,6 +22,13 @@ const focusGuessInput = () => {
   guessInput.select();
 };
 
+const handleNumberFocusShortcut = (event) => {
+  if (event.type === "click" || (event.type === "keydown" && (event.key === "Enter" || event.key === " "))) {
+    event.preventDefault();
+    focusGuessInput();
+  }
+};
+
 const markInvalidInput = () => {
   const guessInput = $(".guess");
   guessInput.classList.add("guess--invalid");
@@ -170,6 +177,9 @@ $(".guess").addEventListener("keypress", function (e) {
     processGuess();
   }
 });
+
+$(".number").addEventListener("click", handleNumberFocusShortcut);
+$(".number").addEventListener("keydown", handleNumberFocusShortcut);
 
 // Again Button
 $(".btn_again").addEventListener("click", function () {
