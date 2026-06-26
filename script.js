@@ -127,6 +127,7 @@ const processGuess = function () {
     $("body").style.backgroundColor = "#25cc45";
     $(".number").textContent = secretNumber;
     $(".number").classList.add("pop", "win-burst");
+    $(".guess").classList.add("guess--feedback-correct");
     toggleControls(true);
 
     if (score > highscore) {
@@ -139,7 +140,12 @@ const processGuess = function () {
 
   // Wrong Guess
   if (score > 1) {
-    setMessage(guess > secretNumber ? "📉 Too High!" : "📈 Too Low!");
+    const isTooHigh = guess > secretNumber;
+    setMessage(isTooHigh ? "📉 Too High!" : "📈 Too Low!");
+
+    // Add color feedback
+    $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high");
+    $(".guess").classList.add(isTooHigh ? "guess--feedback-high" : "guess--feedback-low");
 
     if (difference <= 2) {
       setHint("🔥 Very close!");
@@ -200,6 +206,8 @@ $(".difficulty-select").addEventListener("change", function(e) {
   updateGuessStats();
   updateRoundDisplay();
   $(".number").textContent = "?";
+  $(".guess").value = "";
+  $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   toggleControls(false);
   focusGuessInput();
@@ -232,6 +240,7 @@ $(".btn_again").addEventListener("click", function () {
   $(".number").textContent = "?";
   $(".number").classList.remove("win-burst");
   $(".guess").value = "";
+  $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
   console.log("Game reset for a new round.");
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
@@ -266,6 +275,7 @@ $(".btn_clear_stats").addEventListener("click", function() {
     updateRoundDisplay();
     $(".number").textContent = "?";
     $(".guess").value = "";
+    $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
     $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
     toggleControls(false);
     focusGuessInput();

@@ -351,4 +351,29 @@ h1{
   outline: 3px solid #ffd700;
   outline-offset: 2px;
 }
+
+/* Guess feedback colors */
+.guess--feedback-low {
+  background-color: rgba(255, 100, 100, 0.3);
+  border-color: #ff6464;
+  animation: feedback-pulse 0.4s ease-in-out;
+}
+
+.guess--feedback-high {
+  background-color: rgba(100, 150, 255, 0.3);
+  border-color: #6496ff;
+  animation: feedback-pulse 0.4s ease-in-out;
+}
+
+.guess--feedback-correct {
+  background-color: rgba(100, 255, 100, 0.3);
+  border-color: #64ff64;
+  animation: feedback-pulse 0.4s ease-in-out;
+}
+
+@keyframes feedback-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
 }
