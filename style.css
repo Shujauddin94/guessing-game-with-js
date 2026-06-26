@@ -321,4 +321,34 @@ h1{
   outline: 3px solid #ffd700;
   outline-offset: 2px;
 }
+
+.btn_clear_stats {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: rgba(200, 50, 50, 0.6);
+  color: #fff;
+  border: 2px solid #ff6b6b;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.btn_clear_stats:hover {
+  background-color: rgba(200, 50, 50, 0.8);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn_clear_stats:active {
+  transform: translateY(0);
+  box-shadow: 0 0 8px rgba(255, 107, 107, 0.2);
+}
+
+.btn_clear_stats:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
 }

@@ -249,6 +249,30 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+// Clear Stats Button
+$(".btn_clear_stats").addEventListener("click", function() {
+  if (confirm("Are you sure you want to clear all stats and highscore?")) {
+    highscore = 0;
+    round = 1;
+    $(".highscore").textContent = 0;
+    localStorage.removeItem("highscore");
+    resetGameState();
+    
+    setMessage("Stats cleared! Ready for a fresh start.");
+    setHint("Let's start fresh!");
+    $(".score").textContent = score;
+    updateScoreBar();
+    updateGuessStats();
+    updateRoundDisplay();
+    $(".number").textContent = "?";
+    $(".guess").value = "";
+    $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
+    toggleControls(false);
+    focusGuessInput();
+    console.log("📊 All game stats cleared!");
+  }
+});
+
 console.log("🎮 Game fully loaded and ready!");
 console.log("⏱️ Timestamp: " + new Date().toLocaleTimeString());
 console.log("✅ All event listeners initialized successfully!");
