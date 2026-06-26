@@ -12,7 +12,15 @@
     <header>
     <h1>Guess My Number!</h1>
     <p class="subtitle">Beat your high score!</p>
-    <p class="between">(Between 1 and 20)</p>
+    <div class="difficulty-selector">
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" class="difficulty-select">
+            <option value="easy">Easy (1-10)</option>
+            <option value="medium" selected>Medium (1-20)</option>
+            <option value="hard">Hard (1-50)</option>
+        </select>
+    </div>
+    <p class="between" id="range-display">(Between 1 and 20)</p>
     <button type="button" class="btn_again">Again!</button>
     <div class="number" role="button" tabindex="0" aria-label="Focus the guess input">?</div>
     </header>

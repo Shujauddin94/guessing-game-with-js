@@ -10,6 +10,8 @@ let attempts = 0;
 let lastGuess = null;
 let previousGuesses = [];
 let round = 1;
+let difficulty = "medium"; // easy, medium, hard
+let maxNumber = 20;
 let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
 console.log("Ready for player guesses.");
 
@@ -69,7 +71,7 @@ const resetGameState = () => {
   lastGuess = null;
   previousGuesses = [];
   round += 1;
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  secretNumber = Math.trunc(Math.random() * maxNumber) + 1;
 };
 
 const updateGuessStats = () => {
@@ -101,8 +103,8 @@ const processGuess = function () {
   }
 
   // Invalid range
-  if (guess < 1 || guess > 20) {
-    setMessage("⛔ Please enter a number from 1 to 20.");
+  if (guess < 1 || guess > maxNumber) {
+    setMessage(`⛔ Please enter a number from 1 to ${maxNumber}.`);
     console.log("Guess out of valid range.");
     $(".guess").classList.add("shake");
     markInvalidInput();
@@ -167,6 +169,42 @@ const processGuess = function () {
   $(".guess").value = "";
   focusGuessInput();
 };
+
+// Difficulty selector handler
+$(".difficulty-select").addEventListener("change", function(e) {
+  difficulty = e.target.value;
+  
+  switch(difficulty) {
+    case "easy":
+      maxNumber = 10;
+      break;
+    case "hard":
+      maxNumber = 50;
+      break;
+    default:
+      maxNumber = 20;
+  }
+  
+  // Update range display
+  $("#range-display").textContent = `(Between 1 and ${maxNumber})`;
+  
+  // Update input max attribute
+  $(".guess").max = maxNumber;
+  
+  // Reset game with new difficulty
+  resetGameState();
+  setMessage("Start guessing...");
+  setHint("Hint: We'll tell you if you're close.");
+  $(".score").textContent = score;
+  updateScoreBar();
+  updateGuessStats();
+  updateRoundDisplay();
+  $(".number").textContent = "?";
+  $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
+  toggleControls(false);
+  focusGuessInput();
+  console.log(`Difficulty changed to ${difficulty} (1-${maxNumber})`);
+});
 
 // Check Button Click
 $(".btn_check").addEventListener("click", processGuess);
