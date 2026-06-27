@@ -52,7 +52,12 @@ const updateRoundDisplay = () => {
   $(".round").textContent = round;
 };
 
+const updateDifficultyDisplay = () => {
+  $(".difficulty-text").textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+};
+
 updateRoundDisplay();
+updateDifficultyDisplay();
 focusGuessInput();
 toggleControls(false);
 
@@ -205,6 +210,7 @@ $(".difficulty-select").addEventListener("change", function(e) {
   updateScoreBar();
   updateGuessStats();
   updateRoundDisplay();
+  updateDifficultyDisplay();
   $(".number").textContent = "?";
   $(".guess").value = "";
   $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
@@ -251,9 +257,13 @@ $(".btn_again").addEventListener("click", function () {
   console.log("Use the buttons to play again.");
 });
 
-// Allow Escape key to reset game
+// Allow Escape key to reset game and R key to restart
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
+    $(".btn_again").click();
+  }
+
+  if (e.key.toLowerCase() === "r" && document.activeElement !== $(".guess")) {
     $(".btn_again").click();
   }
 });
