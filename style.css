@@ -70,6 +70,10 @@ main{
     cursor: not-allowed;
     filter: grayscale(0.1);
 }
+.btn_check:disabled:hover {
+    transform: none;
+    filter: grayscale(0.2);
+}
 .btn_again:focus-visible,
 .btn_check:focus-visible,
 .guess:focus-visible {
