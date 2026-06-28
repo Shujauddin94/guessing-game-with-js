@@ -56,8 +56,15 @@ const updateDifficultyDisplay = () => {
   $(".difficulty-text").textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
 };
 
+const setStatusPill = (msg, isWin = false) => {
+  const pill = $(".status-pill");
+  pill.textContent = msg;
+  pill.classList.toggle("status-pill--win", isWin);
+};
+
 updateRoundDisplay();
 updateDifficultyDisplay();
+setStatusPill("Live play");
 focusGuessInput();
 toggleControls(false);
 
@@ -129,6 +136,7 @@ const processGuess = function () {
   if (guess === secretNumber) {
     setMessage("🎉 Correct Number!");
     setHint("🎉 You found the secret number!");
+    setStatusPill("You win!", true);
     $("body").style.backgroundColor = "#25cc45";
     $(".number").textContent = secretNumber;
     $(".number").classList.add("pop", "win-burst");
@@ -206,6 +214,7 @@ $(".difficulty-select").addEventListener("change", function(e) {
   resetGameState();
   setMessage("Start guessing...");
   setHint("Hint: We'll tell you if you're close.");
+  setStatusPill("Live play");
   $(".score").textContent = score;
   updateScoreBar();
   updateGuessStats();
@@ -239,6 +248,7 @@ $(".btn_again").addEventListener("click", function () {
 
   setMessage("Start guessing...");
   setHint("Hint: We'll tell you if you're close.");
+  setStatusPill("Live play");
   $(".score").textContent = score;
   updateScoreBar();
   updateGuessStats();
@@ -265,6 +275,16 @@ document.addEventListener("keydown", function (e) {
 
   if (e.key.toLowerCase() === "r" && document.activeElement !== $(".guess")) {
     $(".btn_again").click();
+  }
+
+  if (e.key.toLowerCase() === "c") {
+    const guessInput = $(".guess");
+    if (guessInput.value) {
+      guessInput.value = "";
+      setMessage("✅ Guess cleared.");
+      setHint("Type a new number and press Enter.");
+      focusGuessInput();
+    }
   }
 });
 

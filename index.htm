@@ -29,7 +29,7 @@
             <input type="number" class="guess" placeholder="?" min="1" max="20" step="1" maxlength="2" aria-label="Enter your guess" aria-describedby="guess-help guess-shortcuts" autocomplete="off" inputmode="numeric" autofocus />
             <p class="helper-text" id="guess-help">Press Enter to check</p>
             <p class="helper-text helper-text--secondary" id="guess-shortcuts">Press Esc to reset, R to restart</p>
-            <div class="shortcut-badge" aria-label="Keyboard shortcuts available">⌨️ Enter / Esc / R</div>
+            <div class="shortcut-badge" aria-label="Keyboard shortcuts available">⌨️ Enter / Esc / R / C</div>
             <button type="button" class="btn_check" aria-label="Check your guess">Check!</button>
         </section>
         <section class="right">
@@ -41,7 +41,7 @@
             <p class="label-attempts">Attempts: <span class="attempts">0</span></p>
             <p class="label-round">Round: <span class="round">1</span></p>
             <p class="round-status">Round progress updates live.</p>
-            <div class="status-pill" aria-label="Current game status">Live play</div>
+            <div class="status-pill" aria-live="polite" aria-label="Current game status">Live play</div>
             <p class="label-history">Previous guesses: <span class="history">None yet</span></p>
             <p class="label-last">Last guess: <span class="last-guess">—</span></p>
             <div class="score-bar"><div class="score-bar-fill"></div></div>
