@@ -182,6 +182,12 @@ h1{
     color: #e7ffe8;
 }
 
+.status-pill--lose {
+    background-color: rgba(200, 50, 50, 0.18);
+    border: 1px solid #ff6b6b;
+    color: #ffdcdc;
+}
+
 @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 0.9; }
     50% { transform: scale(1.03); opacity: 1; }

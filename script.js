@@ -56,10 +56,11 @@ const updateDifficultyDisplay = () => {
   $(".difficulty-text").textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
 };
 
-const setStatusPill = (msg, isWin = false) => {
+const setStatusPill = (msg, modifier = "") => {
   const pill = $(".status-pill");
   pill.textContent = msg;
-  pill.classList.toggle("status-pill--win", isWin);
+  pill.classList.toggle("status-pill--win", modifier === "win");
+  pill.classList.toggle("status-pill--lose", modifier === "lose");
 };
 
 updateRoundDisplay();
@@ -178,6 +179,7 @@ const processGuess = function () {
   } else {
     setMessage("💥 You lost the game!");
     setHint(`💥 The number was ${secretNumber}.`);
+    setStatusPill("Game over!", "lose");
     $(".score").textContent = 0;
     updateScoreBar();
     $("body").style.backgroundColor = "#8b0000";
