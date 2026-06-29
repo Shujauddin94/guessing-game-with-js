@@ -195,6 +195,16 @@ const processGuess = function () {
     $(".score").textContent = score;
     updateScoreBar();
 
+    // Auto-reset in hard mode after three failed guesses
+    if (difficulty === "hard" && attempts >= 3) {
+      setMessage("🔁 Hard mode reset after 3 misses.");
+      setHint("Try again from a fresh round.");
+      $(".number").classList.remove("pop", "win-burst");
+      setTimeout(() => {
+        $(".btn_again").click();
+      }, 900);
+    }
+
     // little shake animation
     $(".number").classList.add("shake");
     setTimeout(() => $(".number").classList.remove("shake"), 200);
