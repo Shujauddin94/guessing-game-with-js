@@ -325,8 +325,11 @@ $(".btn_clear_stats").addEventListener("click", function() {
   if (confirm("Are you sure you want to clear all stats and highscore?")) {
     highscore = 0;
     round = 1;
+    gamesPlayed = 0;
     $(".highscore").textContent = 0;
+    $(".games-played").textContent = 0;
     localStorage.removeItem("highscore");
+    localStorage.removeItem("gamesPlayed");
     resetGameState();
     
     setMessage("Stats cleared! Ready for a fresh start.");
