@@ -13,6 +13,7 @@ let round = 1;
 let difficulty = "medium"; // easy, medium, hard
 let maxNumber = 20;
 let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
+let gamesPlayed = localStorage.getItem("gamesPlayed") ? Number(localStorage.getItem("gamesPlayed")) : 0;
 console.log("Ready for player guesses.");
 
 // Shortcut selector
@@ -52,6 +53,10 @@ const updateRoundDisplay = () => {
   $(".round").textContent = round;
 };
 
+const updateGamesPlayedDisplay = () => {
+  $(".games-played").textContent = gamesPlayed;
+};
+
 const updateDifficultyDisplay = () => {
   $(".difficulty-text").textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
 };
@@ -64,6 +69,7 @@ const setStatusPill = (msg, modifier = "") => {
 };
 
 updateRoundDisplay();
+updateGamesPlayedDisplay();
 updateDifficultyDisplay();
 setStatusPill("Live play");
 focusGuessInput();
@@ -91,6 +97,12 @@ const updateGuessStats = () => {
   $(".attempts").textContent = attempts;
   $(".last-guess").textContent = lastGuess !== null ? lastGuess : "—";
   $(".history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
+};
+
+const incrementGamesPlayed = () => {
+  gamesPlayed++;
+  $(".games-played").textContent = gamesPlayed;
+  localStorage.setItem("gamesPlayed", gamesPlayed);
 };
 
 // Update score bar
@@ -126,6 +138,15 @@ const processGuess = function () {
     return;
   }
 
+  if (previousGuesses.includes(guess)) {
+    setMessage("⚠️ You already guessed that number.");
+    setHint("Try a different guess.");
+    $(".guess").classList.add("shake");
+    setTimeout(() => $(".guess").classList.remove("shake"), 300);
+    focusGuessInput();
+    return;
+  }
+
   attempts++;
   lastGuess = guess;
   previousGuesses.push(guess);
@@ -143,6 +164,7 @@ const processGuess = function () {
     $(".number").classList.add("pop", "win-burst");
     $(".guess").classList.add("guess--feedback-correct");
     toggleControls(true);
+    updateGamesPlayed();
 
     if (score > highscore) {
       highscore = score;
@@ -184,6 +206,7 @@ const processGuess = function () {
     updateScoreBar();
     $("body").style.backgroundColor = "#8b0000";
     toggleControls(true);
+    incrementGamesPlayed();
   }
 
   // Clear input field
@@ -233,6 +256,13 @@ $(".difficulty-select").addEventListener("change", function(e) {
 
 // Check Button Click
 $(".btn_check").addEventListener("click", processGuess);
+
+$(".btn_clear_guess").addEventListener("click", function() {
+  $(".guess").value = "";
+  setMessage("✅ Guess cleared.");
+  setHint("Type a new number and press Enter.");
+  focusGuessInput();
+});
 
 // Allow Enter key on guess input
 $(".guess").addEventListener("keypress", function (e) {
