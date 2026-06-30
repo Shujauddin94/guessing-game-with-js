@@ -361,6 +361,23 @@ $(".btn_clear_stats").addEventListener("click", function() {
 console.log("🎮 Game fully loaded and ready!");
 console.log("⏱️ Timestamp: " + new Date().toLocaleTimeString());
 console.log("✅ All event listeners initialized successfully!");
-console.log("Commit 1: added small line 1");
-console.log("Commit 2: added small line 2");
-console.log("Commit 3: added small line 3");
+
+// Theme toggle
+const initTheme = () => {
+  const savedTheme = localStorage.getItem("gameTheme") || "dark";
+  if (savedTheme === "light") {
+    document.body.classList.add("light-theme");
+    $(".btn_theme").textContent = "☀️";
+  } else {
+    $(".btn_theme").textContent = "🌙";
+  }
+};
+
+const toggleTheme = () => {
+  const isLight = document.body.classList.toggle("light-theme");
+  localStorage.setItem("gameTheme", isLight ? "light" : "dark");
+  $(".btn_theme").textContent = isLight ? "☀️" : "🌙";
+};
+
+$(".btn_theme").addEventListener("click", toggleTheme);
+initTheme();
