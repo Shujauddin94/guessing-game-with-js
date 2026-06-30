@@ -19,6 +19,38 @@ console.log("Ready for player guesses.");
 // Shortcut selector
 const $ = (q) => document.querySelector(q);
 
+// Sound feedback helper
+const playSound = (type) => {
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const oscillator = audioContext.createOscillator();
+  const gainNode = audioContext.createGain();
+  oscillator.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+  
+  switch(type) {
+    case "success":
+      oscillator.frequency.value = 800;
+      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.3);
+      break;
+    case "error":
+      oscillator.frequency.value = 300;
+      gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.2);
+      break;
+    case "warm":
+      oscillator.frequency.value = 600;
+      gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.15);
+  }
+};
+
 const focusGuessInput = () => {
   const guessInput = $(".guess");
   guessInput.focus();
@@ -156,6 +188,7 @@ const processGuess = function () {
 
   // Correct Guess
   if (guess === secretNumber) {
+    playSound("success");
     setMessage("🎉 Correct Number!");
     setHint("🎉 You found the secret number!");
     setStatusPill("You win!", true);
@@ -176,6 +209,7 @@ const processGuess = function () {
 
   // Wrong Guess
   if (score > 1) {
+    playSound("error");
     const isTooHigh = guess > secretNumber;
     setMessage(isTooHigh ? "📉 Too High!" : "📈 Too Low!");
 
@@ -184,6 +218,7 @@ const processGuess = function () {
     $(".guess").classList.add(isTooHigh ? "guess--feedback-high" : "guess--feedback-low");
 
     if (difference <= 2) {
+      playSound("warm");
       setHint("🔥 Very close!");
     } else if (difference <= 5) {
       setHint("🌡️ Getting warmer");
