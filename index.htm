@@ -37,6 +37,7 @@
         <section class="right">
             <div class="msg">
             <p class="message" aria-live="polite">Start guessing...</p></div>
+            <button type="button" class="btn_stats" aria-label="Show game statistics" title="View your game statistics">📊 Stats</button>
             <p class="hint">Hint: We'll tell you if you're close.</p>
             <p class="label-difficulty">Difficulty: <span class="difficulty-text">Medium</span></p>
             <p class="label-score">Chances: <span class="score">20</span></p>
@@ -49,6 +50,22 @@
             <p class="label-last">Last guess: <span class="last-guess">—</span></p>
             <div class="score-bar"><div class="score-bar-fill"></div></div>
             <p class="label-highscore">Highscore: <span class="highscore">0</span></p>
+        </section>
+    </main>
+
+    <div id="stats-modal" class="stats-modal">
+        <div class="stats-modal-content">
+            <h2>📊 Game Statistics</h2>
+            <p><strong>Games Played:</strong> <span class="stat-games">0</span></p>
+            <p><strong>Current Round:</strong> <span class="stat-round">1</span></p>
+            <p><strong>Highscore:</strong> <span class="stat-highscore">0</span></p>
+            <p><strong>Current Attempts:</strong> <span class="stat-attempts">0</span></p>
+            <p><strong>Previous Guesses:</strong> <span class="stat-history">None yet</span></p>
+            <button type="button" class="btn-close-stats">Close</button>
+        </div>
+    </div>
+</body>
+</html>
             <p class="score-caption">Score meter</p>
             <button type="button" class="btn_clear_stats" aria-label="Clear game stats and highscore">Clear Stats</button>
         </section>

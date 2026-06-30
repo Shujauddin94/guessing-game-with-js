@@ -416,3 +416,27 @@ const toggleTheme = () => {
 
 $(".btn_theme").addEventListener("click", toggleTheme);
 initTheme();
+
+// Stats modal
+const openStatsModal = () => {
+  $(".stat-games").textContent = gamesPlayed;
+  $(".stat-round").textContent = round;
+  $(".stat-highscore").textContent = highscore;
+  $(".stat-attempts").textContent = attempts;
+  $(".stat-history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
+  $("#stats-modal").classList.add("active");
+};
+
+const closeStatsModal = () => {
+  $("#stats-modal").classList.remove("active");
+};
+
+$(".btn_stats").addEventListener("click", openStatsModal);
+$(".btn-close-stats").addEventListener("click", closeStatsModal);
+
+// Close modal when clicking outside
+$("#stats-modal").addEventListener("click", (e) => {
+  if (e.target === $("#stats-modal")) {
+    closeStatsModal();
+  }
+});
