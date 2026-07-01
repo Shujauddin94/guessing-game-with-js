@@ -19,7 +19,10 @@ console.log("Ready for player guesses.");
 // Shortcut selector
 const $ = (q) => document.querySelector(q);
 
-// Sound feedback helper
+/**
+ * Plays audio feedback for game events
+ * @param {string} type - The sound type: "success", "error", or "warm"
+ */
 const playSound = (type) => {
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
   const oscillator = audioContext.createOscillator();
@@ -51,12 +54,19 @@ const playSound = (type) => {
   }
 };
 
+/**
+ * Focuses and selects the guess input field
+ */
 const focusGuessInput = () => {
   const guessInput = $(".guess");
   guessInput.focus();
   guessInput.select();
 };
 
+/**
+ * Handles keyboard and click shortcuts for focusing the guess input
+ * @param {Event} event - The keyboard or click event
+ */
 const handleNumberFocusShortcut = (event) => {
   if (event.type === "click" || (event.type === "keydown" && (event.key === "Enter" || event.key === " "))) {
     event.preventDefault();
@@ -116,6 +126,9 @@ const setHint = (msg) => {
   $(".hint").textContent = msg;
 };
 
+/**
+ * Resets the game state for a new round
+ */
 const resetGameState = () => {
   score = 20;
   attempts = 0;
