@@ -363,10 +363,14 @@ $(".btn_again").addEventListener("click", function () {
   console.log("Use the buttons to play again.");
 });
 
-// Allow Escape key to reset game and R key to restart
+// Allow Escape key to reset game, close stats modal, and R key to restart
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
-    $(".btn_again").click();
+    if ($("#stats-modal").classList.contains("active")) {
+      closeStatsModal();
+    } else {
+      $(".btn_again").click();
+    }
   }
 
   if (e.key.toLowerCase() === "r" && document.activeElement !== $(".guess")) {
