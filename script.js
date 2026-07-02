@@ -23,7 +23,11 @@ const $ = (q) => document.querySelector(q);
  * Plays audio feedback for game events
  * @param {string} type - The sound type: "success", "error", or "warm"
  */
+let soundEnabled = localStorage.getItem("soundEnabled") !== "false";
+
 const playSound = (type) => {
+  if (!soundEnabled) return;
+
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
   const oscillator = audioContext.createOscillator();
   const gainNode = audioContext.createGain();
@@ -52,6 +56,18 @@ const playSound = (type) => {
       oscillator.start(audioContext.currentTime);
       oscillator.stop(audioContext.currentTime + 0.15);
   }
+};
+
+const updateSoundButton = () => {
+  const btnSound = $(".btn_sound");
+  btnSound.textContent = soundEnabled ? "🔊" : "🔇";
+  btnSound.title = soundEnabled ? "Sound on" : "Sound off";
+};
+
+const toggleSound = () => {
+  soundEnabled = !soundEnabled;
+  localStorage.setItem("soundEnabled", soundEnabled);
+  updateSoundButton();
 };
 
 /**
@@ -418,7 +434,9 @@ const toggleTheme = () => {
 };
 
 $(".btn_theme").addEventListener("click", toggleTheme);
+$(".btn_sound").addEventListener("click", toggleSound);
 initTheme();
+updateSoundButton();
 
 // Stats modal
 const openStatsModal = () => {
