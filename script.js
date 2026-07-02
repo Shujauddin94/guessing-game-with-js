@@ -210,17 +210,7 @@ const processGuess = function () {
     $(".number").classList.add("pop", "win-burst");
     $(".guess").classList.add("guess--feedback-correct");
     toggleControls(true);
-    updateGamesPlayed();
-
-    if (score > highscore) {
-      highscore = score;
-      $(".highscore").textContent = highscore;
-      localStorage.setItem("highscore", highscore);
-    }
-    return;
-  }
-
-  // Wrong Guess
+    incrementGamesPlayed();
   if (score > 1) {
     playSound("error");
     const isTooHigh = guess > secretNumber;
