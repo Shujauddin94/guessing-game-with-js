@@ -26,6 +26,12 @@ console.log("Ready for player guesses.");
 // Shortcut selector
 const $ = (q) => document.querySelector(q);
 
+const difficultyEmojis = {
+  easy: "🟢",
+  medium: "🟡",
+  hard: "🔴"
+};
+
 /**
  * Plays audio feedback for game events
  * @param {string} type - The sound type: "success", "error", or "warm"
@@ -123,7 +129,8 @@ const updateGamesPlayedDisplay = () => {
 };
 
 const updateDifficultyDisplay = () => {
-  $(".difficulty-text").textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+  const emoji = difficultyEmojis[difficulty];
+  $(".difficulty-text").textContent = `${emoji} ${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}`;
 };
 
 const setStatusPill = (msg, modifier = "") => {
