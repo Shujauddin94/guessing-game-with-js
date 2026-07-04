@@ -497,6 +497,7 @@ const closeStatsModal = () => {
 
 $(".btn_stats").addEventListener("click", openStatsModal);
 $(".btn-close-stats").addEventListener("click", closeStatsModal);
+$(".btn_copy_stats").addEventListener("click", copyStatsToClipboard);
 
 // Close modal when clicking outside
 $("#stats-modal").addEventListener("click", (e) => {
