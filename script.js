@@ -19,6 +19,8 @@ let difficulty = "medium"; // easy, medium, hard
 let maxNumber = 20;
 let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
 let gamesPlayed = localStorage.getItem("gamesPlayed") ? Number(localStorage.getItem("gamesPlayed")) : 0;
+let currentStreak = localStorage.getItem("currentStreak") ? Number(localStorage.getItem("currentStreak")) : 0;
+let bestStreak = localStorage.getItem("bestStreak") ? Number(localStorage.getItem("bestStreak")) : 0;
 console.log("Ready for player guesses.");
 
 // Shortcut selector
@@ -171,6 +173,24 @@ const incrementGamesPlayed = () => {
   localStorage.setItem("gamesPlayed", gamesPlayed);
 };
 
+const copyStatsToClipboard = () => {
+  const stats = `🎮 Guess My Number Stats
+━━━━━━━━━━━━━━━━━━━━
+Games Played: ${gamesPlayed}
+Current Round: ${round}
+Highscore: ${highscore}
+Current Streak: ${currentStreak}
+Best Streak: ${bestStreak}
+Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None yet"}`;
+  
+  navigator.clipboard.writeText(stats).then(() => {
+    setMessage("📋 Stats copied!");
+    setTimeout(() => setMessage("Game on!"), 2000);
+  }).catch(() => {
+    alert("Could not copy to clipboard");
+  });
+};
+
 // Update score bar
 const updateScoreBar = () => {
   const percentage = (score / 20) * 100;
@@ -232,6 +252,14 @@ const processGuess = function () {
     $(".guess").classList.add("guess--feedback-correct");
     toggleControls(true);
     incrementGamesPlayed();
+    
+    // Update streak
+    currentStreak++;
+    if (currentStreak > bestStreak) {
+      bestStreak = currentStreak;
+      localStorage.setItem("bestStreak", bestStreak);
+    }
+    localStorage.setItem("currentStreak", currentStreak);
   if (score > 1) {
     playSound("error");
     const isTooHigh = guess > secretNumber;
@@ -276,6 +304,8 @@ const processGuess = function () {
     $("body").style.backgroundColor = "#8b0000";
     toggleControls(true);
     incrementGamesPlayed();
+    currentStreak = 0;
+    localStorage.setItem("currentStreak", currentStreak);
   }
 
   // Clear input field
@@ -399,10 +429,14 @@ $(".btn_clear_stats").addEventListener("click", function() {
     highscore = 0;
     round = 1;
     gamesPlayed = 0;
+    currentStreak = 0;
+    bestStreak = 0;
     $(".highscore").textContent = 0;
     $(".games-played").textContent = 0;
     localStorage.removeItem("highscore");
     localStorage.removeItem("gamesPlayed");
+    localStorage.removeItem("currentStreak");
+    localStorage.removeItem("bestStreak");
     resetGameState();
     
     setMessage("Stats cleared! Ready for a fresh start.");
