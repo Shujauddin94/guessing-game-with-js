@@ -165,6 +165,22 @@ h1{
     position: relative;
     left: 1%;
 }
+.btn_theme,
+.btn_sound,
+.btn_help {
+    font-size: 1.4rem;
+    padding: 8px 12px;
+    margin: 0 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.btn_theme:hover,
+.btn_sound:hover,
+.btn_help:hover {
+    transform: scale(1.2);
+}
 .message{
     font-size: 3.5rem;
     
@@ -527,6 +543,101 @@ body.light-theme .btn-close-stats {
   font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Help modal */
+.help-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.help-modal.active {
+  display: flex;
+}
+
+.help-modal-content {
+  background-color: rgba(88, 16, 32, 0.95);
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  color: azure;
+}
+
+body.light-theme .help-modal-content {
+  background-color: #fff;
+  border-color: #333;
+  color: #333;
+}
+
+.help-modal-content h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.help-modal-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.help-modal-content li {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding-left: 1rem;
+}
+
+.help-modal-content kbd {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+body.light-theme .help-modal-content li {
+  background-color: #f0f0f0;
+}
+
+body.light-theme .help-modal-content kbd {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.btn-close-help {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: azure;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+body.light-theme .btn-close-help {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+.btn-close-help:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn_stats:hover {

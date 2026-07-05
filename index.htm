@@ -30,6 +30,7 @@
     <button type="button" class="btn_again">Again!</button>
     <button type="button" class="btn_theme" aria-label="Toggle theme" title="Toggle dark/light theme">🌙</button>
     <button type="button" class="btn_sound" aria-label="Toggle sound" title="Toggle sound on/off">🔊</button>
+    <button type="button" class="btn_help" aria-label="Show keyboard shortcuts" title="Show keyboard shortcuts">⌨️</button>
     <div class="number" role="button" tabindex="0" aria-label="Focus the guess input">?</div>
     </header>
     <main>
@@ -72,6 +73,20 @@
             <p><strong>Current Attempts:</strong> <span class="stat-attempts">0</span></p>
             <p><strong>Previous Guesses:</strong> <span class="stat-history">None yet</span></p>
             <button type="button" class="btn-close-stats">Close</button>
+        </div>
+    </div>
+
+    <div id="help-modal" class="help-modal">
+        <div class="help-modal-content">
+            <h2>⌨️ Keyboard Shortcuts</h2>
+            <ul>
+                <li><kbd>Enter</kbd> - Check your guess</li>
+                <li><kbd>Esc</kbd> - Reset game</li>
+                <li><kbd>R</kbd> - Restart game</li>
+                <li><kbd>C</kbd> - Clear input</li>
+                <li><kbd>?</kbd> - Show this help</li>
+            </ul>
+            <button type="button" class="btn-close-help">Close</button>
         </div>
     </div>
     <script src="script.js"></script>

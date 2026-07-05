@@ -512,3 +512,30 @@ $("#stats-modal").addEventListener("click", (e) => {
     closeStatsModal();
   }
 });
+
+// Help modal functionality
+const openHelpModal = () => {
+  $("#help-modal").classList.add("active");
+};
+
+const closeHelpModal = () => {
+  $("#help-modal").classList.remove("active");
+};
+
+$(".btn_help").addEventListener("click", openHelpModal);
+$(".btn-close-help").addEventListener("click", closeHelpModal);
+
+// Close help modal when clicking outside
+$("#help-modal").addEventListener("click", (e) => {
+  if (e.target === $("#help-modal")) {
+    closeHelpModal();
+  }
+});
+
+// Show help with ? key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "?") {
+    e.preventDefault();
+    openHelpModal();
+  }
+});
