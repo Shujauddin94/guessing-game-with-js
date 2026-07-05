@@ -357,7 +357,8 @@ $(".difficulty-select").addEventListener("change", function(e) {
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   toggleControls(false);
   focusGuessInput();
-  console.log(`Difficulty changed to ${difficulty} (1-${maxNumber})`);
+  console.log(`🎮 Difficulty changed to ${difficulty.toUpperCase()} (1-${maxNumber})`);
+});
 });
 
 // Check Button Click
@@ -395,14 +396,14 @@ $(".btn_again").addEventListener("click", function () {
   $(".number").classList.remove("win-burst");
   $(".guess").value = "";
   $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
-  console.log("Game reset for a new round.");
+  console.log(`🆕 Round ${round} started - Secret number: ${secretNumber}`);
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   $(".number").classList.remove("pop");
   $(".guess").classList.remove("guess--invalid");
   toggleControls(false);
   focusGuessInput();
-  console.log("Use the buttons to play again.");
+  console.log(`⏱️ Game ready. Attempts remaining: ${score}`);
 });
 
 // Allow Escape key to reset game, close stats modal, and R key to restart
@@ -498,6 +499,7 @@ const openStatsModal = () => {
   $(".stat-best-streak").textContent = bestStreak;
   $(".stat-history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
   $("#stats-modal").classList.add("active");
+  console.log(`📊 Stats opened - Games: ${gamesPlayed}, Best Streak: ${bestStreak}`);
 };
 
 const closeStatsModal = () => {
