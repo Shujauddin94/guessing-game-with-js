@@ -494,6 +494,8 @@ const openStatsModal = () => {
   $(".stat-round").textContent = round;
   $(".stat-highscore").textContent = highscore;
   $(".stat-attempts").textContent = attempts;
+  $(".stat-current-streak").textContent = currentStreak;
+  $(".stat-best-streak").textContent = bestStreak;
   $(".stat-history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
   $("#stats-modal").classList.add("active");
 };
