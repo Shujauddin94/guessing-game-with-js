@@ -291,6 +291,16 @@ h1{
     letter-spacing: 0.04em;
 }
 
+.game-tip {
+    position: relative;
+    bottom: 90px;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    color: #ffe8a6;
+    text-align: center;
+    opacity: 0.9;
+}
+
 .btn_check{
     font-size: 2.5rem;
     padding: 10px 25px;
