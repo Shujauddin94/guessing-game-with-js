@@ -137,6 +137,19 @@ h1{
     letter-spacing: 0.03em;
     opacity: 0.95;
 }
+.mode-pill {
+    position: absolute;
+    top: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff8c6;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 .number{
     background-color: aliceblue;
     color: black;
