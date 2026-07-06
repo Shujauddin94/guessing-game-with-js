@@ -133,6 +133,29 @@ const updateDifficultyDisplay = () => {
   $(".difficulty-text").textContent = `${emoji} ${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}`;
 };
 
+const updateInputHint = () => {
+  const guessInput = $(".guess");
+  guessInput.placeholder = `1-${maxNumber}`;
+  guessInput.setAttribute("aria-label", `Enter your guess between 1 and ${maxNumber}`);
+};
+
+const updateModeBadge = () => {
+  const label = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+  $("#mode-pill").textContent = `Mode: ${label} · Round ${round}`;
+};
+
+const setGameTip = (msg) => {
+  $("#game-tip").textContent = msg;
+};
+
+const refreshGameUI = () => {
+  updateRoundDisplay();
+  updateGamesPlayedDisplay();
+  updateDifficultyDisplay();
+  updateInputHint();
+  updateModeBadge();
+};
+
 const setStatusPill = (msg, modifier = "") => {
   const pill = $(".status-pill");
   pill.textContent = msg;
@@ -140,10 +163,9 @@ const setStatusPill = (msg, modifier = "") => {
   pill.classList.toggle("status-pill--lose", modifier === "lose");
 };
 
-updateRoundDisplay();
-updateGamesPlayedDisplay();
-updateDifficultyDisplay();
+refreshGameUI();
 setStatusPill("Live play");
+setGameTip(`Tip: Enter a number from 1 to ${maxNumber}.`);
 focusGuessInput();
 toggleControls(false);
 
@@ -212,6 +234,7 @@ const processGuess = function () {
   // No Input
   if (!guessValue) {
     setMessage("⛔ No number!");
+    setGameTip(`Tip: Type a number between 1 and ${maxNumber}.`);
     console.log("No guess input detected.");
     $(".guess").classList.add("shake");
     markInvalidInput();
@@ -223,6 +246,7 @@ const processGuess = function () {
   // Invalid range
   if (guess < 1 || guess > maxNumber) {
     setMessage(`⛔ Please enter a number from 1 to ${maxNumber}.`);
+    setGameTip(`Tip: Keep your guess within 1 and ${maxNumber}.`);
     console.log("Guess out of valid range.");
     $(".guess").classList.add("shake");
     markInvalidInput();
@@ -234,6 +258,7 @@ const processGuess = function () {
   if (previousGuesses.includes(guess)) {
     setMessage("⚠️ You already guessed that number.");
     setHint("Try a different guess.");
+    setGameTip("Tip: Choose a fresh number you have not tried yet.");
     $(".guess").classList.add("shake");
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
     focusGuessInput();
@@ -252,6 +277,7 @@ const processGuess = function () {
     playSound("success");
     setMessage("🎉 Correct Number!");
     setHint("🎉 You found the secret number!");
+    setGameTip("Tip: Start a fresh round whenever you're ready.");
     setStatusPill("You win!", true);
     $("body").style.backgroundColor = "#25cc45";
     $(".number").textContent = secretNumber;
@@ -267,52 +293,59 @@ const processGuess = function () {
       localStorage.setItem("bestStreak", bestStreak);
     }
     localStorage.setItem("currentStreak", currentStreak);
-  if (score > 1) {
-    playSound("error");
-    const isTooHigh = guess > secretNumber;
-    setMessage(isTooHigh ? "📉 Too High!" : "📈 Too Low!");
-
-    // Add color feedback
-    $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high");
-    $(".guess").classList.add(isTooHigh ? "guess--feedback-high" : "guess--feedback-low");
-
-    if (difference <= 2) {
-      playSound("warm");
-      setHint("🔥 Very close!");
-    } else if (difference <= 5) {
-      setHint("🌡️ Getting warmer");
-    } else {
-      setHint("🧭 Keep trying!");
-    }
-
-    score--;
-    $(".score").textContent = score;
-    updateScoreBar();
-
-    // Auto-reset in hard mode after three failed guesses
-    if (difficulty === "hard" && attempts >= 3) {
-      setMessage("🔁 Hard mode reset after 3 misses.");
-      setHint("Try again from a fresh round.");
-      $(".number").classList.remove("pop", "win-burst");
-      setTimeout(() => {
-        $(".btn_again").click();
-      }, 900);
-    }
-
-    // little shake animation
-    $(".number").classList.add("shake");
-    setTimeout(() => $(".number").classList.remove("shake"), 200);
   } else {
-    setMessage("💥 You lost the game!");
-    setHint(`💥 The number was ${secretNumber}.`);
-    setStatusPill("Game over!", "lose");
-    $(".score").textContent = 0;
-    updateScoreBar();
-    $("body").style.backgroundColor = "#8b0000";
-    toggleControls(true);
-    incrementGamesPlayed();
-    currentStreak = 0;
-    localStorage.setItem("currentStreak", currentStreak);
+    if (score > 1) {
+      playSound("error");
+      const isTooHigh = guess > secretNumber;
+      setMessage(isTooHigh ? "📉 Too High!" : "📈 Too Low!");
+
+      // Add color feedback
+      $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high");
+      $(".guess").classList.add(isTooHigh ? "guess--feedback-high" : "guess--feedback-low");
+
+      if (difference <= 2) {
+        playSound("warm");
+        setHint("🔥 Very close!");
+        setGameTip("Tip: You're very close — keep going!");
+      } else if (difference <= 5) {
+        setHint("🌡️ Getting warmer");
+        setGameTip("Tip: You're getting warmer.");
+      } else {
+        setHint("🧭 Keep trying!");
+        setGameTip("Tip: Try a different range of numbers.");
+      }
+
+      score--;
+      $(".score").textContent = score;
+      updateScoreBar();
+
+      // Auto-reset in hard mode after three failed guesses
+      if (difficulty === "hard" && attempts >= 3) {
+        setMessage("🔁 Hard mode reset after 3 misses.");
+        setHint("Try again from a fresh round.");
+        setGameTip("Tip: Hard mode resets after three misses.");
+        $(".number").classList.remove("pop", "win-burst");
+        setTimeout(() => {
+          $(".btn_again").click();
+        }, 900);
+      }
+
+      // little shake animation
+      $(".number").classList.add("shake");
+      setTimeout(() => $(".number").classList.remove("shake"), 200);
+    } else {
+      setMessage("💥 You lost the game!");
+      setHint(`💥 The number was ${secretNumber}.`);
+      setGameTip("Tip: Press Again! to start a new round.");
+      setStatusPill("Game over!", "lose");
+      $(".score").textContent = 0;
+      updateScoreBar();
+      $("body").style.backgroundColor = "#8b0000";
+      toggleControls(true);
+      incrementGamesPlayed();
+      currentStreak = 0;
+      localStorage.setItem("currentStreak", currentStreak);
+    }
   }
 
   // Clear input field
@@ -349,8 +382,8 @@ $(".difficulty-select").addEventListener("change", function(e) {
   $(".score").textContent = score;
   updateScoreBar();
   updateGuessStats();
-  updateRoundDisplay();
-  updateDifficultyDisplay();
+  refreshGameUI();
+  setGameTip(`Tip: Enter a number from 1 to ${maxNumber}.`);
   $(".number").textContent = "?";
   $(".guess").value = "";
   $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
@@ -358,7 +391,6 @@ $(".difficulty-select").addEventListener("change", function(e) {
   toggleControls(false);
   focusGuessInput();
   console.log(`🎮 Difficulty changed to ${difficulty.toUpperCase()} (1-${maxNumber})`);
-});
 });
 
 // Check Button Click
@@ -391,7 +423,8 @@ $(".btn_again").addEventListener("click", function () {
   $(".score").textContent = score;
   updateScoreBar();
   updateGuessStats();
-  updateRoundDisplay();
+  refreshGameUI();
+  setGameTip(`Tip: Enter a number from 1 to ${maxNumber}.`);
   $(".number").textContent = "?";
   $(".number").classList.remove("win-burst");
   $(".guess").value = "";
