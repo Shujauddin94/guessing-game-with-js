@@ -7,6 +7,7 @@
 
 // Generate secret number
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
+console.log("Secret number (dev):", secretNumber);
 
 let score = 20;
 let attempts = 0;
