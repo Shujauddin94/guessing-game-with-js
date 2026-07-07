@@ -4,8 +4,6 @@
  * Features: Difficulty levels, hint system, sound effects, theme toggle, and statistics tracking
  */
 "use strict";
-console.log("Guessing game loaded.");
-console.log("Guessing game initialized.");
 
 // Generate secret number
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
