@@ -20,7 +20,8 @@ let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem(
 let gamesPlayed = localStorage.getItem("gamesPlayed") ? Number(localStorage.getItem("gamesPlayed")) : 0;
 let currentStreak = localStorage.getItem("currentStreak") ? Number(localStorage.getItem("currentStreak")) : 0;
 let bestStreak = localStorage.getItem("bestStreak") ? Number(localStorage.getItem("bestStreak")) : 0;
-console.log("Ready for player guesses.");
+
+// Game is now ready for player input
 
 // Shortcut selector
 const $ = (q) => document.querySelector(q);
