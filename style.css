@@ -694,4 +694,12 @@ body.light-theme .btn_stats {
   color: #333;
   border-color: #999;
 }
+
+.game-footer {
+  text-align: center;
+  padding: 1.2rem 1rem 2rem;
+  font-size: 1.2rem;
+  color: #ffe8a6;
+  opacity: 0.85;
+}
 }
