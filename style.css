@@ -338,6 +338,16 @@ h1{
     outline: 3px solid #ffd700;
     outline-offset: 3px;
 }
+.round-banner {
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff8c6;
+    font-size: 1.2rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+}
 /* Number pop animation when correct */
 .pop {
   animation: pop 0.4s ease-in-out;
