@@ -184,13 +184,16 @@ const setHint = (msg) => {
 
 /**
  * Resets the game state for a new round
+ * @param {boolean} advanceRound - Whether this call should increment the round counter
  */
-const resetGameState = () => {
+const resetGameState = (advanceRound = true) => {
   score = 20;
   attempts = 0;
   lastGuess = null;
   previousGuesses = [];
-  round += 1;
+  if (advanceRound) {
+    round += 1;
+  }
   secretNumber = Math.trunc(Math.random() * maxNumber) + 1;
 };
 
@@ -493,7 +496,7 @@ $(".btn_clear_stats").addEventListener("click", function() {
     localStorage.removeItem("gamesPlayed");
     localStorage.removeItem("currentStreak");
     localStorage.removeItem("bestStreak");
-    resetGameState();
+    resetGameState(false);
     
     setMessage("Stats cleared! Ready for a fresh start.");
     setHint("Let's start fresh!");
