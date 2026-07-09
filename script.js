@@ -92,6 +92,10 @@ const focusGuessInput = () => {
   guessInput.select();
 };
 
+const updateRangeDisplay = () => {
+  $("#range-display").textContent = `(Between 1 and ${maxNumber})`;
+};
+
 /**
  * Handles keyboard and click shortcuts for focusing the guess input
  * @param {Event} event - The keyboard or click event
@@ -196,6 +200,11 @@ const updateGuessStats = () => {
   $(".history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
 };
 
+const updateHighscore = () => {
+  localStorage.setItem("highscore", highscore);
+  $(".highscore").textContent = highscore;
+};
+
 const incrementGamesPlayed = () => {
   gamesPlayed++;
   $(".games-played").textContent = gamesPlayed;
@@ -285,6 +294,12 @@ const processGuess = function () {
     $(".guess").classList.add("guess--feedback-correct");
     toggleControls(true);
     incrementGamesPlayed();
+
+    if (score > highscore) {
+      highscore = score;
+      updateHighscore();
+      setGameTip("Tip: New highscore! Keep the streak going.");
+    }
     
     // Update streak
     currentStreak++;
@@ -369,7 +384,7 @@ $(".difficulty-select").addEventListener("change", function(e) {
   }
   
   // Update range display
-  $("#range-display").textContent = `(Between 1 and ${maxNumber})`;
+  updateRangeDisplay();
   
   // Update input max attribute
   $(".guess").max = maxNumber;
