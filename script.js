@@ -421,6 +421,27 @@ $(".btn_clear_guess").addEventListener("click", function() {
   focusGuessInput();
 });
 
+// Reset button handler (resets current round without advancing)
+$(".btn_reset").addEventListener("click", resetGame);
+
+function resetGame() {
+  resetGameState(false);
+  setMessage("🔄 Game reset.");
+  setHint("Make a guess!");
+  setStatusPill("Live play");
+  $(".score").textContent = score;
+  updateScoreBar();
+  updateGuessStats();
+  refreshGameUI();
+  $(".number").textContent = "?";
+  $(".guess").value = "";
+  $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
+  $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
+  toggleControls(false);
+  focusGuessInput();
+  console.log("🔄 Game reset by Reset button");
+}
+
 // Allow Enter key on guess input
 $(".guess").addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
