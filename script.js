@@ -630,6 +630,11 @@ const closeHelpModal = () => {
   $("#help-modal").classList.remove("active");
 };
 
+const toggleHelpModal = () => {
+  const helpModal = $("#help-modal");
+  helpModal.classList.toggle("active");
+};
+
 $(".btn_help").addEventListener("click", openHelpModal);
 $(".btn-close-help").addEventListener("click", closeHelpModal);
 
@@ -644,6 +649,6 @@ $("#help-modal").addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "?") {
     e.preventDefault();
-    openHelpModal();
+    toggleHelpModal();
   }
 });
