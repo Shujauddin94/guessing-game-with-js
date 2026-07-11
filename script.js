@@ -160,6 +160,16 @@ const refreshGameUI = () => {
   updateModeBadge();
 };
 
+const buildRoundBannerText = () => {
+  const guessCount = previousGuesses.length;
+  const guessWord = guessCount === 1 ? "guess" : "guesses";
+  return `Round ${round} • ${score} chances left • ${guessCount} ${guessWord} tracked`;
+};
+
+const updateRoundBanner = (msg = buildRoundBannerText()) => {
+  $(".round-banner").textContent = msg;
+};
+
 const setStatusPill = (msg, modifier = "") => {
   const pill = $(".status-pill");
   pill.textContent = msg;
@@ -168,6 +178,7 @@ const setStatusPill = (msg, modifier = "") => {
 };
 
 refreshGameUI();
+updateRoundBanner();
 setStatusPill("Live play");
 setGameTip(`Tip: Enter a number from 1 to ${maxNumber}.`);
 focusGuessInput();
@@ -195,12 +206,14 @@ const resetGameState = (advanceRound = true) => {
     round += 1;
   }
   secretNumber = Math.trunc(Math.random() * maxNumber) + 1;
+  updateRoundBanner();
 };
 
 const updateGuessStats = () => {
   $(".attempts").textContent = attempts;
   $(".last-guess").textContent = lastGuess !== null ? lastGuess : "—";
   $(".history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
+  updateRoundBanner();
 };
 
 const updateHighscore = () => {
@@ -336,6 +349,7 @@ const processGuess = function () {
       score--;
       $(".score").textContent = score;
       updateScoreBar();
+      updateRoundBanner();
 
       // Auto-reset in hard mode after three failed guesses
       if (difficulty === "hard" && attempts >= 3) {
@@ -358,6 +372,7 @@ const processGuess = function () {
       setStatusPill("Game over!", "lose");
       $(".score").textContent = 0;
       updateScoreBar();
+      updateRoundBanner();
       $("body").style.backgroundColor = "#8b0000";
       toggleControls(true);
       incrementGamesPlayed();
