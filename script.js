@@ -236,13 +236,26 @@ Highscore: ${highscore}
 Current Streak: ${currentStreak}
 Best Streak: ${bestStreak}
 Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None yet"}`;
-  
-  navigator.clipboard.writeText(stats).then(() => {
+
+  const successMessage = () => {
     setMessage("📋 Stats copied!");
     setTimeout(() => setMessage("Game on!"), 2000);
-  }).catch(() => {
-    alert("Could not copy to clipboard");
-  });
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(stats)
+      .then(successMessage)
+      .catch(() => {
+        window.prompt("Copy your stats manually:", stats);
+        successMessage();
+      });
+    return;
+  }
+
+  const copied = window.prompt("Copy your stats manually:", stats);
+  if (copied !== null) {
+    successMessage();
+  }
 };
 
 // Update score bar
