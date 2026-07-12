@@ -193,6 +193,17 @@ const setHint = (msg) => {
   $(".hint").textContent = msg;
 };
 
+const showToast = (msg, type = "info") => {
+  const toast = $("#app-toast");
+  toast.textContent = msg;
+  toast.dataset.type = type;
+  toast.classList.remove("show");
+  void toast.offsetWidth;
+  toast.classList.add("show");
+  clearTimeout(showToast.timerId);
+  showToast.timerId = setTimeout(() => toast.classList.remove("show"), 2200);
+};
+
 /**
  * Resets the game state for a new round
  * @param {boolean} advanceRound - Whether this call should increment the round counter
@@ -239,6 +250,7 @@ Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None 
 
   const successMessage = () => {
     setMessage("📋 Stats copied!");
+    showToast("Stats copied to clipboard", "success");
     setTimeout(() => setMessage("Game on!"), 2000);
   };
 
@@ -446,6 +458,7 @@ $(".btn_clear_guess").addEventListener("click", function() {
   $(".guess").value = "";
   setMessage("✅ Guess cleared.");
   setHint("Type a new number and press Enter.");
+  showToast("Guess cleared", "warning");
   focusGuessInput();
 });
 
@@ -553,6 +566,7 @@ $(".btn_clear_stats").addEventListener("click", function() {
     
     setMessage("Stats cleared! Ready for a fresh start.");
     setHint("Let's start fresh!");
+    showToast("All stats reset", "success");
     $(".score").textContent = score;
     updateScoreBar();
     updateGuessStats();
