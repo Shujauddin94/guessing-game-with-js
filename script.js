@@ -620,9 +620,9 @@ const openStatsModal = () => {
   console.log(`📊 Stats opened - Games: ${gamesPlayed}, Best Streak: ${bestStreak}`);
 };
 
-const closeStatsModal = () => {
-  $("#stats-modal").classList.remove("active");
-};
+// const closeStatsModal = () => {
+//   $("#stats-modal").classList.remove("active");
+// };
 
 $(".btn_stats").addEventListener("click", openStatsModal);
 $(".btn-close-stats").addEventListener("click", closeStatsModal);
