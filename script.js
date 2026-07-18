@@ -611,7 +611,7 @@ updateSoundButton();
 const openStatsModal = () => {
   $(".stat-games").textContent = gamesPlayed;
   $(".stat-round").textContent = round;
-  $(".stat-highscore").textContent = highscore;
+  // $(".stat-highscore").textContent = highscore;
   $(".stat-attempts").textContent = attempts;
   $(".stat-current-streak").textContent = currentStreak;
   $(".stat-best-streak").textContent = bestStreak;
