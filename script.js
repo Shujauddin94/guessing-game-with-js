@@ -607,7 +607,7 @@ $(".btn_sound").addEventListener("click", toggleSound);
 initTheme();
 updateSoundButton();
 
-// Stats modal
+
 const openStatsModal = () => {
   $(".stat-games").textContent = gamesPlayed;
   $(".stat-round").textContent = round;
