@@ -629,11 +629,11 @@ $(".btn-close-stats").addEventListener("click", closeStatsModal);
 $(".btn_copy_stats").addEventListener("click", copyStatsToClipboard);
 
 // Close modal when clicking outside
-// $("#stats-modal").addEventListener("click", (e) => {
-//   if (e.target === $("#stats-modal")) {
-//     closeStatsModal();
-//   }
-// });
+$("#stats-modal").addEventListener("click", (e) => {
+  if (e.target === $("#stats-modal")) {
+    closeStatsModal();
+  }
+});
 
 // Help modal functionality
 const openHelpModal = () => {
