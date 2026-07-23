@@ -603,7 +603,7 @@ const toggleTheme = () => {
 };
 
 $(".btn_theme").addEventListener("click", toggleTheme);
-// $(".btn_sound").addEventListener("click", toggleSound);
+$(".btn_sound").addEventListener("click", toggleSound);
 initTheme();
 updateSoundButton();
 
