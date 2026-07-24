@@ -533,9 +533,9 @@ document.addEventListener("keydown", function (e) {
     $(".btn_again").click();
   }
 
-  if (e.key.toLowerCase() === "r" && document.activeElement !== $(".guess")) {
-    $(".btn_again").click();
-  }
+  // if (e.key.toLowerCase() === "r" && document.activeElement !== $(".guess")) {
+  //   $(".btn_again").click();
+  // }
 
   if (e.key.toLowerCase() === "c") {
     const guessInput = $(".guess");
