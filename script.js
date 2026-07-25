@@ -530,7 +530,7 @@ document.addEventListener("keydown", function (e) {
       closeHelpModal();
       return;
     }
-    $(".btn_again").click();
+    // $(".btn_again").click();
   }
 
   if (e.key.toLowerCase() === "r" && document.activeElement !== $(".guess")) {
