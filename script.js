@@ -46,8 +46,8 @@ const playSound = (type) => {
   const gainNode = audioContext.createGain();
   oscillator.connect(gainNode);
   gainNode.connect(audioContext.destination);
-  
-  switch(type) {
+
+  switch (type) {
     case "success":
       oscillator.frequency.value = 800;
       gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
@@ -341,7 +341,7 @@ const processGuess = function () {
       updateHighscore();
       setGameTip("Tip: New highscore! Keep the streak going.");
     }
-    
+
     // Update streak
     currentStreak++;
     if (currentStreak > bestStreak) {
@@ -412,10 +412,10 @@ const processGuess = function () {
 };
 
 // Difficulty selector handler
-$(".difficulty-select").addEventListener("change", function(e) {
+$(".difficulty-select").addEventListener("change", function (e) {
   difficulty = e.target.value;
-  
-  switch(difficulty) {
+
+  switch (difficulty) {
     case "easy":
       maxNumber = 10;
       break;
@@ -425,13 +425,13 @@ $(".difficulty-select").addEventListener("change", function(e) {
     default:
       maxNumber = 20;
   }
-  
+
   // Update range display
   updateRangeDisplay();
-  
+
   // Update input max attribute
   $(".guess").max = maxNumber;
-  
+
   // Reset game with new difficulty
   resetGameState();
   setMessage("Start guessing...");
@@ -454,7 +454,7 @@ $(".difficulty-select").addEventListener("change", function(e) {
 // Check Button Click
 $(".btn_check").addEventListener("click", processGuess);
 
-$(".btn_clear_guess").addEventListener("click", function() {
+$(".btn_clear_guess").addEventListener("click", function () {
   $(".guess").value = "";
   setMessage("✅ Guess cleared.");
   setHint("Type a new number and press Enter.");
@@ -549,7 +549,7 @@ document.addEventListener("keydown", function (e) {
 });
 
 // Clear Stats Button
-$(".btn_clear_stats").addEventListener("click", function() {
+$(".btn_clear_stats").addEventListener("click", function () {
   if (confirm("Are you sure you want to clear all stats and highscore?")) {
     highscore = 0;
     round = 1;
@@ -563,7 +563,7 @@ $(".btn_clear_stats").addEventListener("click", function() {
     localStorage.removeItem("currentStreak");
     localStorage.removeItem("bestStreak");
     resetGameState(false);
-    
+
     setMessage("Stats cleared! Ready for a fresh start.");
     setHint("Let's start fresh!");
     showToast("All stats reset", "success");
@@ -581,7 +581,7 @@ $(".btn_clear_stats").addEventListener("click", function() {
   }
 });
 
-console.log("🎮 Game fully loaded and ready!");
+console.log("🎮 Game fully loaded and ready! Version 1.1");
 console.log("⏱️ Timestamp: " + new Date().toLocaleTimeString());
 console.log("✅ All event listeners initialized successfully!");
 
