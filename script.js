@@ -670,5 +670,5 @@ document.addEventListener("keydown", (e) => {
 
 
 console.log("first");
-// second small change
+console.log("second");
 // third small change
