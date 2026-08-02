@@ -8,7 +8,6 @@
 
 // Generate secret number
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-console.log("Secret number (dev):", secretNumber);
 
 let score = 20;
 let attempts = 0;
@@ -286,7 +285,6 @@ const processGuess = function () {
   if (!guessValue) {
     setMessage("⛔ No number!");
     setGameTip(`Tip: Type a number between 1 and ${maxNumber}.`);
-    console.log("No guess input detected.");
     $(".guess").classList.add("shake");
     markInvalidInput();
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
@@ -298,7 +296,6 @@ const processGuess = function () {
   if (guess < 1 || guess > maxNumber) {
     setMessage(`⛔ Please enter a number from 1 to ${maxNumber}.`);
     setGameTip(`Tip: Keep your guess within 1 and ${maxNumber}.`);
-    console.log("Guess out of valid range.");
     $(".guess").classList.add("shake");
     markInvalidInput();
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
@@ -449,7 +446,6 @@ $(".difficulty-select").addEventListener("change", function (e) {
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   toggleControls(false);
   focusGuessInput();
-  console.log(`🎮 Difficulty changed to ${difficulty.toUpperCase()} (1-${maxNumber})`);
 });
 
 // Check Button Click
@@ -481,7 +477,6 @@ function resetGame() {
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   toggleControls(false);
   focusGuessInput();
-  console.log("🔄 Game reset by Reset button");
 }
 
 // Allow Enter key on guess input
@@ -510,14 +505,12 @@ $(".btn_again").addEventListener("click", function () {
   $(".number").classList.remove("win-burst");
   $(".guess").value = "";
   $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
-  console.log(`🆕 Round ${round} started - Secret number: ${secretNumber}`);
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   $(".number").classList.remove("pop");
   $(".guess").classList.remove("guess--invalid");
   toggleControls(false);
   focusGuessInput();
-  console.log(`⏱️ Game ready. Attempts remaining: ${score}`);
 });
 
 // Allow Escape key to reset game, close stats or help modal, and R key to restart
@@ -578,13 +571,9 @@ $(".btn_clear_stats").addEventListener("click", function () {
     $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
     toggleControls(false);
     focusGuessInput();
-    console.log("📊 All game stats cleared!");
   }
 });
 
-console.log("🎮 Game fully loaded and ready! Version 1.1");
-console.log("⏱️ Timestamp: " + new Date().toLocaleTimeString());
-console.log("✅ All event listeners initialized successfully!");
 
 // Theme toggle
 const initTheme = () => {
@@ -618,7 +607,6 @@ const openStatsModal = () => {
   $(".stat-best-streak").textContent = bestStreak;
   $(".stat-history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
   $("#stats-modal").classList.add("active");
-  console.log(`📊 Stats opened - Games: ${gamesPlayed}, Best Streak: ${bestStreak}`);
 };
 
 const closeStatsModal = () => {
@@ -669,22 +657,8 @@ document.addEventListener("keydown", (e) => {
 });
 
 
-console.log("first");
-console.log("second");
-console.log("third");
 
-console.log('update alpha');
 
-console.log('update beta');
 
-console.log('update gamma');
 
-console.log('update delta');
 
-console.log('update epsilon');
-console.log('first addition');
-console.log('second addition');
-console.log('third addition');
-console.log('step one');
-console.log('step two');
-console.log('step three');
