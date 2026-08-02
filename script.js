@@ -648,13 +648,25 @@ $("#help-modal").addEventListener("click", (e) => {
   }
 });
 
-// Show help with ? key
+// Keyboard shortcuts for help, stats, and theme
 document.addEventListener("keydown", (e) => {
-  if (e.key === "?") {
+  if (e.target.tagName.toLowerCase() === 'input') return; // Don't trigger when typing in input
+  if (e.key === "?" || e.key.toLowerCase() === "h") {
     e.preventDefault();
     toggleHelpModal();
+  } else if (e.key.toLowerCase() === "s") {
+    e.preventDefault();
+    if ($("#stats-modal").classList.contains("active")) {
+      closeStatsModal();
+    } else {
+      openStatsModal();
+    }
+  } else if (e.key.toLowerCase() === "t") {
+    e.preventDefault();
+    toggleTheme();
   }
 });
+
 
 
 
