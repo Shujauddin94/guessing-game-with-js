@@ -42,34 +42,71 @@ const playSound = (type) => {
   if (!soundEnabled) return;
 
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  const oscillator = audioContext.createOscillator();
-  const gainNode = audioContext.createGain();
-  oscillator.connect(gainNode);
-  gainNode.connect(audioContext.destination);
+  const t = audioContext.currentTime;
+
+  const playLayer = (freq, waveType, startTime, duration, vol, detune = 0, rampType = 'exponential') => {
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    osc.type = waveType;
+    osc.frequency.setValueAtTime(freq, startTime);
+    osc.detune.setValueAtTime(detune, startTime);
+
+    gain.gain.setValueAtTime(0.001, startTime);
+    gain.gain.linearRampToValueAtTime(vol, startTime + duration * 0.1);
+
+    if (rampType === 'exponential') {
+      gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+    } else {
+      gain.gain.linearRampToValueAtTime(0.001, startTime + duration);
+    }
+
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
+
+    osc.start(startTime);
+    osc.stop(startTime + duration);
+  };
 
   switch (type) {
     case "success":
-      oscillator.frequency.value = 800;
-      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 0.3);
+      // Triumphant major arpeggio (C6, E6, G6, C7)
+      playLayer(1046.50, "sine", t, 0.3, 0.15); // C6
+      playLayer(1318.51, "sine", t + 0.12, 0.3, 0.15); // E6
+      playLayer(1567.98, "sine", t + 0.24, 0.3, 0.15); // G6
+      playLayer(2093.00, "triangle", t + 0.36, 0.6, 0.2); // C7 (final ring)
+      playLayer(1046.50, "triangle", t + 0.36, 0.6, 0.1); // Sub C
       break;
     case "error":
-      oscillator.frequency.value = 300;
-      gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 0.2);
+      // Deep dissenting buzzer
+      playLayer(200, "sawtooth", t, 0.2, 0.1, -10, 'linear');
+      playLayer(250, "square", t, 0.2, 0.05, 10, 'linear');
+
+      playLayer(150, "sawtooth", t + 0.2, 0.4, 0.15, -20, 'linear');
+      playLayer(190, "square", t + 0.2, 0.4, 0.08, 0, 'linear');
       break;
     case "warm":
-      oscillator.frequency.value = 600;
-      gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 0.15);
+      // Smooth bell-like interval (perfect fifth)
+      playLayer(523.25, "sine", t, 0.3, 0.12); // C5
+      playLayer(783.99, "sine", t + 0.08, 0.4, 0.12); // G5
+      break;
+    case "click":
+      // Subtle fast tick for UI interaction
+      playLayer(1200, "triangle", t, 0.05, 0.06);
+      playLayer(1500, "sine", t, 0.05, 0.04);
+      break;
   }
 };
+
+// Bind click sounds to all buttons
+document.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Exclude the check button since it already plays result sounds
+    if (!btn.classList.contains('btn_check') && !btn.disabled) {
+      playSound("click");
+    }
+  });
+});
 
 const updateSoundButton = () => {
   const btnSound = $(".btn_sound");
