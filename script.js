@@ -213,6 +213,7 @@ const setStatusPill = (msg, modifier = "") => {
   pill.textContent = msg;
   pill.classList.toggle("status-pill--win", modifier === "win");
   pill.classList.toggle("status-pill--lose", modifier === "lose");
+  document.title = `Guess My Number - ${msg}`;
 };
 
 refreshGameUI();
