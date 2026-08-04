@@ -701,6 +701,9 @@ document.addEventListener("keydown", (e) => {
   } else if (e.key.toLowerCase() === "t") {
     e.preventDefault();
     toggleTheme();
+  } else if (e.key.toLowerCase() === "m") {
+    e.preventDefault();
+    toggleSound();
   }
 });
 
