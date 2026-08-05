@@ -210,6 +210,10 @@ const buildRoundBannerText = () => {
   return `Round ${round} • ${score} chances left • ${guessCount} ${guessWord} tracked`;
 };
 
+/**
+ * Updates the text displayed in the round banner
+ * @param {string} msg - The message to display
+ */
 const updateRoundBanner = (msg = buildRoundBannerText()) => {
   $(".round-banner").textContent = msg;
 };
