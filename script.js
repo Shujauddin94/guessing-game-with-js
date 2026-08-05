@@ -148,6 +148,9 @@ const handleNumberFocusShortcut = (event) => {
   }
 };
 
+/**
+ * Briefly highlights the guess input to indicate an invalid entry
+ */
 const markInvalidInput = () => {
   const guessInput = $(".guess");
   guessInput.classList.add("guess--invalid");
