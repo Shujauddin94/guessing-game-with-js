@@ -218,6 +218,11 @@ const updateRoundBanner = (msg = buildRoundBannerText()) => {
   $(".round-banner").textContent = msg;
 };
 
+/**
+ * Sets the status pill text and updates the document title
+ * @param {string} msg - The status message
+ * @param {string} modifier - The modifier class name (e.g., "win", "lose")
+ */
 const setStatusPill = (msg, modifier = "") => {
   const pill = $(".status-pill");
   pill.textContent = msg;
