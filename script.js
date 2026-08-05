@@ -130,6 +130,9 @@ const focusGuessInput = () => {
   guessInput.select();
 };
 
+/**
+ * Updates the UI display to indicate the valid guessing range
+ */
 const updateRangeDisplay = () => {
   $("#range-display").textContent = `(Between 1 and ${maxNumber})`;
 };
