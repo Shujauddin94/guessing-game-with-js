@@ -9,7 +9,8 @@
 // Generate secret number
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
-let score = 20;
+const MAX_SCORE = 20;
+let score = MAX_SCORE;
 let attempts = 0;
 let lastGuess = null;
 let previousGuesses = [];
@@ -263,7 +264,7 @@ const showToast = (msg, type = "info") => {
  * @param {boolean} advanceRound - Whether this call should increment the round counter
  */
 const resetGameState = (advanceRound = true) => {
-  score = 20;
+  score = MAX_SCORE;
   attempts = 0;
   lastGuess = null;
   previousGuesses = [];
@@ -326,7 +327,7 @@ Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None 
 
 // Update score bar
 const updateScoreBar = () => {
-  const percentage = (score / 20) * 100;
+  const percentage = (score / MAX_SCORE) * 100;
   $(".score-bar-fill").style.width = percentage + "%";
 };
 
@@ -581,7 +582,7 @@ document.addEventListener("keydown", function (e) {
     $(".btn_again").click();
   }
 
-  if (e.key.toLowerCase() === "r" && document.activeElement !== $(".guess")) {
+  if ((e.key.toLowerCase() === "r" || e.key.toLowerCase() === "n") && document.activeElement !== $(".guess")) {
     $(".btn_again").click();
   }
 
