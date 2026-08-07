@@ -329,7 +329,9 @@ Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None 
 // Update score bar
 const updateScoreBar = () => {
   const percentage = (score / MAX_SCORE) * 100;
-  $(".score-bar-fill").style.width = percentage + "%";
+  const fill = $(".score-bar-fill");
+  fill.style.width = percentage + "%";
+  fill.classList.toggle("score-bar-fill--danger", score <= 5);
 };
 
 // Function to process guess
