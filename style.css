@@ -420,6 +420,35 @@ h1 {
   }
 }
 
+/* 3D flip-reveal animation on win */
+.flip-reveal {
+  animation: flip-reveal 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-style: preserve-3d;
+}
+
+@keyframes flip-reveal {
+  0% {
+    transform: translate(-50%, -50%) rotateY(0deg) scale(1);
+  }
+
+  40% {
+    transform: translate(-50%, -50%) rotateY(90deg) scale(1.1);
+  }
+
+  60% {
+    transform: translate(-50%, -50%) rotateY(-90deg) scale(1.1);
+    background-color: #ffd700;
+    color: #222;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateY(0deg) scale(1);
+    background-color: #ffd700;
+    color: #222;
+  }
+}
+
+
 /* Happy win burst */
 .win-burst {
   animation: win-burst 0.6s ease-in-out;

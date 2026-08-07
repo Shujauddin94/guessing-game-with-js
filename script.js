@@ -387,7 +387,12 @@ const processGuess = function () {
     setStatusPill("You win!", true);
     $("body").style.backgroundColor = "#25cc45";
     $(".number").textContent = secretNumber;
-    $(".number").classList.add("pop", "win-burst");
+    $(".number").classList.remove("flip-reveal");
+    void $(".number").offsetWidth; // reflow to restart animation
+    $(".number").classList.add("pop", "win-burst", "flip-reveal");
+    $(".number").addEventListener("animationend", () => {
+      $(".number").classList.remove("flip-reveal");
+    }, { once: true });
     $(".guess").classList.add("guess--feedback-correct");
     toggleControls(true);
     incrementGamesPlayed();
