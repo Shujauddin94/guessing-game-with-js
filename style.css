@@ -255,6 +255,8 @@ h1 {
 
 .label-attempts,
 .label-round,
+.label-timer,
+.label-streak,
 .label-history,
 .label-last {
   font-size: 1.6rem;
@@ -264,6 +266,22 @@ h1 {
 .label-round {
   color: #ffe8a6;
   font-weight: 700;
+}
+
+.label-timer {
+  color: #fff3a6;
+}
+
+.label-streak {
+  color: #fff3a6;
+}
+
+.round-timer {
+  font-weight: 700;
+}
+
+.round-timer--warning {
+  color: #ffb4b4;
 }
 
 .round-status {
