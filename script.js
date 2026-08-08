@@ -180,6 +180,10 @@ const updateGamesPlayedDisplay = () => {
   $(".games-played").textContent = gamesPlayed;
 };
 
+const updateStreakDisplay = () => {
+  $(".current-streak").textContent = currentStreak;
+};
+
 const updateDifficultyDisplay = () => {
   const emoji = difficultyEmojis[difficulty];
   $(".difficulty-text").textContent = `${emoji} ${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}`;
@@ -249,6 +253,7 @@ const resetTimer = () => {
 const refreshGameUI = () => {
   updateRoundDisplay();
   updateGamesPlayedDisplay();
+  updateStreakDisplay();
   updateDifficultyDisplay();
   updateInputHint();
   updateModeBadge();
@@ -462,6 +467,7 @@ const processGuess = function () {
       localStorage.setItem("bestStreak", bestStreak);
     }
     localStorage.setItem("currentStreak", currentStreak);
+    updateStreakDisplay();
   } else {
     if (score > 1) {
       playSound("error");
@@ -516,6 +522,7 @@ const processGuess = function () {
       incrementGamesPlayed();
       currentStreak = 0;
       localStorage.setItem("currentStreak", currentStreak);
+      updateStreakDisplay();
     }
   }
 
@@ -667,6 +674,7 @@ $(".btn_clear_stats").addEventListener("click", function () {
     bestStreak = 0;
     $(".highscore").textContent = 0;
     $(".games-played").textContent = 0;
+    $(".current-streak").textContent = 0;
     localStorage.removeItem("highscore");
     localStorage.removeItem("gamesPlayed");
     localStorage.removeItem("currentStreak");
