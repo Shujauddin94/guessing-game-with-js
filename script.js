@@ -1,8 +1,8 @@
 /**
  * Guess My Number - Game Logic
  * Handles core game mechanics: number generation, guessing, scoring, and user interactions
- * Features: Difficulty levels, hint system, sound effects, theme toggle, and statistics tracking
- * Version 1.3
+ * Features: Difficulty levels, hint system, sound effects, theme toggle, statistics tracking, and countdown timer
+ * Version 1.4
  */
 "use strict";
 
@@ -16,6 +16,9 @@ let lastGuess = null;
 let previousGuesses = [];
 let round = 1;
 let difficulty = "medium"; // easy, medium, hard
+let timerInterval = null;
+let timeLeft = 60;
+const ROUND_TIME = 60;
 let maxNumber = 20;
 let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
 let gamesPlayed = localStorage.getItem("gamesPlayed") ? Number(localStorage.getItem("gamesPlayed")) : 0;
@@ -197,6 +200,52 @@ const setGameTip = (msg) => {
   $("#game-tip").textContent = msg;
 };
 
+const updateTimerDisplay = () => {
+  const el = $("#round-timer");
+  if (!el) return;
+  el.textContent = `⏱ ${timeLeft}s`;
+  el.classList.toggle("round-timer--warning", timeLeft <= 10);
+};
+
+const stopTimer = () => {
+  clearInterval(timerInterval);
+  timerInterval = null;
+};
+
+const onTimerExpired = () => {
+  stopTimer();
+  setMessage("⏰ Time's up!");
+  setHint(`⏰ The number was ${secretNumber}.`);
+  setGameTip("Tip: Press Again! to start a new round.");
+  setStatusPill("Time out!", "lose");
+  $(".score").textContent = 0;
+  updateScoreBar();
+  updateRoundBanner();
+  $("body").style.backgroundColor = "#8b0000";
+  toggleControls(true);
+  incrementGamesPlayed();
+  currentStreak = 0;
+  localStorage.setItem("currentStreak", currentStreak);
+  playSound("error");
+};
+
+const startTimer = () => {
+  if (timerInterval) return;
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay();
+    if (timeLeft <= 0) {
+      onTimerExpired();
+    }
+  }, 1000);
+};
+
+const resetTimer = () => {
+  stopTimer();
+  timeLeft = ROUND_TIME;
+  updateTimerDisplay();
+};
+
 const refreshGameUI = () => {
   updateRoundDisplay();
   updateGamesPlayedDisplay();
@@ -238,6 +287,7 @@ setStatusPill("Live play");
 setGameTip(`Tip: Enter a number from 1 to ${maxNumber}.`);
 focusGuessInput();
 toggleControls(false);
+updateTimerDisplay();
 
 // Update message
 const setMessage = (msg) => {
@@ -272,6 +322,7 @@ const resetGameState = (advanceRound = true) => {
     round += 1;
   }
   secretNumber = Math.trunc(Math.random() * maxNumber) + 1;
+  resetTimer();
   updateRoundBanner();
 };
 
@@ -371,6 +422,7 @@ const processGuess = function () {
     return;
   }
 
+  if (attempts === 0) startTimer();
   attempts++;
   lastGuess = guess;
   previousGuesses.push(guess);
