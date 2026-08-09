@@ -259,7 +259,8 @@ h1 {
 .label-streak,
 .label-history,
 .label-last,
-.label-confidence {
+.label-confidence,
+.label-achievements {
   font-size: 1.6rem;
   margin: 0.3rem 0;
 }
@@ -279,6 +280,15 @@ h1 {
 
 .label-confidence {
   color: #fff3a6;
+}
+
+.label-achievements {
+  color: #fff3a6;
+}
+
+.achievements {
+  font-weight: 700;
+  color: #c9ffd7;
 }
 
 .closeness-status {

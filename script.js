@@ -22,15 +22,53 @@ let timeLeft = 60;
 const ROUND_TIME = 60;
 let maxNumber = 20;
 const SAVE_KEY = "guessMyNumberRoundSaveV1";
+const ACHIEVEMENTS_KEY = "guessMyNumberAchievementsV1";
 let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
 let gamesPlayed = localStorage.getItem("gamesPlayed") ? Number(localStorage.getItem("gamesPlayed")) : 0;
 let currentStreak = localStorage.getItem("currentStreak") ? Number(localStorage.getItem("currentStreak")) : 0;
 let bestStreak = localStorage.getItem("bestStreak") ? Number(localStorage.getItem("bestStreak")) : 0;
+let achievements = {};
 
 // Game is now ready for player input
 
 // Shortcut selector
 const $ = (q) => document.querySelector(q);
+
+const loadAchievements = () => {
+  const saved = localStorage.getItem(ACHIEVEMENTS_KEY);
+  if (!saved) {
+    achievements = {};
+    return;
+  }
+
+  try {
+    achievements = JSON.parse(saved);
+  } catch (err) {
+    achievements = {};
+  }
+};
+
+const updateAchievementsDisplay = () => {
+  const unlocked = Object.entries(achievements || {})
+    .filter(([, value]) => value)
+    .map(([name]) => name);
+
+  const visual = unlocked.length ? unlocked.map((name) => name.replace(/-/g, " ")).join(", ") : "None yet";
+  $(".achievements").textContent = visual;
+};
+
+const saveAchievements = () => {
+  localStorage.setItem(ACHIEVEMENTS_KEY, JSON.stringify(achievements));
+  updateAchievementsDisplay();
+};
+
+const unlockAchievement = (id, displayName, toastText = "") => {
+  if (!achievements[id]) {
+    achievements[id] = true;
+    saveAchievements();
+    showToast(toastText || `${displayName} unlocked`, "success");
+  }
+};
 
 const saveRoundState = () => {
   const snapshot = {
@@ -369,6 +407,8 @@ const setStatusPill = (msg, modifier = "") => {
 };
 
 restoreRoundState();
+loadAchievements();
+updateAchievementsDisplay();
 refreshGameUI();
 updateRoundBanner();
 setStatusPill("Live play");
@@ -441,6 +481,7 @@ const updateGuessStats = () => {
   $(".last-guess").textContent = lastGuess !== null ? lastGuess : "—";
   $(".history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
   updateClosenessDisplay();
+  updateAchievementsDisplay();
   updateRoundBanner();
 };
 
@@ -538,6 +579,14 @@ const processGuess = function () {
   lastGuess = guess;
   previousGuesses.push(guess);
 
+  if (attempts === 1) {
+    unlockAchievement("first-guess", "First Guess", "First guess unlocked");
+  }
+
+  if (previousGuesses.length >= 5) {
+    unlockAchievement("five-guesses", "Five Guesses", "Five guesses unlocked");
+  }
+
   const difference = Math.abs(guess - secretNumber);
   lastDifference = difference;
   updateGuessStats();
@@ -566,6 +615,8 @@ const processGuess = function () {
       updateHighscore();
       setGameTip("Tip: New highscore! Keep the streak going.");
     }
+
+    unlockAchievement("first-win", "First Win", "First win unlocked");
 
     // Update streak
     currentStreak++;
