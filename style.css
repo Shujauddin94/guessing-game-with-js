@@ -440,6 +440,18 @@ h1 {
   text-align: center;
 }
 
+.round-save-status {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(37, 204, 69, 0.15);
+  color: #eaffec;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
 /* Number pop animation when correct */
 .pop {
   animation: pop 0.4s ease-in-out;

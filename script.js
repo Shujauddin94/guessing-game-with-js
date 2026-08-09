@@ -21,6 +21,7 @@ let timerInterval = null;
 let timeLeft = 60;
 const ROUND_TIME = 60;
 let maxNumber = 20;
+const SAVE_KEY = "guessMyNumberRoundSaveV1";
 let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
 let gamesPlayed = localStorage.getItem("gamesPlayed") ? Number(localStorage.getItem("gamesPlayed")) : 0;
 let currentStreak = localStorage.getItem("currentStreak") ? Number(localStorage.getItem("currentStreak")) : 0;
@@ -30,6 +31,86 @@ let bestStreak = localStorage.getItem("bestStreak") ? Number(localStorage.getIte
 
 // Shortcut selector
 const $ = (q) => document.querySelector(q);
+
+const saveRoundState = () => {
+  const snapshot = {
+    secretNumber,
+    score,
+    attempts,
+    lastGuess,
+    lastDifference,
+    previousGuesses,
+    round,
+    difficulty,
+    timeLeft,
+    maxNumber,
+    highscore,
+    gamesPlayed,
+    currentStreak,
+    bestStreak,
+    savedAt: Date.now()
+  };
+
+  localStorage.setItem(SAVE_KEY, JSON.stringify(snapshot));
+};
+
+const restoreRoundState = () => {
+  const saved = localStorage.getItem(SAVE_KEY);
+  if (!saved) return false;
+
+  try {
+    const snapshot = JSON.parse(saved);
+    secretNumber = Number(snapshot.secretNumber);
+    score = Number(snapshot.score);
+    attempts = Number(snapshot.attempts || 0);
+    lastGuess = snapshot.lastGuess;
+    lastDifference = snapshot.lastDifference ?? null;
+    previousGuesses = Array.isArray(snapshot.previousGuesses) ? snapshot.previousGuesses : [];
+    round = Number(snapshot.round || 1);
+    difficulty = snapshot.difficulty || "medium";
+    timeLeft = Number(snapshot.timeLeft ?? ROUND_TIME);
+    maxNumber = Number(snapshot.maxNumber || 20);
+    highscore = Number(snapshot.highscore || 0);
+    gamesPlayed = Number(snapshot.gamesPlayed || 0);
+    currentStreak = Number(snapshot.currentStreak || 0);
+    bestStreak = Number(snapshot.bestStreak || 0);
+
+    const selected = $(".difficulty-select");
+    if (selected) {
+      selected.value = difficulty;
+    }
+
+    $(".guess").max = maxNumber;
+    $("#range-display").textContent = `(Between 1 and ${maxNumber})`;
+    $(".score").textContent = score;
+    $(".games-played").textContent = gamesPlayed;
+    $(".current-streak").textContent = currentStreak;
+    $(".highscore").textContent = highscore;
+    $(".round").textContent = round;
+    $(".attempts").textContent = attempts;
+    $(".last-guess").textContent = lastGuess !== null ? lastGuess : "—";
+    $(".history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
+
+    const status = $("#round-save-status");
+    if (status) {
+      status.textContent = "Auto-save: restored";
+    }
+
+    updateRoundDisplay();
+    updateRoundBanner();
+    updateScoreBar();
+    updateDifficultyDisplay();
+    updateInputHint();
+    updateModeBadge();
+    updateTimerDisplay();
+    updateClosenessDisplay();
+    return true;
+  } catch (err) {
+    console.warn("Unable to restore saved round", err);
+    localStorage.removeItem(SAVE_KEY);
+    return false;
+  }
+};
 
 const difficultyEmojis = {
   easy: "🟢",
@@ -287,6 +368,7 @@ const setStatusPill = (msg, modifier = "") => {
   document.title = `Guess My Number - ${msg}`;
 };
 
+restoreRoundState();
 refreshGameUI();
 updateRoundBanner();
 setStatusPill("Live play");
@@ -323,6 +405,7 @@ const resetGameState = (advanceRound = true) => {
   score = MAX_SCORE;
   attempts = 0;
   lastGuess = null;
+  lastDifference = null;
   previousGuesses = [];
   if (advanceRound) {
     round += 1;
@@ -330,6 +413,7 @@ const resetGameState = (advanceRound = true) => {
   secretNumber = Math.trunc(Math.random() * maxNumber) + 1;
   resetTimer();
   updateRoundBanner();
+  saveRoundState();
 };
 
 const getClosenessLabel = (difference) => {
@@ -551,6 +635,7 @@ const processGuess = function () {
 
   // Clear input field
   $(".guess").value = "";
+  saveRoundState();
   focusGuessInput();
 };
 
