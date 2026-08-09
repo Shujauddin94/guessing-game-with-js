@@ -13,6 +13,7 @@ const MAX_SCORE = 20;
 let score = MAX_SCORE;
 let attempts = 0;
 let lastGuess = null;
+let lastDifference = null;
 let previousGuesses = [];
 let round = 1;
 let difficulty = "medium"; // easy, medium, hard
@@ -331,10 +332,31 @@ const resetGameState = (advanceRound = true) => {
   updateRoundBanner();
 };
 
+const getClosenessLabel = (difference) => {
+  if (difference === null || difference === undefined) return "—";
+  if (difference === 0) return "Exact";
+  if (difference <= 2) return "Hot";
+  if (difference <= 5) return "Warm";
+  return "Cold";
+};
+
+const updateClosenessDisplay = () => {
+  const status = $("#closeness-status");
+  if (!status) return;
+
+  const difference = lastDifference;
+  const label = getClosenessLabel(difference);
+  status.textContent = label;
+  status.classList.toggle("is-hot", label === "Hot");
+  status.classList.toggle("is-warm", label === "Warm");
+  status.classList.toggle("is-cold", label === "Cold" || label === "Exact");
+};
+
 const updateGuessStats = () => {
   $(".attempts").textContent = attempts;
   $(".last-guess").textContent = lastGuess !== null ? lastGuess : "—";
   $(".history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
+  updateClosenessDisplay();
   updateRoundBanner();
 };
 
@@ -431,9 +453,10 @@ const processGuess = function () {
   attempts++;
   lastGuess = guess;
   previousGuesses.push(guess);
-  updateGuessStats();
 
   const difference = Math.abs(guess - secretNumber);
+  lastDifference = difference;
+  updateGuessStats();
 
   // Correct Guess
   if (guess === secretNumber) {
