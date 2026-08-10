@@ -236,6 +236,7 @@ const updateSoundButton = () => {
   const btnSound = $(".btn_sound");
   btnSound.textContent = soundEnabled ? "🔊" : "🔇";
   btnSound.title = soundEnabled ? "Sound on" : "Sound off";
+  btnSound.setAttribute("aria-pressed", String(soundEnabled));
 };
 
 const toggleSound = () => {
@@ -860,18 +861,23 @@ $(".btn_clear_stats").addEventListener("click", function () {
 // Theme toggle
 const initTheme = () => {
   const savedTheme = localStorage.getItem("gameTheme") || "dark";
+  const btnTheme = $(".btn_theme");
   if (savedTheme === "light") {
     document.body.classList.add("light-theme");
-    $(".btn_theme").textContent = "☀️";
+    btnTheme.textContent = "☀️";
+    btnTheme.setAttribute("aria-pressed", "true");
   } else {
-    $(".btn_theme").textContent = "🌙";
+    btnTheme.textContent = "🌙";
+    btnTheme.setAttribute("aria-pressed", "false");
   }
 };
 
 const toggleTheme = () => {
   const isLight = document.body.classList.toggle("light-theme");
+  const btnTheme = $(".btn_theme");
   localStorage.setItem("gameTheme", isLight ? "light" : "dark");
-  $(".btn_theme").textContent = isLight ? "☀️" : "🌙";
+  btnTheme.textContent = isLight ? "☀️" : "🌙";
+  btnTheme.setAttribute("aria-pressed", String(isLight));
 };
 
 $(".btn_theme").addEventListener("click", toggleTheme);
