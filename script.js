@@ -17,6 +17,7 @@ let lastDifference = null;
 let previousGuesses = [];
 let round = 1;
 let difficulty = "medium"; // easy, medium, hard
+let lastAction = "Game ready";
 let timerInterval = null;
 let timeLeft = 60;
 const ROUND_TIME = 60;
@@ -394,6 +395,14 @@ const updateRoundBanner = (msg = buildRoundBannerText()) => {
   $(".round-banner").textContent = msg;
 };
 
+const updateLastAction = (msg) => {
+  lastAction = msg;
+  const el = $("#last-action");
+  if (el) {
+    el.textContent = `Last action: ${msg}`;
+  }
+};
+
 /**
  * Sets the status pill text and updates the document title
  * @param {string} msg - The status message
@@ -547,6 +556,7 @@ const processGuess = function () {
   if (!guessValue) {
     setMessage("⛔ No number!");
     setGameTip(`Tip: Type a number between 1 and ${maxNumber}.`);
+    updateLastAction("Attempt blocked: empty guess");
     $(".guess").classList.add("shake");
     markInvalidInput();
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
@@ -558,6 +568,7 @@ const processGuess = function () {
   if (guess < 1 || guess > maxNumber) {
     setMessage(`⛔ Please enter a number from 1 to ${maxNumber}.`);
     setGameTip(`Tip: Keep your guess within 1 and ${maxNumber}.`);
+    updateLastAction(`Attempt blocked: ${guess} out of range`);
     $(".guess").classList.add("shake");
     markInvalidInput();
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
@@ -569,6 +580,7 @@ const processGuess = function () {
     setMessage("⚠️ You already guessed that number.");
     setHint("Try a different guess.");
     setGameTip("Tip: Choose a fresh number you have not tried yet.");
+    updateLastAction(`Duplicate guess: ${guess}`);
     $(".guess").classList.add("shake");
     setTimeout(() => $(".guess").classList.remove("shake"), 300);
     focusGuessInput();
@@ -587,6 +599,8 @@ const processGuess = function () {
   if (previousGuesses.length >= 5) {
     unlockAchievement("five-guesses", "Five Guesses", "Five guesses unlocked");
   }
+
+  updateLastAction(`Guess checked: ${guess}`);
 
   const difference = Math.abs(guess - secretNumber);
   lastDifference = difference;
