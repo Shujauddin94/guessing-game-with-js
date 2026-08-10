@@ -261,6 +261,7 @@ const focusGuessInput = () => {
  */
 const updateRangeDisplay = () => {
   $("#range-display").textContent = `(Between 1 and ${maxNumber})`;
+  $("#range-readout").textContent = `Range: 1–${maxNumber}`;
 };
 
 /**
