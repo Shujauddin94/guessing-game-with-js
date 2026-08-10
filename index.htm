@@ -31,9 +31,10 @@
         </select>
     </div>
     <p class="between" id="range-display">(Between 1 and 20)</p>
+    <p class="range-readout" id="range-readout">Range: 1–20</p>
     <button type="button" class="btn_again">Again!</button>
-    <button type="button" class="btn_theme" aria-label="Toggle theme" title="Toggle dark/light theme">🌙</button>
-    <button type="button" class="btn_sound" aria-label="Toggle sound" title="Toggle sound on/off">🔊</button>
+    <button type="button" class="btn_theme" aria-label="Toggle theme" aria-pressed="false" title="Toggle dark/light theme">🌙</button>
+    <button type="button" class="btn_sound" aria-label="Toggle sound" aria-pressed="true" title="Toggle sound on/off">🔊</button>
     <button type="button" class="btn_help" aria-label="Show keyboard shortcuts" title="Show keyboard shortcuts">⌨️</button>
     <div class="number" role="button" tabindex="0" aria-label="Focus the guess input">?</div>
     <p class="focus-hint" id="focus-hint">Click the mystery number or press Enter to focus the input.</p>
@@ -48,6 +49,7 @@
             <button type="button" class="btn_check" aria-label="Check your guess">Check!</button>
             <button type="button" class="btn_clear_guess" aria-label="Clear current guess">Clear guess</button>
             <button type="button" class="btn_reset" aria-label="Reset game">Reset</button>
+            <p class="last-action" id="last-action" aria-live="polite">Last action: Game ready</p>
             <div class="round-banner" aria-live="polite">Round progress is live — keep going!</div>
             <div class="round-save-status" id="round-save-status">Auto-save: enabled</div>
         </section>

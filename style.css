@@ -210,6 +210,19 @@ h1 {
   right: 2%;
 }
 
+.range-readout {
+  position: absolute;
+  top: 9rem;
+  right: 1.2rem;
+  font-size: 1.2rem;
+  color: #fff8c6;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+}
+
 .btn_again {
   font-size: large;
   padding: 10px 50px;
@@ -407,6 +420,17 @@ h1 {
   color: #ffe8a6;
   text-align: center;
   opacity: 0.9;
+}
+
+.last-action {
+  position: relative;
+  bottom: 70px;
+  margin-bottom: 0.7rem;
+  font-size: 1.2rem;
+  color: #ffe7bd;
+  text-align: center;
+  opacity: 0.95;
+  font-weight: 600;
 }
 
 .btn_check {
