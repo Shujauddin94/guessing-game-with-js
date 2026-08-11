@@ -305,6 +305,7 @@ const updateGamesPlayedDisplay = () => {
 
 const updateStreakDisplay = () => {
   $(".current-streak").textContent = currentStreak;
+  $(".best-streak").textContent = bestStreak;
 };
 
 const updateDifficultyDisplay = () => {
