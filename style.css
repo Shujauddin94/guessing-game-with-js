@@ -271,6 +271,7 @@ h1 {
 .label-timer,
 .label-streak,
 .label-best-streak,
+.label-guess-usage,
 .label-history,
 .label-last,
 .label-confidence,
@@ -293,6 +294,10 @@ h1 {
 }
 
 .label-best-streak {
+  color: #fff3a6;
+}
+
+.label-guess-usage {
   color: #fff3a6;
 }
 

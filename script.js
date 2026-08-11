@@ -503,6 +503,10 @@ const updateGuessStats = () => {
   $(".attempts").textContent = attempts;
   $(".last-guess").textContent = lastGuess !== null ? lastGuess : "—";
   $(".history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
+  const usedEl = $("#guesses-used");
+  if (usedEl) {
+    usedEl.textContent = `${previousGuesses.length}/${maxNumber}`;
+  }
   updateClosenessDisplay();
   updateAchievementsDisplay();
   updateRoundBanner();
