@@ -491,6 +491,14 @@ h1 {
   text-align: center;
 }
 
+.round-save-detail {
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  color: #fff3a6;
+  text-align: center;
+  opacity: 0.9;
+}
+
 /* Number pop animation when correct */
 .pop {
   animation: pop 0.4s ease-in-out;

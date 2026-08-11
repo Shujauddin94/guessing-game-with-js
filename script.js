@@ -87,10 +87,15 @@ const saveRoundState = () => {
     gamesPlayed,
     currentStreak,
     bestStreak,
-    savedAt: Date.now()
+    savedAt: Date.now(),
+    lastSavedAt: Date.now()
   };
 
   localStorage.setItem(SAVE_KEY, JSON.stringify(snapshot));
+  const saveDetail = $("#round-save-detail");
+  if (saveDetail) {
+    saveDetail.textContent = `Last saved: ${new Date(snapshot.lastSavedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+  }
 };
 
 const restoreRoundState = () => {
@@ -113,6 +118,7 @@ const restoreRoundState = () => {
     gamesPlayed = Number(snapshot.gamesPlayed || 0);
     currentStreak = Number(snapshot.currentStreak || 0);
     bestStreak = Number(snapshot.bestStreak || 0);
+    const lastSavedAt = Number(snapshot.lastSavedAt || snapshot.savedAt || Date.now());
 
     const selected = $(".difficulty-select");
     if (selected) {
@@ -133,6 +139,11 @@ const restoreRoundState = () => {
     const status = $("#round-save-status");
     if (status) {
       status.textContent = "Auto-save: restored";
+    }
+
+    const saveDetail = $("#round-save-detail");
+    if (saveDetail) {
+      saveDetail.textContent = `Last saved: ${new Date(lastSavedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
     }
 
     updateRoundDisplay();
