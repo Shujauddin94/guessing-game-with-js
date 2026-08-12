@@ -30,6 +30,10 @@ let currentStreak = localStorage.getItem("currentStreak") ? Number(localStorage.
 let bestStreak = localStorage.getItem("bestStreak") ? Number(localStorage.getItem("bestStreak")) : 0;
 let achievements = {};
 
+// Wins/Losses tracking
+let wins = localStorage.getItem("wins") ? Number(localStorage.getItem("wins")) : 0;
+let losses = localStorage.getItem("losses") ? Number(localStorage.getItem("losses")) : 0;
+
 // Game is now ready for player input
 
 // Shortcut selector
@@ -85,6 +89,8 @@ const saveRoundState = () => {
     maxNumber,
     highscore,
     gamesPlayed,
+    wins,
+    losses,
     currentStreak,
     bestStreak,
     savedAt: Date.now(),
@@ -116,6 +122,8 @@ const restoreRoundState = () => {
     maxNumber = Number(snapshot.maxNumber || 20);
     highscore = Number(snapshot.highscore || 0);
     gamesPlayed = Number(snapshot.gamesPlayed || 0);
+    wins = Number(snapshot.wins || localStorage.getItem("wins") || 0);
+    losses = Number(snapshot.losses || localStorage.getItem("losses") || 0);
     currentStreak = Number(snapshot.currentStreak || 0);
     bestStreak = Number(snapshot.bestStreak || 0);
     const lastSavedAt = Number(snapshot.lastSavedAt || snapshot.savedAt || Date.now());
@@ -154,6 +162,7 @@ const restoreRoundState = () => {
     updateModeBadge();
     updateTimerDisplay();
     updateClosenessDisplay();
+    updateWinsLossesDisplay();
     return true;
   } catch (err) {
     console.warn("Unable to restore saved round", err);
@@ -319,6 +328,13 @@ const updateStreakDisplay = () => {
   $(".best-streak").textContent = bestStreak;
 };
 
+const updateWinsLossesDisplay = () => {
+  const winEl = $(".wins");
+  const lossEl = $(".losses");
+  if (winEl) winEl.textContent = wins;
+  if (lossEl) lossEl.textContent = losses;
+};
+
 const updateDifficultyDisplay = () => {
   const emoji = difficultyEmojis[difficulty];
   $(".difficulty-text").textContent = `${emoji} ${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}`;
@@ -363,6 +379,10 @@ const onTimerExpired = () => {
   $("body").style.backgroundColor = "#8b0000";
   toggleControls(true);
   incrementGamesPlayed();
+  // record loss due to timeout
+  losses++;
+  localStorage.setItem("losses", losses);
+  updateWinsLossesDisplay();
   currentStreak = 0;
   localStorage.setItem("currentStreak", currentStreak);
   playSound("error");
@@ -641,6 +661,10 @@ const processGuess = function () {
     $(".guess").classList.add("guess--feedback-correct");
     toggleControls(true);
     incrementGamesPlayed();
+    // record win
+    wins++;
+    localStorage.setItem("wins", wins);
+    updateWinsLossesDisplay();
 
     if (score > highscore) {
       highscore = score;
@@ -710,6 +734,9 @@ const processGuess = function () {
       $("body").style.backgroundColor = "#8b0000";
       toggleControls(true);
       incrementGamesPlayed();
+      // record loss
+      losses++;
+      localStorage.setItem("losses", losses);
       currentStreak = 0;
       localStorage.setItem("currentStreak", currentStreak);
       updateStreakDisplay();
