@@ -951,6 +951,8 @@ const openStatsModal = () => {
   $(".stat-attempts").textContent = attempts;
   $(".stat-current-streak").textContent = currentStreak;
   $(".stat-best-streak").textContent = bestStreak;
+  const winRate = gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
+  $(".stat-win-rate").textContent = `${winRate}%`;
   $(".stat-history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
   $("#stats-modal").classList.add("active");
 };
