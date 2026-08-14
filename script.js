@@ -34,6 +34,9 @@ let achievements = {};
 let wins = localStorage.getItem("wins") ? Number(localStorage.getItem("wins")) : 0;
 let losses = localStorage.getItem("losses") ? Number(localStorage.getItem("losses")) : 0;
 
+// Session tracking (resets on page load)
+let sessionGames = 0;
+
 // Game is now ready for player input
 
 // Shortcut selector
@@ -539,6 +542,7 @@ const updateHighscore = () => {
 
 const incrementGamesPlayed = () => {
   gamesPlayed++;
+  sessionGames++;
   $(".games-played").textContent = gamesPlayed;
   localStorage.setItem("gamesPlayed", gamesPlayed);
 };
@@ -946,6 +950,7 @@ updateSoundButton();
 // Stats modal
 const openStatsModal = () => {
   $(".stat-games").textContent = gamesPlayed;
+  $(".stat-session-games").textContent = sessionGames;
   $(".stat-round").textContent = round;
   $(".stat-highscore").textContent = highscore;
   $(".stat-attempts").textContent = attempts;
