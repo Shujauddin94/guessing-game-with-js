@@ -651,6 +651,51 @@ button:hover:not(:disabled) {
   filter: brightness(1.03);
 }
 
+/* Attempts progress bar */
+.attempts-progress-container {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.attempts-progress-container label {
+  display: block;
+  font-size: 1.2rem;
+  color: #fff8c6;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.attempts-progress-bar {
+  width: 100%;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.attempts-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #25cc45, #ffeb3b, #ff9800, #ff5722);
+  width: 100%;
+  transition: width 0.3s ease, background 0.3s ease;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 0 8px rgba(37, 204, 69, 0.3);
+}
+
+.attempts-progress-text {
+  font-size: 1.1rem;
+  color: #c9ffd7;
+  text-align: center;
+  margin: 0.5rem 0 0 0;
+  font-weight: 600;
+}
+
 /* Shake animation */
 .shake {
   animation: shake 0.3s ease-in-out;

@@ -349,6 +349,22 @@ const updateDifficultyDisplay = () => {
   $(".difficulty-text").textContent = `${emoji} ${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}`;
 };
 
+const updateAttemptsProgress = () => {
+  const remainingAttempts = score;
+  const totalAttempts = MAX_SCORE;
+  const percentage = (remainingAttempts / totalAttempts) * 100;
+  
+  const fillEl = $(".attempts-progress-fill");
+  const leftEl = $(".attempts-left");
+  const progressBar = $("#attempts-progress");
+  
+  if (fillEl) fillEl.style.width = percentage + "%";
+  if (leftEl) leftEl.textContent = remainingAttempts;
+  if (progressBar) {
+    progressBar.setAttribute("aria-valuenow", remainingAttempts);
+  }
+};
+
 const updateInputHint = () => {
   const guessInput = $(".guess");
   guessInput.placeholder = `1-${maxNumber}`;
@@ -419,6 +435,7 @@ const refreshGameUI = () => {
   updateGamesPlayedDisplay();
   updateStreakDisplay();
   updateDifficultyDisplay();
+  updateAttemptsProgress();
   updateInputHint();
   updateModeBadge();
 };
@@ -504,6 +521,7 @@ const resetGameState = (advanceRound = true) => {
   }
   secretNumber = Math.trunc(Math.random() * maxNumber) + 1;
   resetTimer();
+  updateAttemptsProgress();
   updateRoundBanner();
   saveRoundState();
 };
@@ -718,6 +736,7 @@ const processGuess = function () {
       score--;
       $(".score").textContent = score;
       updateScoreBar();
+      updateAttemptsProgress();
       updateRoundBanner();
 
       // Auto-reset in hard mode after three failed guesses

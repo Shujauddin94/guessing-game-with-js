@@ -60,6 +60,13 @@
             <p class="message" aria-live="polite">Start guessing...</p></div>
             <button type="button" class="btn_stats" aria-label="Show game statistics" title="View your game statistics">📊 Stats</button>
             <p class="hint">Hint: We'll tell you if you're close.</p>
+            <div class="attempts-progress-container">
+              <label for="attempts-progress">Attempts remaining:</label>
+              <div class="attempts-progress-bar" id="attempts-progress" role="progressbar" aria-valuemin="0" aria-valuemax="20" aria-valuenow="20">
+                <div class="attempts-progress-fill"></div>
+              </div>
+              <p class="attempts-progress-text"><span class="attempts-left">20</span>/<span class="attempts-max">20</span></p>
+            </div>
             <p class="label-difficulty">Difficulty: <span class="difficulty-text">Medium</span></p>
             <p class="label-score">Chances: <span class="score">20</span></p>
             <p class="label-attempts">Attempts: <span class="attempts">0</span></p>
