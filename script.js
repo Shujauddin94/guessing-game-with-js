@@ -318,6 +318,7 @@ const toggleControls = (isDisabled) => {
 
 // Initialize highscore display
 $(".highscore").textContent = highscore;
+$(".badge-highscore").textContent = highscore;
 const updateRoundDisplay = () => {
   $(".round").textContent = round;
 };
@@ -334,8 +335,13 @@ const updateStreakDisplay = () => {
 const updateWinsLossesDisplay = () => {
   const winEl = $(".wins");
   const lossEl = $(".losses");
+  const winRateEl = $(".win-rate");
   if (winEl) winEl.textContent = wins;
   if (lossEl) lossEl.textContent = losses;
+  if (winRateEl) {
+    const winRate = gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
+    winRateEl.textContent = winRate + "%";
+  }
 };
 
 const updateDifficultyDisplay = () => {
@@ -538,6 +544,7 @@ const updateGuessStats = () => {
 const updateHighscore = () => {
   localStorage.setItem("highscore", highscore);
   $(".highscore").textContent = highscore;
+  $(".badge-highscore").textContent = highscore;
 };
 
 const incrementGamesPlayed = () => {
@@ -895,6 +902,7 @@ $(".btn_clear_stats").addEventListener("click", function () {
     currentStreak = 0;
     bestStreak = 0;
     $(".highscore").textContent = 0;
+    $(".badge-highscore").textContent = 0;
     $(".games-played").textContent = 0;
     $(".current-streak").textContent = 0;
     localStorage.removeItem("highscore");

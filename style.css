@@ -174,6 +174,20 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.highscore-badge {
+  position: absolute;
+  top: 2.8rem;
+  right: 2rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(255, 215, 0, 0.15);
+  color: #ffd700;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
 .number {
   background-color: aliceblue;
   color: black;
@@ -284,7 +298,8 @@ button:hover:not(:disabled) {
 .label-history,
 .label-last,
 .label-confidence,
-.label-achievements {
+.label-achievements,
+.label-winrate {
   font-size: 1.6rem;
   margin: 0.3rem 0;
 }
@@ -316,6 +331,11 @@ button:hover:not(:disabled) {
 
 .label-achievements {
   color: #fff3a6;
+}
+
+.label-winrate {
+  color: #c9ffd7;
+  font-weight: 600;
 }
 
 .achievements {
