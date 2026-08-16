@@ -33,6 +33,7 @@ let achievements = {};
 // Wins/Losses tracking
 let wins = localStorage.getItem("wins") ? Number(localStorage.getItem("wins")) : 0;
 let losses = localStorage.getItem("losses") ? Number(localStorage.getItem("losses")) : 0;
+let previousScore = localStorage.getItem("previousScore") ? Number(localStorage.getItem("previousScore")) : null;
 
 // Session tracking (resets on page load)
 let sessionGames = 0;
@@ -319,6 +320,8 @@ const toggleControls = (isDisabled) => {
 // Initialize highscore display
 $(".highscore").textContent = highscore;
 $(".badge-highscore").textContent = highscore;
+$(".previous-score").textContent = previousScore !== null ? previousScore : "—";
+
 const updateRoundDisplay = () => {
   $(".round").textContent = round;
 };
@@ -566,10 +569,13 @@ const updateHighscore = () => {
 };
 
 const incrementGamesPlayed = () => {
+  previousScore = score;
+  localStorage.setItem("previousScore", previousScore);
   gamesPlayed++;
   sessionGames++;
   $(".games-played").textContent = gamesPlayed;
   $(".session-games").textContent = sessionGames;
+  $(".previous-score").textContent = previousScore;
   localStorage.setItem("gamesPlayed", gamesPlayed);
 };
 
