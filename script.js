@@ -569,6 +569,7 @@ const incrementGamesPlayed = () => {
   gamesPlayed++;
   sessionGames++;
   $(".games-played").textContent = gamesPlayed;
+  $(".session-games").textContent = sessionGames;
   localStorage.setItem("gamesPlayed", gamesPlayed);
 };
 
