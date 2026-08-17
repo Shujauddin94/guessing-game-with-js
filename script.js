@@ -18,7 +18,7 @@ let previousGuesses = [];
 let round = 1;
 let difficulty = "medium"; // easy, medium, hard
 let lastAction = "Game ready";
-let timerInterval = null;
+let timerInterval = null; // Stores the active timer interval ID
 let timeLeft = 60;
 const ROUND_TIME = 60;
 let maxNumber = 20;
@@ -356,11 +356,11 @@ const updateAttemptsProgress = () => {
   const remainingAttempts = score;
   const totalAttempts = MAX_SCORE;
   const percentage = (remainingAttempts / totalAttempts) * 100;
-  
+
   const fillEl = $(".attempts-progress-fill");
   const leftEl = $(".attempts-left");
   const progressBar = $("#attempts-progress");
-  
+
   if (fillEl) fillEl.style.width = percentage + "%";
   if (leftEl) leftEl.textContent = remainingAttempts;
   if (progressBar) {
