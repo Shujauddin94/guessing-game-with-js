@@ -591,8 +591,8 @@ Best Streak: ${bestStreak}
 Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None yet"}`;
 
   const successMessage = () => {
-    setMessage("📋 Stats copied!");
-    showToast("Stats copied to clipboard", "success");
+    setMessage("📋 Game stats copied!");
+    showToast("Game stats copied to clipboard", "success");
     setTimeout(() => setMessage("Game on!"), 2000);
   };
 
