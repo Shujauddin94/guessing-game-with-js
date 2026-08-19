@@ -1054,6 +1054,9 @@ document.addEventListener("keydown", (e) => {
   } else if (e.key.toLowerCase() === "m") {
     e.preventDefault();
     toggleSound();
+  } else if (e.key.toLowerCase() === "i") {
+    e.preventDefault();
+    focusGuessInput();
   }
 });
 
