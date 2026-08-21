@@ -31,8 +31,8 @@ let bestStreak = Number(localStorage.getItem("bestStreak")) || 0;
 let achievements = {};
 
 // Wins/Losses tracking
-let wins = localStorage.getItem("wins") ? Number(localStorage.getItem("wins")) : 0;
-let losses = localStorage.getItem("losses") ? Number(localStorage.getItem("losses")) : 0;
+let wins = Number(localStorage.getItem("wins")) || 0;
+let losses = Number(localStorage.getItem("losses")) || 0;
 let previousScore = localStorage.getItem("previousScore") ? Number(localStorage.getItem("previousScore")) : null;
 
 // Session tracking (resets on page load)
