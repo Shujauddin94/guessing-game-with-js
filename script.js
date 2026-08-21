@@ -24,10 +24,10 @@ const ROUND_TIME = 60;
 let maxNumber = 20;
 const SAVE_KEY = "guessMyNumberRoundSaveV1";
 const ACHIEVEMENTS_KEY = "guessMyNumberAchievementsV1";
-let highscore = localStorage.getItem("highscore") ? Number(localStorage.getItem("highscore")) : 0;
-let gamesPlayed = localStorage.getItem("gamesPlayed") ? Number(localStorage.getItem("gamesPlayed")) : 0;
-let currentStreak = localStorage.getItem("currentStreak") ? Number(localStorage.getItem("currentStreak")) : 0;
-let bestStreak = localStorage.getItem("bestStreak") ? Number(localStorage.getItem("bestStreak")) : 0;
+let highscore = Number(localStorage.getItem("highscore")) || 0;
+let gamesPlayed = Number(localStorage.getItem("gamesPlayed")) || 0;
+let currentStreak = Number(localStorage.getItem("currentStreak")) || 0;
+let bestStreak = Number(localStorage.getItem("bestStreak")) || 0;
 let achievements = {};
 
 // Wins/Losses tracking
