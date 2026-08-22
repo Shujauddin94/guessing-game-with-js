@@ -343,7 +343,7 @@ const updateWinsLossesDisplay = () => {
   if (lossEl) lossEl.textContent = losses;
   if (winRateEl) {
     const winRate = gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
-    winRateEl.textContent = winRate + "%";
+    winRateEl.textContent = `${winRate}%`;
   }
 };
 
