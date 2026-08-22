@@ -582,7 +582,7 @@ const incrementGamesPlayed = () => {
 const copyStatsToClipboard = () => {
   const stats = `🎮 Guess My Number Stats
 ━━━━━━━━━━━━━━━━━━━━
-Difficulty: ${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+Difficulty: ${difficulty.charAt(0).toUpperCase()}${difficulty.slice(1)}
 Games Played: ${gamesPlayed}
 Current Round: ${round}
 Highscore: ${highscore}
