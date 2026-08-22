@@ -349,7 +349,7 @@ const updateWinsLossesDisplay = () => {
 
 const updateDifficultyDisplay = () => {
   const emoji = difficultyEmojis[difficulty];
-  $(".difficulty-text").textContent = `${emoji} ${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}`;
+  $(".difficulty-text").textContent = `${emoji} ${difficulty.charAt(0).toUpperCase()}${difficulty.slice(1)}`;
 };
 
 const updateAttemptsProgress = () => {
@@ -520,7 +520,7 @@ const resetGameState = (advanceRound = true) => {
   lastDifference = null;
   previousGuesses = [];
   if (advanceRound) {
-    round += 1;
+    round++;
   }
   secretNumber = Math.trunc(Math.random() * maxNumber) + 1;
   resetTimer();
