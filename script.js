@@ -814,7 +814,7 @@ $(".difficulty-select").addEventListener("change", function (e) {
   // Reset game with new difficulty
   resetGameState();
   setMessage("Start guessing...");
-  setHint("Hint: We'll tell you if you're close.");
+  setHint(`Hint: We'll tell you if you're close. Difficulty: ${difficulty}`);
   setStatusPill("Live play");
   $(".score").textContent = score;
   updateScoreBar();
