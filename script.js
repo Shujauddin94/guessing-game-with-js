@@ -577,6 +577,10 @@ const incrementGamesPlayed = () => {
   $(".session-games").textContent = sessionGames;
   $(".previous-score").textContent = previousScore;
   localStorage.setItem("gamesPlayed", gamesPlayed);
+
+  if (gamesPlayed === 10) {
+    unlockAchievement("ten-games", "Ten Games", "Ten games played unlocked");
+  }
 };
 
 const copyStatsToClipboard = () => {
