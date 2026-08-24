@@ -1055,7 +1055,7 @@ document.addEventListener("keydown", (e) => {
   } else if (e.key.toLowerCase() === "t") {
     e.preventDefault();
     toggleTheme();
-  } else if (e.key.toLowerCase() === "m") {
+  } else if (e.key.toLowerCase() === "m" || e.key.toLowerCase() === "v") {
     e.preventDefault();
     toggleSound();
   } else if (e.key.toLowerCase() === "i") {
