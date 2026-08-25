@@ -391,8 +391,10 @@ const updateTimerDisplay = () => {
 };
 
 const stopTimer = () => {
-  clearInterval(timerInterval);
-  timerInterval = null;
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
 };
 
 const onTimerExpired = () => {
@@ -626,11 +628,12 @@ const updateScoreBar = () => {
 
 // Function to process guess
 const processGuess = function () {
+  if ($(".btn_check").disabled) return;
   const guessValue = $(".guess").value;
   const guess = Number(guessValue);
 
   // No Input
-  if (!guessValue) {
+  if (!guessValue || guessValue.trim() === "") {
     setMessage("⛔ No number!");
     setGameTip(`Tip: Type a number between 1 and ${maxNumber}.`);
     updateLastAction("Attempt blocked: empty guess");
