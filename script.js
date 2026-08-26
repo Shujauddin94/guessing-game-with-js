@@ -6,7 +6,7 @@
  */
 "use strict";
 
-// Generate secret number
+// Generate the initial secret number
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 const MAX_SCORE = 20;
@@ -491,7 +491,7 @@ focusGuessInput();
 toggleControls(false);
 updateTimerDisplay();
 
-// Update message
+// Updates the main game message display
 const setMessage = (msg) => {
   $(".message").textContent = msg;
 };
