@@ -632,7 +632,7 @@ const processGuess = function () {
   const guessValue = $(".guess").value;
   const guess = Number(guessValue);
 
-  // No Input
+  // Handle empty input gracefully
   if (!guessValue || guessValue.trim() === "") {
     setMessage("⛔ No number!");
     setGameTip(`Tip: Type a number between 1 and ${maxNumber}.`);
