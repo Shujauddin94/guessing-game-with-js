@@ -686,7 +686,7 @@ const processGuess = function () {
   lastDifference = difference;
   updateGuessStats();
 
-  // Correct Guess
+  // Handle Correct Guess scenario
   if (guess === secretNumber) {
     playSound("success");
     setMessage("🎉 Correct Number!");
