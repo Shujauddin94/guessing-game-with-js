@@ -22,6 +22,7 @@ let timerInterval = null; // Stores the active timer interval ID
 let timeLeft = 60;
 const ROUND_TIME = 60;
 let maxNumber = 20;
+let minNumber = 1;
 const SAVE_KEY = "guessMyNumberRoundSaveV1";
 const ACHIEVEMENTS_KEY = "guessMyNumberAchievementsV1";
 let highscore = Number(localStorage.getItem("highscore")) || 0;
@@ -284,8 +285,8 @@ const focusGuessInput = () => {
  * Updates the UI display to indicate the valid guessing range
  */
 const updateRangeDisplay = () => {
-  $("#range-display").textContent = `(Between 1 and ${maxNumber})`;
-  $("#range-readout").textContent = `Range: 1–${maxNumber}`;
+  $("#range-display").textContent = `(Between ${minNumber} and ${maxNumber})`;
+  $("#range-readout").textContent = `Range: ${minNumber}–${maxNumber}`;
 };
 
 /**
@@ -370,8 +371,8 @@ const updateAttemptsProgress = () => {
 
 const updateInputHint = () => {
   const guessInput = $(".guess");
-  guessInput.placeholder = `1-${maxNumber}`;
-  guessInput.setAttribute("aria-label", `Enter your guess between 1 and ${maxNumber}`);
+  guessInput.placeholder = `${minNumber}-${maxNumber}`;
+  guessInput.setAttribute("aria-label", `Enter your guess between ${minNumber} and ${maxNumber}`);
 };
 
 const updateModeBadge = () => {
