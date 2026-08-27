@@ -139,7 +139,7 @@ const restoreRoundState = () => {
     }
 
     $(".guess").max = maxNumber;
-    $("#range-display").textContent = `(Between 1 and ${maxNumber})`;
+    $("#range-display").textContent = `(Between ${minNumber} and ${maxNumber})`;
     $(".score").textContent = score;
     $(".games-played").textContent = gamesPlayed;
     $(".current-streak").textContent = currentStreak;
@@ -487,7 +487,7 @@ updateAchievementsDisplay();
 refreshGameUI();
 updateRoundBanner();
 setStatusPill("Live play");
-setGameTip(`Tip: Enter a number from 1 to ${maxNumber}.`);
+setGameTip(`Tip: Enter a number from ${minNumber} to ${maxNumber}.`);
 focusGuessInput();
 toggleControls(false);
 updateTimerDisplay();
@@ -636,7 +636,7 @@ const processGuess = function () {
   // Handle empty input gracefully
   if (!guessValue || guessValue.trim() === "") {
     setMessage("⛔ No number!");
-    setGameTip(`Tip: Type a number between 1 and ${maxNumber}.`);
+    setGameTip(`Tip: Type a number between ${minNumber} and ${maxNumber}.`);
     updateLastAction("Attempt blocked: empty guess");
     $(".guess").classList.add("shake");
     markInvalidInput();
@@ -646,9 +646,9 @@ const processGuess = function () {
   }
 
   // Invalid range
-  if (guess < 1 || guess > maxNumber) {
-    setMessage(`⛔ Please enter a number from 1 to ${maxNumber}.`);
-    setGameTip(`Tip: Keep your guess within 1 and ${maxNumber}.`);
+  if (guess < minNumber || guess > maxNumber) {
+    setMessage(`⛔ Please enter a number from ${minNumber} to ${maxNumber}.`);
+    setGameTip(`Tip: Keep your guess within ${minNumber} and ${maxNumber}.`);
     updateLastAction(`Attempt blocked: ${guess} out of range`);
     $(".guess").classList.add("shake");
     markInvalidInput();
