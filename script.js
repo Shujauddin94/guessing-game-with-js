@@ -623,7 +623,9 @@ Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None 
   }
 };
 
-// Update score bar
+/**
+ * Updates the score progress bar UI based on the current score percentage
+ */
 const updateScoreBar = () => {
   const percentage = (score / MAX_SCORE) * 100;
   const fill = $(".score-bar-fill");
