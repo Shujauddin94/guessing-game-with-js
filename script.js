@@ -41,7 +41,11 @@ let sessionGames = 0;
 
 // Game is now ready for player input
 
-// Shortcut selector
+/**
+ * Helper function to select an element from the DOM
+ * @param {string} q - The CSS selector string
+ * @returns {Element|null} The requested DOM element
+ */
 const $ = (q) => document.querySelector(q);
 
 const loadAchievements = () => {
