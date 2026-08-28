@@ -633,7 +633,9 @@ const updateScoreBar = () => {
   fill.classList.toggle("score-bar-fill--danger", score <= 5);
 };
 
-// Function to process guess
+/**
+ * Processes the user's numeric guess and updates the game state accordingly
+ */
 const processGuess = function () {
   if ($(".btn_check").disabled) return;
   const guessValue = $(".guess").value;
