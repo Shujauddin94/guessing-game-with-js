@@ -534,6 +534,7 @@ const resetGameState = (advanceRound = true) => {
   updateAttemptsProgress();
   updateRoundBanner();
   saveRoundState();
+  document.title = "Guess My Number!";
 };
 
 const getClosenessLabel = (difference) => {
