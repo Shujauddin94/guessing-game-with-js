@@ -701,7 +701,7 @@ const processGuess = function () {
     setMessage("🎉 Correct Number!");
     setHint("🎉 You found the secret number!");
     setGameTip("Tip: Start a fresh round whenever you're ready.");
-    setStatusPill("You win!", true);
+    setStatusPill("You win!", "win");
     $("body").style.backgroundColor = "#25cc45";
     $(".number").textContent = secretNumber;
     $(".number").classList.remove("flip-reveal");
