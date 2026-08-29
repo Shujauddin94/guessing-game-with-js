@@ -944,6 +944,8 @@ $(".btn_clear_stats").addEventListener("click", function () {
     gamesPlayed = 0;
     currentStreak = 0;
     bestStreak = 0;
+    wins = 0;
+    losses = 0;
     $(".highscore").textContent = 0;
     $(".badge-highscore").textContent = 0;
     $(".games-played").textContent = 0;
@@ -952,6 +954,9 @@ $(".btn_clear_stats").addEventListener("click", function () {
     localStorage.removeItem("gamesPlayed");
     localStorage.removeItem("currentStreak");
     localStorage.removeItem("bestStreak");
+    localStorage.removeItem("wins");
+    localStorage.removeItem("losses");
+    updateWinsLossesDisplay();
     resetGameState(false);
 
     setMessage("Stats cleared! Ready for a fresh start.");
