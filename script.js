@@ -958,6 +958,7 @@ $(".btn_clear_stats").addEventListener("click", function () {
     localStorage.removeItem("wins");
     localStorage.removeItem("losses");
     updateWinsLossesDisplay();
+    updateStreakDisplay();
     resetGameState(false);
 
     setMessage("Stats cleared! Ready for a fresh start.");
