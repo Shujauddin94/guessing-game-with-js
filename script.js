@@ -513,7 +513,7 @@ const showToast = (msg, type = "info") => {
   void toast.offsetWidth;
   toast.classList.add("show");
   clearTimeout(showToast.timerId);
-  showToast.timerId = setTimeout(() => toast.classList.remove("show"), 2200);
+  showToast.timerId = setTimeout(() => toast.classList.remove("show"), 2800);
 };
 
 /**
