@@ -540,8 +540,9 @@ const resetGameState = (advanceRound = true) => {
 const getClosenessLabel = (difference) => {
   if (difference === null || difference === undefined) return "—";
   if (difference === 0) return "Exact";
-  if (difference <= 2) return "Hot";
-  if (difference <= 5) return "Warm";
+  if (difference === 1) return "Very Hot";
+  if (difference <= 3) return "Hot";
+  if (difference <= 6) return "Warm";
   return "Cold";
 };
 
