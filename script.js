@@ -728,6 +728,10 @@ const processGuess = function () {
 
     unlockAchievement("first-win", "First Win", "First win unlocked");
 
+    if (score === MAX_SCORE) {
+      unlockAchievement("perfect-score", "Perfect Score", "🏅 Perfect Score! First guess win!");
+    }
+
     // Update streak
     currentStreak++;
     if (currentStreak > bestStreak) {
