@@ -29,6 +29,7 @@ let highscore = Number(localStorage.getItem("highscore")) || 0;
 let gamesPlayed = Number(localStorage.getItem("gamesPlayed")) || 0;
 let currentStreak = Number(localStorage.getItem("currentStreak")) || 0;
 let bestStreak = Number(localStorage.getItem("bestStreak")) || 0;
+let totalGuesses = Number(localStorage.getItem("totalGuesses")) || 0;
 let achievements = {};
 
 // Wins/Losses tracking
@@ -495,6 +496,8 @@ setGameTip(`Tip: Enter a number from ${minNumber} to ${maxNumber}.`);
 focusGuessInput();
 toggleControls(false);
 updateTimerDisplay();
+updateWinsLossesDisplay();
+updateAvgGuessesDisplay();
 
 // Updates the main game message display
 const setMessage = (msg) => {
@@ -577,15 +580,24 @@ const updateHighscore = () => {
   $(".badge-highscore").textContent = highscore;
 };
 
+const updateAvgGuessesDisplay = () => {
+  const avg = gamesPlayed > 0 ? (totalGuesses / gamesPlayed).toFixed(1) : "—";
+  const el = $(".avg-guesses");
+  if (el) el.textContent = avg;
+};
+
 const incrementGamesPlayed = () => {
   previousScore = score;
   localStorage.setItem("previousScore", previousScore);
   gamesPlayed++;
   sessionGames++;
+  totalGuesses += attempts;
+  localStorage.setItem("totalGuesses", totalGuesses);
   $(".games-played").textContent = gamesPlayed;
   $(".session-games").textContent = sessionGames;
   $(".previous-score").textContent = previousScore;
   localStorage.setItem("gamesPlayed", gamesPlayed);
+  updateAvgGuessesDisplay();
 
   if (gamesPlayed === 10) {
     unlockAchievement("ten-games", "Ten Games", "Ten games played unlocked");

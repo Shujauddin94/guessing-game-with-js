@@ -299,6 +299,7 @@ button:hover:not(:disabled) {
 .label-last,
 .label-confidence,
 .label-achievements,
+.label-avg-guesses,
 .label-winrate {
   font-size: 1.6rem;
   margin: 0.3rem 0;
