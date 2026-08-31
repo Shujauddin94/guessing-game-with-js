@@ -1097,6 +1097,14 @@ document.addEventListener("keydown", (e) => {
   } else if (e.key.toLowerCase() === "i") {
     e.preventDefault();
     focusGuessInput();
+  } else if (e.key.toLowerCase() === "g") {
+    e.preventDefault();
+    const tipEl = $("#game-tip");
+    if (tipEl) {
+      const hidden = tipEl.style.visibility === "hidden";
+      tipEl.style.visibility = hidden ? "visible" : "hidden";
+      showToast(hidden ? "Tips visible" : "Tips hidden", "info");
+    }
   }
 });
 
