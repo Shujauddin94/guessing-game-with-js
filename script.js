@@ -342,11 +342,11 @@ const updateStreakDisplay = () => {
 };
 
 const updateWinsLossesDisplay = () => {
-  const winEl = $(".wins");
-  const lossEl = $(".losses");
+  const winElement = $(".wins");
+  const lossElement = $(".losses");
   const winRateEl = $(".win-rate");
-  if (winEl) winEl.textContent = wins;
-  if (lossEl) lossEl.textContent = losses;
+  if (winElement) winElement.textContent = wins;
+  if (lossElement) lossElement.textContent = losses;
   if (winRateEl) {
     const winRate = gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
     winRateEl.textContent = `${winRate}%`;
