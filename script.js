@@ -174,8 +174,8 @@ const restoreRoundState = () => {
     updateClosenessDisplay();
     updateWinsLossesDisplay();
     return true;
-  } catch (err) {
-    console.warn("Unable to restore saved round", err);
+  } catch (error) {
+    console.warn("Unable to restore saved round", error);
     localStorage.removeItem(SAVE_KEY);
     return false;
   }
