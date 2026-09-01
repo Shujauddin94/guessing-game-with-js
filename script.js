@@ -808,6 +808,7 @@ const processGuess = function () {
       // record loss
       losses++;
       localStorage.setItem("losses", losses);
+      updateWinsLossesDisplay();
       currentStreak = 0;
       localStorage.setItem("currentStreak", currentStreak);
       updateStreakDisplay();
