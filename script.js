@@ -7,7 +7,7 @@
 "use strict";
 
 // Generate the initial secret number
-let secretNumber = Math.trunc(Math.random() * (20 - 1 + 1)) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 const MAX_SCORE = 20;
 let score = MAX_SCORE;
