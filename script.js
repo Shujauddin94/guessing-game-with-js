@@ -467,9 +467,9 @@ const updateRoundBanner = (msg = buildRoundBannerText()) => {
 
 const updateLastAction = (msg) => {
   lastAction = msg;
-  const el = $("#last-action");
-  if (el) {
-    el.textContent = `Last action: ${msg}`;
+  const element = $("#last-action");
+  if (element) {
+    element.textContent = `Last action: ${msg}`;
   }
 };
 
