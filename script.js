@@ -58,7 +58,7 @@ const loadAchievements = () => {
 
   try {
     achievements = JSON.parse(saved);
-  } catch (err) {
+  } catch (error) {
     achievements = {};
   }
 };
