@@ -2,7 +2,7 @@
  * Guess My Number - Game Logic
  * Handles core game mechanics: number generation, guessing, scoring, and user interactions
  * Features: Difficulty levels, hint system, sound effects, theme toggle, statistics tracking, and countdown timer
- * Version 1.5
+ * Version 1.6
  */
 "use strict";
 
