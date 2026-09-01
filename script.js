@@ -1025,6 +1025,7 @@ updateSoundButton();
 // Stats modal
 const openStatsModal = () => {
   $(".stat-games").textContent = gamesPlayed;
+  $(".stat-total-guesses").textContent = totalGuesses;
   $(".stat-session-games").textContent = sessionGames;
   $(".stat-round").textContent = round;
   $(".stat-highscore").textContent = highscore;
