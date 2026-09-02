@@ -40,6 +40,8 @@ let previousScore = localStorage.getItem("previousScore") ? Number(localStorage.
 // Session tracking (resets on page load)
 let sessionGames = 0;
 
+const getScorePercentage = () => (score / MAX_SCORE) * 100;
+
 // Game is now ready for player input
 
 /**
