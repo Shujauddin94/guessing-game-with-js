@@ -41,6 +41,7 @@ let previousScore = localStorage.getItem("previousScore") ? Number(localStorage.
 let sessionGames = 0;
 
 const getScorePercentage = () => (score / MAX_SCORE) * 100;
+const isHighScoreBeaten = () => score > highscore;
 
 // Game is now ready for player input
 
