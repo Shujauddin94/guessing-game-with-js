@@ -42,6 +42,7 @@ let sessionGames = 0;
 
 const getScorePercentage = () => (score / MAX_SCORE) * 100;
 const isHighScoreBeaten = () => score > highscore;
+const getRemainingTime = () => timeLeft;
 
 // Game is now ready for player input
 
