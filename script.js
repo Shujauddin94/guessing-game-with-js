@@ -7,7 +7,7 @@
 "use strict";
 
 // Generate the initial secret number
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.floor(Math.random() * 20) + 1;
 
 const MAX_SCORE = 20;
 let score = MAX_SCORE;
@@ -536,7 +536,7 @@ const resetGameState = (advanceRound = true) => {
   if (advanceRound) {
     round++;
   }
-  secretNumber = Math.trunc(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+  secretNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
   resetTimer();
   updateAttemptsProgress();
   updateRoundBanner();
