@@ -46,6 +46,7 @@ const getRemainingTime = () => Math.max(0, timeLeft);
 
 const isPerfectScore = () => score === MAX_SCORE;
 const isLowScore = () => score <= 5;
+const isTimerLow = () => timeLeft <= 10;
 
 // Game is now ready for player input
 
