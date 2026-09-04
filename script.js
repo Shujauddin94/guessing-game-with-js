@@ -44,6 +44,8 @@ const getScorePercentage = () => (score / MAX_SCORE) * 100;
 const isHighScoreBeaten = () => score > highscore;
 const getRemainingTime = () => Math.max(0, timeLeft);
 
+const isPerfectScore = () => score === MAX_SCORE;
+
 // Game is now ready for player input
 
 /**
