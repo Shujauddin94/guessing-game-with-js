@@ -790,7 +790,7 @@ const processGuess = function () {
       updateRoundBanner();
 
       // Auto-reset in hard mode after three failed guesses
-      if (difficulty === "hard" && attempts >= 3) {
+      if (isHardMode() && attempts >= 3) {
         setMessage("🔁 Hard mode reset after 3 misses.");
         setHint("Try again from a fresh round.");
         setGameTip("Tip: Hard mode resets after three misses.");
