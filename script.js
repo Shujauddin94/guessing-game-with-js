@@ -48,6 +48,7 @@ const isPerfectScore = () => score === MAX_SCORE;
 const isLowScore = () => score <= 5;
 const isTimerLow = () => timeLeft <= 10;
 const isHardMode = () => difficulty === "hard";
+const isEasyMode = () => difficulty === "easy";
 
 // Game is now ready for player input
 
