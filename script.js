@@ -161,7 +161,7 @@ const restoreRoundState = () => {
     $(".highscore").textContent = highscore;
     $(".round").textContent = round;
     $(".attempts").textContent = attempts;
-    $(".last-guess").textContent = lastGuess !== null ? lastGuess : "â€”";
+    $(".last-guess").textContent = lastGuess !== null ? lastGuess : "Ã¢â‚¬â€";
     $(".history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
 
     const status = $("#round-save-status");
@@ -192,9 +192,9 @@ const restoreRoundState = () => {
 };
 
 const difficultyEmojis = {
-  easy: "ðŸŸ¢",
-  medium: "ðŸŸ¡",
-  hard: "ðŸ”´"
+  easy: "Ã°Å¸Å¸Â¢",
+  medium: "Ã°Å¸Å¸Â¡",
+  hard: "Ã°Å¸â€Â´"
 };
 
 /**
@@ -275,7 +275,7 @@ document.querySelectorAll('button').forEach(btn => {
 
 const updateSoundButton = () => {
   const btnSound = $(".btn_sound");
-  btnSound.textContent = soundEnabled ? "ðŸ”Š" : "ðŸ”‡";
+  btnSound.textContent = soundEnabled ? "Ã°Å¸â€Å " : "Ã°Å¸â€â€¡";
   btnSound.title = soundEnabled ? "Sound on" : "Sound off";
   btnSound.setAttribute("aria-pressed", String(soundEnabled));
 };
@@ -301,7 +301,7 @@ const focusGuessInput = () => {
  */
 const updateRangeDisplay = () => {
   $("#range-display").textContent = `(Between ${minNumber} and ${maxNumber})`;
-  $("#range-readout").textContent = `Range: ${minNumber}â€“${maxNumber}`;
+  $("#range-readout").textContent = `Range: ${minNumber}Ã¢â‚¬â€œ${maxNumber}`;
 };
 
 /**
@@ -336,7 +336,7 @@ const toggleControls = (isDisabled) => {
 // Initialize highscore display
 $(".highscore").textContent = highscore;
 $(".badge-highscore").textContent = highscore;
-$(".previous-score").textContent = previousScore !== null ? previousScore : "â€”";
+$(".previous-score").textContent = previousScore !== null ? previousScore : "Ã¢â‚¬â€";
 
 const updateRoundDisplay = () => {
   $(".round").textContent = round;
@@ -392,7 +392,7 @@ const updateInputHint = () => {
 
 const updateModeBadge = () => {
   const label = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
-  $("#mode-pill").textContent = `Mode: ${label} Â· Round ${round}`;
+  $("#mode-pill").textContent = `Mode: ${label} Ã‚Â· Round ${round}`;
 };
 
 const setGameTip = (msg) => {
@@ -402,7 +402,7 @@ const setGameTip = (msg) => {
 const updateTimerDisplay = () => {
   const el = $("#round-timer");
   if (!el) return;
-  el.textContent = `â± ${timeLeft}s`;
+  el.textContent = `Ã¢ÂÂ± ${timeLeft}s`;
   el.classList.toggle("round-timer--warning", timeLeft <= 10);
 };
 
@@ -415,8 +415,8 @@ const stopTimer = () => {
 
 const onTimerExpired = () => {
   stopTimer();
-  setMessage("â° Time's up!");
-  setHint(`â° The number was ${secretNumber}.`);
+  setMessage("Ã¢ÂÂ° Time's up!");
+  setHint(`Ã¢ÂÂ° The number was ${secretNumber}.`);
   setGameTip("Tip: Press Again! to start a new round.");
   setStatusPill("Time out!", "lose");
   $(".score").textContent = 0;
@@ -464,7 +464,7 @@ const refreshGameUI = () => {
 const buildRoundBannerText = () => {
   const guessCount = previousGuesses.length;
   const guessWord = guessCount === 1 ? "guess" : "guesses";
-  return `Round ${round} â€¢ ${score} chances left â€¢ ${guessCount} ${guessWord} tracked`;
+  return `Round ${round} Ã¢â‚¬Â¢ ${score} chances left Ã¢â‚¬Â¢ ${guessCount} ${guessWord} tracked`;
 };
 
 /**
@@ -551,7 +551,7 @@ const resetGameState = (advanceRound = true) => {
 };
 
 const getClosenessLabel = (difference) => {
-  if (difference == null) return "â€”";
+  if (difference == null) return "Ã¢â‚¬â€";
   if (difference === 0) return "Exact";
   if (difference === 1) return "Very Hot";
   if (difference <= 3) return "Hot";
@@ -573,7 +573,7 @@ const updateClosenessDisplay = () => {
 
 const updateGuessStats = () => {
   $(".attempts").textContent = attempts;
-  $(".last-guess").textContent = lastGuess !== null ? lastGuess : "â€”";
+  $(".last-guess").textContent = lastGuess !== null ? lastGuess : "Ã¢â‚¬â€";
   $(".history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
   const usedEl = $("#guesses-used");
   if (usedEl) {
@@ -591,7 +591,7 @@ const updateHighscore = () => {
 };
 
 const updateAvgGuessesDisplay = () => {
-  const avg = gamesPlayed > 0 ? (totalGuesses / gamesPlayed).toFixed(1) : "â€”";
+  const avg = gamesPlayed > 0 ? (totalGuesses / gamesPlayed).toFixed(1) : "Ã¢â‚¬â€";
   const el = $(".avg-guesses");
   if (el) el.textContent = avg;
 };
@@ -615,8 +615,8 @@ const incrementGamesPlayed = () => {
 };
 
 const copyStatsToClipboard = () => {
-  const stats = `ðŸŽ® Guess My Number Stats
-â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+  const stats = `Ã°Å¸Å½Â® Guess My Number Stats
+Ã¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€ÂÃ¢â€Â
 Difficulty: ${difficulty.charAt(0).toUpperCase()}${difficulty.slice(1)}
 Games Played: ${gamesPlayed}
 Current Round: ${round}
@@ -626,7 +626,7 @@ Best Streak: ${bestStreak}
 Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None yet"}`;
 
   const successMessage = () => {
-    setMessage("ðŸ“‹ Game stats copied!");
+    setMessage("Ã°Å¸â€œâ€¹ Game stats copied!");
     showToast("Game stats copied to clipboard", "success");
     setTimeout(() => setMessage("Game on!"), 2000);
   };
@@ -667,7 +667,7 @@ const processGuess = function () {
 
   // Handle empty input gracefully
   if (!guessValue || guessValue.trim() === "") {
-    setMessage("â›” No number!");
+    setMessage("Ã¢â€ºâ€ No number!");
     setGameTip(`Tip: Type a number between ${minNumber} and ${maxNumber}.`);
     updateLastAction("Attempt blocked: empty guess");
     $(".guess").classList.add("shake");
@@ -679,7 +679,7 @@ const processGuess = function () {
 
   // Invalid range
   if (guess < minNumber || guess > maxNumber) {
-    setMessage(`â›” Please enter a number from ${minNumber} to ${maxNumber}.`);
+    setMessage(`Ã¢â€ºâ€ Please enter a number from ${minNumber} to ${maxNumber}.`);
     setGameTip(`Tip: Keep your guess within ${minNumber} and ${maxNumber}.`);
     updateLastAction(`Attempt blocked: ${guess} out of range`);
     $(".guess").classList.add("shake");
@@ -690,7 +690,7 @@ const processGuess = function () {
   }
 
   if (previousGuesses.includes(guess)) {
-    setMessage("âš ï¸ You already guessed that number.");
+    setMessage("Ã¢Å¡Â Ã¯Â¸Â You already guessed that number.");
     setHint("Try a different guess.");
     setGameTip("Tip: Choose a fresh number you have not tried yet.");
     updateLastAction(`Duplicate guess: ${guess}`);
@@ -722,8 +722,8 @@ const processGuess = function () {
   // Handle Correct Guess scenario
   if (guess === secretNumber) {
     playSound("success");
-    setMessage("ðŸŽ‰ Correct Number!");
-    setHint("ðŸŽ‰ You found the secret number!");
+    setMessage("Ã°Å¸Å½â€° Correct Number!");
+    setHint("Ã°Å¸Å½â€° You found the secret number!");
     setGameTip("Tip: Start a fresh round whenever you're ready.");
     setStatusPill("You win!", "win");
     $("body").style.backgroundColor = "#25cc45";
@@ -751,7 +751,7 @@ const processGuess = function () {
     unlockAchievement("first-win", "First Win", "First win unlocked");
 
     if (score === MAX_SCORE) {
-      unlockAchievement("perfect-score", "Perfect Score", "ðŸ… Perfect Score! First guess win!");
+      unlockAchievement("perfect-score", "Perfect Score", "Ã°Å¸Ââ€¦ Perfect Score! First guess win!");
     }
 
     // Update streak
@@ -766,7 +766,7 @@ const processGuess = function () {
     if (score > 1) {
       playSound("error");
       const isTooHigh = guess > secretNumber;
-      setMessage(isTooHigh ? "ðŸ“‰ Too High!" : "ðŸ“ˆ Too Low!");
+      setMessage(isTooHigh ? "Ã°Å¸â€œâ€° Too High!" : "Ã°Å¸â€œË† Too Low!");
 
       // Add color feedback
       $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high");
@@ -774,13 +774,13 @@ const processGuess = function () {
 
       if (difference <= 2) {
         playSound("warm");
-        setHint("ðŸ”¥ Very close!");
-        setGameTip("Tip: You're very close â€” keep going!");
+        setHint("Ã°Å¸â€Â¥ Very close!");
+        setGameTip("Tip: You're very close Ã¢â‚¬â€ keep going!");
       } else if (difference <= 5) {
-        setHint("ðŸŒ¡ï¸ Getting warmer");
+        setHint("Ã°Å¸Å’Â¡Ã¯Â¸Â Getting warmer");
         setGameTip("Tip: You're getting warmer.");
       } else {
-        setHint("ðŸ§­ Keep trying!");
+        setHint("Ã°Å¸Â§Â­ Keep trying!");
         setGameTip("Tip: Try a different range of numbers.");
       }
 
@@ -792,7 +792,7 @@ const processGuess = function () {
 
       // Auto-reset in hard mode after three failed guesses
       if (isHardMode() && attempts >= 3) {
-        setMessage("ðŸ” Hard mode reset after 3 misses.");
+        setMessage("Ã°Å¸â€Â Hard mode reset after 3 misses.");
         setHint("Try again from a fresh round.");
         setGameTip("Tip: Hard mode resets after three misses.");
         $(".number").classList.remove("pop", "win-burst");
@@ -805,8 +805,8 @@ const processGuess = function () {
       $(".number").classList.add("shake");
       setTimeout(() => $(".number").classList.remove("shake"), 200);
     } else {
-      setMessage("ðŸ’¥ You lost the game!");
-      setHint(`ðŸ’¥ The number was ${secretNumber}.`);
+      setMessage("Ã°Å¸â€™Â¥ You lost the game!");
+      setHint(`Ã°Å¸â€™Â¥ The number was ${secretNumber}.`);
       setGameTip("Tip: Press Again! to start a new round.");
       setStatusPill("Game over!", "lose");
       $(".score").textContent = 0;
@@ -875,7 +875,7 @@ $(".btn_check").addEventListener("click", processGuess);
 
 $(".btn_clear_guess").addEventListener("click", function () {
   $(".guess").value = "";
-  setMessage("âœ… Guess cleared.");
+  setMessage("Ã¢Å“â€¦ Guess cleared.");
   setHint("Type a new number and press Enter.");
   showToast("Guess cleared", "warning");
   focusGuessInput();
@@ -886,7 +886,7 @@ $(".btn_reset").addEventListener("click", resetGame);
 
 function resetGame() {
   resetGameState(false);
-  setMessage("ðŸ”„ Game reset.");
+  setMessage("Ã°Å¸â€â€ž Game reset.");
   setHint("Make a guess!");
   setStatusPill("Live play");
   $(".score").textContent = score;
@@ -957,7 +957,7 @@ document.addEventListener("keydown", function (e) {
     const guessInput = $(".guess");
     if (guessInput.value) {
       guessInput.value = "";
-      setMessage("âœ… Guess cleared.");
+      setMessage("Ã¢Å“â€¦ Guess cleared.");
       setHint("Type a new number and press Enter.");
       focusGuessInput();
     }
@@ -1011,10 +1011,10 @@ const initTheme = () => {
   const btnTheme = $(".btn_theme");
   if (savedTheme === "light") {
     document.body.classList.add("light-theme");
-    btnTheme.textContent = "â˜€ï¸";
+    btnTheme.textContent = "Ã¢Ëœâ‚¬Ã¯Â¸Â";
     btnTheme.setAttribute("aria-pressed", "true");
   } else {
-    btnTheme.textContent = "ðŸŒ™";
+    btnTheme.textContent = "Ã°Å¸Å’â„¢";
     btnTheme.setAttribute("aria-pressed", "false");
   }
 };
@@ -1023,7 +1023,7 @@ const toggleTheme = () => {
   const isLight = document.body.classList.toggle("light-theme");
   const btnTheme = $(".btn_theme");
   localStorage.setItem("gameTheme", isLight ? "light" : "dark");
-  btnTheme.textContent = isLight ? "â˜€ï¸" : "ðŸŒ™";
+  btnTheme.textContent = isLight ? "Ã¢Ëœâ‚¬Ã¯Â¸Â" : "Ã°Å¸Å’â„¢";
   btnTheme.setAttribute("aria-pressed", String(isLight));
 };
 
