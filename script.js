@@ -886,7 +886,7 @@ $(".btn_reset").addEventListener("click", resetGame);
 
 function resetGame() {
   resetGameState(false);
-  setMessage("ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ Game reset.");
+  setMessage("ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬Å¾ Game has been reset.");
   setHint("Make a guess!");
   setStatusPill("Live play");
   $(".score").textContent = score;
@@ -1119,6 +1119,7 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
+
 
 
 
