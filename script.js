@@ -610,7 +610,7 @@ const incrementGamesPlayed = () => {
   updateAvgGuessesDisplay();
 
   if (gamesPlayed === 10) {
-    unlockAchievement("ten-games", "Ten Games", "Ten games played unlocked");
+    unlockAchievement("ten-games", "Ten Games", "10 games played unlocked");
   }
 };
 
