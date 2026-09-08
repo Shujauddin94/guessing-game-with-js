@@ -200,6 +200,7 @@ const difficultyEmojis = {
  * Plays audio feedback for game events
  * @param {string} type - The sound type: "success", "error", or "warm"
  */
+// Global sound configuration
 let soundEnabled = localStorage.getItem("soundEnabled") !== "false";
 
 const playSound = (type) => {
