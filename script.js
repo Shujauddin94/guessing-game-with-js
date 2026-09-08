@@ -87,6 +87,9 @@ const saveAchievements = () => {
   updateAchievementsDisplay();
 };
 
+/**
+ * Unlocks a specific achievement and notifies the user
+ */
 const unlockAchievement = (id, displayName, toastText = "") => {
   if (!achievements[id]) {
     achievements[id] = true;
