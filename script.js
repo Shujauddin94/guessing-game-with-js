@@ -512,9 +512,11 @@ updateTimerDisplay();
 updateWinsLossesDisplay();
 updateAvgGuessesDisplay();
 
-// Updates the main game message display
 const setMessage = (msg) => {
-  $(".message").textContent = msg;
+  const msgEl = $(".message");
+  if (msgEl) {
+    msgEl.textContent = msg;
+  }
 };
 
 const setHint = (msg) => {
