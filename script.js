@@ -331,9 +331,15 @@ const toggleControls = (isDisabled) => {
   const guessInput = $(".guess");
   const checkButton = $(".btn_check");
 
-  guessInput.disabled = isDisabled;
-  checkButton.disabled = isDisabled;
-  checkButton.style.opacity = isDisabled ? "0.6" : "1";
+  if (guessInput) {
+    guessInput.disabled = isDisabled;
+    guessInput.setAttribute("aria-disabled", isDisabled);
+  }
+  if (checkButton) {
+    checkButton.disabled = isDisabled;
+    checkButton.style.opacity = isDisabled ? "0.6" : "1";
+    checkButton.setAttribute("aria-disabled", isDisabled);
+  }
 };
 
 // Initialize highscore display
