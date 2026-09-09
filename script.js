@@ -520,7 +520,10 @@ const setMessage = (msg) => {
 };
 
 const setHint = (msg) => {
-  $(".hint").textContent = msg;
+  const hintEl = $(".hint");
+  if (hintEl) {
+    hintEl.textContent = msg;
+  }
 };
 
 const showToast = (msg, type = "info") => {
