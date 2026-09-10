@@ -756,7 +756,7 @@ const processGuess = function () {
     localStorage.setItem("wins", wins);
     updateWinsLossesDisplay();
 
-    if (score > highscore) {
+    if (isHighScoreBeaten()) {
       highscore = score;
       updateHighscore();
       setGameTip("Tip: Amazing! New highscore! Keep the streak going.");
