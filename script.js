@@ -668,7 +668,7 @@ const updateScoreBar = () => {
   const percentage = (score / MAX_SCORE) * 100;
   const fill = $(".score-bar-fill");
   fill.style.width = percentage + "%";
-  fill.classList.toggle("score-bar-fill--danger", score <= 5);
+  fill.classList.toggle("score-bar-fill--danger", isLowScore());
 };
 
 /**
