@@ -411,8 +411,8 @@ const setGameTip = (msg) => {
 const updateTimerDisplay = () => {
   const el = $("#round-timer");
   if (!el) return;
-  el.textContent = `ÃƒÂ¢Ã‚ÂÃ‚Â± ${timeLeft}s`;
-  el.classList.toggle("round-timer--warning", timeLeft <= 10);
+  el.textContent = `ÃƒÂ¢Ã‚Â Ã‚Â± ${timeLeft}s`;
+  el.classList.toggle("round-timer--warning", isTimerLow());
 };
 
 const stopTimer = () => {
