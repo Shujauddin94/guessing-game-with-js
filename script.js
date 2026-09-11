@@ -667,7 +667,7 @@ Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None 
  * Updates the score progress bar UI based on the current score percentage
  */
 const updateScoreBar = () => {
-  const percentage = (score / MAX_SCORE) * 100;
+  const percentage = getScorePercentage();
   const fill = $(".score-bar-fill");
   fill.style.width = percentage + "%";
   fill.classList.toggle("score-bar-fill--danger", isLowScore());
