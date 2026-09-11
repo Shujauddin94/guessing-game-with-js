@@ -360,6 +360,8 @@ const updateStreakDisplay = () => {
   $(".best-streak").textContent = bestStreak;
 };
 
+const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
+
 const updateWinsLossesDisplay = () => {
   const winElement = $(".wins");
   const lossElement = $(".losses");
@@ -367,7 +369,7 @@ const updateWinsLossesDisplay = () => {
   if (winElement) winElement.textContent = wins;
   if (lossElement) lossElement.textContent = losses;
   if (winRateEl) {
-    const winRate = gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
+    const winRate = getWinRatePercentage();
     winRateEl.textContent = `${winRate}%`;
   }
 };
