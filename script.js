@@ -628,6 +628,10 @@ const incrementGamesPlayed = () => {
   if (gamesPlayed === 10) {
     unlockAchievement("ten-games", "Ten Games", "10 games played unlocked");
   }
+
+  if (gamesPlayed === 20) {
+    unlockAchievement("twenty-games", "Twenty Games", "20 games played unlocked");
+  }
 };
 
 const copyStatsToClipboard = () => {
