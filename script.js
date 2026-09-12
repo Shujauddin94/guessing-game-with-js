@@ -632,6 +632,10 @@ const incrementGamesPlayed = () => {
   if (gamesPlayed === 20) {
     unlockAchievement("twenty-games", "Twenty Games", "20 games played unlocked");
   }
+
+  if (gamesPlayed === 30) {
+    unlockAchievement("thirty-games", "Thirty Games", "30 games played unlocked");
+  }
 };
 
 const copyStatsToClipboard = () => {
