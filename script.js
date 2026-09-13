@@ -353,7 +353,8 @@ const updateRoundDisplay = () => {
 };
 
 const updateGamesPlayedDisplay = () => {
-  $(".games-played").textContent = gamesPlayed;
+  const el = $(".games-played");
+  if (el) el.textContent = gamesPlayed;
 };
 
 const updateStreakDisplay = () => {
