@@ -348,7 +348,8 @@ $(".badge-highscore").textContent = highscore;
 $(".previous-score").textContent = previousScore !== null ? previousScore : "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â";
 
 const updateRoundDisplay = () => {
-  $(".round").textContent = round;
+  const el = $(".round");
+  if (el) el.textContent = round;
 };
 
 const updateGamesPlayedDisplay = () => {
