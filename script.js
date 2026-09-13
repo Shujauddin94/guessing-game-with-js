@@ -358,8 +358,10 @@ const updateGamesPlayedDisplay = () => {
 };
 
 const updateStreakDisplay = () => {
-  $(".current-streak").textContent = currentStreak;
-  $(".best-streak").textContent = bestStreak;
+  const cEl = $(".current-streak");
+  const bEl = $(".best-streak");
+  if (cEl) cEl.textContent = currentStreak;
+  if (bEl) bEl.textContent = bestStreak;
 };
 
 const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
