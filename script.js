@@ -32,7 +32,7 @@ let bestStreak = Number(localStorage.getItem("bestStreak")) || 0;
 let totalGuesses = Number(localStorage.getItem("totalGuesses")) || 0;
 let achievements = {};
 
-// Wins/Losses tracking
+// Wins/Losses tracking metrics
 let wins = Number(localStorage.getItem("wins")) || 0;
 let losses = Number(localStorage.getItem("losses")) || 0;
 let previousScore = localStorage.getItem("previousScore") ? Number(localStorage.getItem("previousScore")) : null;
