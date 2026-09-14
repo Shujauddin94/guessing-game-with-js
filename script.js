@@ -37,7 +37,7 @@ let wins = Number(localStorage.getItem("wins")) || 0;
 let losses = Number(localStorage.getItem("losses")) || 0;
 let previousScore = localStorage.getItem("previousScore") ? Number(localStorage.getItem("previousScore")) : null;
 
-// Session tracking (resets on page load)
+// Session games tracking (resets on page load)
 let sessionGames = 0;
 
 const getScorePercentage = () => (score / MAX_SCORE) * 100;
