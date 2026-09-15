@@ -50,6 +50,10 @@ const getScorePercentage = () => (score / MAX_SCORE) * 100;
  * @returns {boolean} True if highscore is beaten
  */
 const isHighScoreBeaten = () => score > highscore;
+/**
+ * Retrieves the remaining time in seconds
+ * @returns {number} The remaining time
+ */
 const getRemainingTime = () => Math.max(0, timeLeft);
 
 const isPerfectScore = () => score === MAX_SCORE;
