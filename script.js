@@ -45,6 +45,10 @@ let sessionGames = 0;
  * @returns {number} The score percentage
  */
 const getScorePercentage = () => (score / MAX_SCORE) * 100;
+/**
+ * Checks if the current score is higher than the recorded highscore
+ * @returns {boolean} True if highscore is beaten
+ */
 const isHighScoreBeaten = () => score > highscore;
 const getRemainingTime = () => Math.max(0, timeLeft);
 
