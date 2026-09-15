@@ -40,6 +40,10 @@ let previousScore = localStorage.getItem("previousScore") ? Number(localStorage.
 // Session games tracking (resets on page load)
 let sessionGames = 0;
 
+/**
+ * Calculates current score as a percentage of max score
+ * @returns {number} The score percentage
+ */
 const getScorePercentage = () => (score / MAX_SCORE) * 100;
 const isHighScoreBeaten = () => score > highscore;
 const getRemainingTime = () => Math.max(0, timeLeft);
