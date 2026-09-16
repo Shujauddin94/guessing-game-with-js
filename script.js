@@ -1028,6 +1028,7 @@ $(".btn_clear_stats").addEventListener("click", function () {
     localStorage.removeItem("bestStreak");
     localStorage.removeItem("wins");
     localStorage.removeItem("losses");
+    localStorage.removeItem(SAVE_KEY);
     updateWinsLossesDisplay();
     updateStreakDisplay();
     resetGameState(false);
