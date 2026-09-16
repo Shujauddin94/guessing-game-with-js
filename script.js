@@ -455,6 +455,9 @@ const onTimerExpired = () => {
   // record loss due to timeout
   losses++;
   localStorage.setItem("losses", losses);
+  if (losses === 1) {
+    unlockAchievement("first-loss", "First Loss", "First loss unlocked");
+  }
   updateWinsLossesDisplay();
   currentStreak = 0;
   localStorage.setItem("currentStreak", currentStreak);
