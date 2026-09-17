@@ -56,6 +56,10 @@ const isHighScoreBeaten = () => score > highscore;
  */
 const getRemainingTime = () => Math.max(0, timeLeft);
 
+/**
+ * Checks if the score is perfect
+ * @returns {boolean} True if score is perfect
+ */
 const isPerfectScore = () => score === MAX_SCORE;
 const isLowScore = () => score <= 5;
 const isTimerLow = () => timeLeft <= 10;
