@@ -66,6 +66,10 @@ const isPerfectScore = () => score === MAX_SCORE;
  * @returns {boolean} True if score is low
  */
 const isLowScore = () => score <= 5;
+/**
+ * Checks if the timer is low (10 seconds or less)
+ * @returns {boolean} True if timer is low
+ */
 const isTimerLow = () => timeLeft <= 10;
 const isHardMode = () => difficulty === "hard";
 const isEasyMode = () => difficulty === "easy";
