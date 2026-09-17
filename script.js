@@ -61,6 +61,10 @@ const getRemainingTime = () => Math.max(0, timeLeft);
  * @returns {boolean} True if score is perfect
  */
 const isPerfectScore = () => score === MAX_SCORE;
+/**
+ * Checks if the score is critically low
+ * @returns {boolean} True if score is low
+ */
 const isLowScore = () => score <= 5;
 const isTimerLow = () => timeLeft <= 10;
 const isHardMode = () => difficulty === "hard";
