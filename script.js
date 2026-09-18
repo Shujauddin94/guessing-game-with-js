@@ -6,8 +6,17 @@
  */
 "use strict";
 
+let maxNumber = 20;
+let minNumber = 1;
+
+/**
+ * Generates a random secret number based on current bounds
+ * @returns {number} The valid random number
+ */
+const generateSecretNumber = () => Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+
 // Generate the initial secret number
-let secretNumber = Math.floor(Math.random() * 20) + 1;
+let secretNumber = generateSecretNumber();
 
 const MAX_SCORE = 20;
 let score = MAX_SCORE;
@@ -21,8 +30,7 @@ let lastAction = "Game ready";
 let timerInterval = null; // Stores the active timer interval ID
 const ROUND_TIME = 60;
 let timeLeft = ROUND_TIME;
-let maxNumber = 20;
-let minNumber = 1;
+
 const SAVE_KEY = "guessMyNumberRoundSaveV1";
 const ACHIEVEMENTS_KEY = "guessMyNumberAchievementsV1";
 let highscore = Number(localStorage.getItem("highscore")) || 0;
@@ -599,7 +607,7 @@ const resetGameState = (advanceRound = true) => {
   if (advanceRound) {
     round++;
   }
-  secretNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+  secretNumber = generateSecretNumber();
   resetTimer();
   updateAttemptsProgress();
   updateRoundBanner();
