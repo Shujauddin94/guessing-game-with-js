@@ -120,7 +120,7 @@ const updateAchievementsDisplay = () => {
     .filter(([, value]) => value)
     .map(([name]) => name);
 
-  const visual = unlocked.length ? unlocked.map((name) => name.replace(/-/g, " ")).join(", ") : "None yet";
+  const visual = unlocked.length ? unlocked.map((name) => name.split("-").map(capitalize).join(" ")).join(", ") : "None yet";
   $(".achievements").textContent = visual;
 };
 
