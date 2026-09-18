@@ -83,6 +83,16 @@ const isEasyMode = () => difficulty === "easy";
  */
 const $ = (q) => document.querySelector(q);
 
+/**
+ * Capitalizes the first letter of a string
+ * @param {string} str - The string to capitalize
+ * @returns {string} The capitalized string
+ */
+const capitalize = (str) => {
+  if (!str) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 const loadAchievements = () => {
   const saved = localStorage.getItem(ACHIEVEMENTS_KEY);
   if (!saved) {
@@ -404,7 +414,7 @@ const updateWinsLossesDisplay = () => {
 
 const updateDifficultyDisplay = () => {
   const emoji = difficultyEmojis[difficulty];
-  $(".difficulty-text").textContent = `${emoji} ${difficulty.charAt(0).toUpperCase()}${difficulty.slice(1)}`;
+  $(".difficulty-text").textContent = `${emoji} ${capitalize(difficulty)}`;
 };
 
 const updateAttemptsProgress = () => {
@@ -430,7 +440,7 @@ const updateInputHint = () => {
 };
 
 const updateModeBadge = () => {
-  const label = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+  const label = capitalize(difficulty);
   $("#mode-pill").textContent = `Mode: ${label} Ãƒâ€šÃ‚Â· Round ${round}`;
 };
 
