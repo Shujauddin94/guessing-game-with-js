@@ -421,8 +421,11 @@ const updateWinsLossesDisplay = () => {
 };
 
 const updateDifficultyDisplay = () => {
-  const emoji = difficultyEmojis[difficulty];
-  $(".difficulty-text").textContent = `${emoji} ${capitalize(difficulty)}`;
+  const emoji = difficultyEmojis[difficulty] || "";
+  const el = $(".difficulty-text");
+  if (el) {
+    el.textContent = `${emoji} ${capitalize(difficulty)}`;
+  }
 };
 
 const updateAttemptsProgress = () => {
