@@ -736,8 +736,10 @@ Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None 
 const updateScoreBar = () => {
   const percentage = getScorePercentage();
   const fill = $(".score-bar-fill");
-  fill.style.width = percentage + "%";
-  fill.classList.toggle("score-bar-fill--danger", isLowScore());
+  if (fill) {
+    fill.style.width = percentage + "%";
+    fill.classList.toggle("score-bar-fill--danger", isLowScore());
+  }
 };
 
 /**
