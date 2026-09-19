@@ -453,7 +453,10 @@ const updateModeBadge = () => {
 };
 
 const setGameTip = (msg) => {
-  $("#game-tip").textContent = msg;
+  const tipEl = $("#game-tip");
+  if (tipEl) {
+    tipEl.textContent = msg;
+  }
 };
 
 const updateTimerDisplay = () => {
