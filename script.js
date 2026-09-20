@@ -336,9 +336,11 @@ const toggleSound = () => {
  */
 const focusGuessInput = () => {
   const guessInput = $(".guess");
-  guessInput.scrollIntoView({ behavior: "smooth", block: "center" });
-  guessInput.focus();
-  guessInput.select();
+  if (guessInput) {
+    guessInput.scrollIntoView({ behavior: "smooth", block: "center" });
+    guessInput.focus();
+    guessInput.select();
+  }
 };
 
 /**
