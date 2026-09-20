@@ -391,7 +391,7 @@ $(".previous-score").textContent = previousScore !== null ? previousScore : "ÃƒÆ
 
 const updateRoundDisplay = () => {
   const el = $(".round");
-  if (el) el.textContent = round;
+  if (el) el.textContent = String(round);
 };
 
 const updateGamesPlayedDisplay = () => {
