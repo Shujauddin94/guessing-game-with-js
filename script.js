@@ -324,7 +324,7 @@ const updateSoundButton = () => {
 
 const toggleSound = () => {
   soundEnabled = !soundEnabled;
-  localStorage.setItem("soundEnabled", soundEnabled);
+  localStorage.setItem("soundEnabled", soundEnabled.toString());
   updateSoundButton();
 };
 
