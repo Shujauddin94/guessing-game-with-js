@@ -96,7 +96,7 @@ const $ = (q) => document.querySelector(q);
  * @param {string} str - The string to capitalize
  * @returns {string} The capitalized string
  */
-const capitalize = (str) => (str ? str.charAt(0).toUpperCase() + str.slice(1) : "");
+const capitalize = (str) => (typeof str === 'string' && str.length > 0 ? str.charAt(0).toUpperCase() + str.slice(1) : "");
 
 const loadAchievements = () => {
   const saved = localStorage.getItem(ACHIEVEMENTS_KEY);
