@@ -127,6 +127,9 @@ const updateAchievementsDisplay = () => {
   $(".achievements").textContent = visual;
 };
 
+/**
+ * Saves current achievements to local storage and updates UI
+ */
 const saveAchievements = () => {
   localStorage.setItem(ACHIEVEMENTS_KEY, JSON.stringify(achievements));
   updateAchievementsDisplay();
