@@ -115,6 +115,9 @@ const loadAchievements = () => {
   }
 };
 
+/**
+ * Updates the visual display of achievements in the UI
+ */
 const updateAchievementsDisplay = () => {
   const unlocked = Object.entries(achievements || {})
     .filter(([, value]) => value)
