@@ -98,6 +98,9 @@ const $ = (q) => document.querySelector(q);
  */
 const capitalize = (str) => (typeof str === 'string' && str.length > 0 ? str.charAt(0).toUpperCase() + str.slice(1) : "");
 
+/**
+ * Loads achievements from local storage
+ */
 const loadAchievements = () => {
   const saved = localStorage.getItem(ACHIEVEMENTS_KEY);
   if (!saved) {
