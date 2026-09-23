@@ -673,6 +673,9 @@ const updateHighscore = () => {
   $(".badge-highscore").textContent = highscore;
 };
 
+/**
+ * Updates the average guesses display in the UI
+ */
 const updateAvgGuessesDisplay = () => {
   const avg = gamesPlayed > 0 ? (totalGuesses / gamesPlayed).toFixed(1) : "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â";
   const el = $(".avg-guesses");
