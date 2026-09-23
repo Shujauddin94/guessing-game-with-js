@@ -414,6 +414,10 @@ const updateStreakDisplay = () => {
   if (bEl) bEl.textContent = bestStreak;
 };
 
+/**
+ * Calculates current win rate percentage
+ * @returns {number} The win rate percentage
+ */
 const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
 
 const updateWinsLossesDisplay = () => {
