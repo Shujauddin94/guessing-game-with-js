@@ -681,6 +681,21 @@ const updateHighscore = () => {
 };
 
 /**
+ * Returns a formatted summary string for the current round state
+ * @returns {string} A human-readable summary of the current round
+ */
+const getRoundSummary = () => {
+  const guessWord = previousGuesses.length === 1 ? "guess" : "guesses";
+  const streakText = currentStreak > 0 ? `${currentStreak}-game streak` : "no active streak";
+  return [
+    `Round ${round} \u00b7 ${capitalize(difficulty)} mode`,
+    `Score: ${score}/${MAX_SCORE} \u00b7 ${attempts} ${guessWord} made`,
+    `Highscore: ${highscore} \u00b7 ${streakText}`,
+    previousGuesses.length ? `Guesses so far: ${previousGuesses.join(", ")}` : "No guesses yet"
+  ].join("\n");
+};
+
+/**
  * Updates the average guesses display in the UI
  */
 const updateAvgGuessesDisplay = () => {
