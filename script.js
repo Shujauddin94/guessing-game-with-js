@@ -377,6 +377,13 @@ const markInvalidInput = () => {
   setTimeout(() => guessInput.classList.remove("guess--invalid"), 400);
 };
 
+/**
+ * Removes all guess feedback CSS classes from the input element
+ */
+const clearGuessInputState = () => {
+  $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
+};
+
 const toggleControls = (isDisabled) => {
   const guessInput = $(".guess");
   const checkButton = $(".btn_check");
@@ -970,7 +977,7 @@ $(".difficulty-select").addEventListener("change", function (e) {
   setGameTip(`Tip: Enter a number from 1 to ${maxNumber}.`);
   $(".number").textContent = "?";
   $(".guess").value = "";
-  $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
+  clearGuessInputState();
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   toggleControls(false);
   focusGuessInput();
@@ -1001,7 +1008,7 @@ function resetGame() {
   refreshGameUI();
   $(".number").textContent = "?";
   $(".guess").value = "";
-  $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
+  clearGuessInputState();
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   toggleControls(false);
   focusGuessInput();
@@ -1032,11 +1039,10 @@ $(".btn_again").addEventListener("click", function () {
   $(".number").textContent = "?";
   $(".number").classList.remove("win-burst");
   $(".guess").value = "";
-  $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
+  clearGuessInputState();
 
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   $(".number").classList.remove("pop");
-  $(".guess").classList.remove("guess--invalid");
   toggleControls(false);
   focusGuessInput();
 });
@@ -1104,7 +1110,7 @@ $(".btn_clear_stats").addEventListener("click", function () {
     updateRoundDisplay();
     $(".number").textContent = "?";
     $(".guess").value = "";
-    $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
+    clearGuessInputState();
     $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
     toggleControls(false);
     focusGuessInput();
