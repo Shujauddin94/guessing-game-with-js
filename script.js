@@ -732,6 +732,10 @@ const incrementGamesPlayed = () => {
   if (gamesPlayed === 50) {
     unlockAchievement("fifty-games", "Fifty Games", "50 games played unlocked");
   }
+
+  if (gamesPlayed === 75) {
+    unlockAchievement("seventy-five-games", "Seventy-Five Games", "75 games played unlocked");
+  }
 };
 
 /**
