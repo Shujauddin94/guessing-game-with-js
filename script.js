@@ -592,7 +592,6 @@ focusGuessInput();
 toggleControls(false);
 updateTimerDisplay();
 updateWinsLossesDisplay();
-updateAvgGuessesDisplay();
 
 const setMessage = (msg) => {
   const msgEl = $(".message");
@@ -703,6 +702,8 @@ const updateAvgGuessesDisplay = () => {
   const el = $(".avg-guesses");
   if (el) el.textContent = avg;
 };
+
+updateAvgGuessesDisplay();
 
 const incrementGamesPlayed = () => {
   previousScore = score;
