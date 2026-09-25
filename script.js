@@ -1114,19 +1114,28 @@ $(".btn_clear_stats").addEventListener("click", function () {
     bestStreak = 0;
     wins = 0;
     losses = 0;
+    totalGuesses = 0;
+    previousScore = null;
+    achievements = {};
     $(".highscore").textContent = 0;
     $(".badge-highscore").textContent = 0;
     $(".games-played").textContent = 0;
     $(".current-streak").textContent = 0;
+    $(".previous-score").textContent = "—";
     localStorage.removeItem("highscore");
     localStorage.removeItem("gamesPlayed");
     localStorage.removeItem("currentStreak");
     localStorage.removeItem("bestStreak");
     localStorage.removeItem("wins");
     localStorage.removeItem("losses");
+    localStorage.removeItem("totalGuesses");
+    localStorage.removeItem("previousScore");
+    localStorage.removeItem(ACHIEVEMENTS_KEY);
     localStorage.removeItem(SAVE_KEY);
     updateWinsLossesDisplay();
     updateStreakDisplay();
+    updateAvgGuessesDisplay();
+    updateAchievementsDisplay();
     resetGameState(false);
 
     setMessage("Stats cleared! Ready for a fresh start.");
