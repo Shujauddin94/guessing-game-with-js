@@ -806,6 +806,15 @@ const processGuess = function () {
     return;
   }
 
+  if (!Number.isInteger(guess)) {
+    setMessage("Please enter a whole number.");
+    setGameTip(`Tip: Choose a whole number from ${minNumber} to ${maxNumber}.`);
+    updateLastAction(`Attempt blocked: ${guess} is not a whole number`);
+    markInvalidInput();
+    focusGuessInput();
+    return;
+  }
+
   // Invalid range
   if (guess < minNumber || guess > maxNumber) {
     setMessage(`ÃƒÂ¢Ã¢â‚¬ÂºÃ¢â‚¬Â Please enter a number from ${minNumber} to ${maxNumber}.`);
