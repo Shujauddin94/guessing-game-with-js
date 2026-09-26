@@ -860,6 +860,7 @@ const processGuess = function () {
 
   // Handle Correct Guess scenario
   if (guess === secretNumber) {
+    stopTimer();
     playSound("success");
     setMessage("ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° Correct Number!");
     setHint("ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° You found the secret number!");
@@ -944,6 +945,7 @@ const processGuess = function () {
       $(".number").classList.add("shake");
       setTimeout(() => $(".number").classList.remove("shake"), 200);
     } else {
+      stopTimer();
       setMessage("ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¥ You lost the game!");
       setHint(`ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¥ The number was ${secretNumber}.`);
       setGameTip("Tip: Press Again! to start a new round.");
