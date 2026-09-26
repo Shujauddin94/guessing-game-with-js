@@ -1019,6 +1019,7 @@ $(".btn_check").addEventListener("click", processGuess);
 
 $(".btn_clear_guess").addEventListener("click", function () {
   $(".guess").value = "";
+  clearGuessInputState();
   setMessage("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Guess cleared.");
   setHint("Type a new number and press Enter.");
   showToast("Guess cleared", "warning");
@@ -1105,6 +1106,7 @@ document.addEventListener("keydown", function (e) {
     const guessInput = $(".guess");
     if (guessInput.value) {
       guessInput.value = "";
+      clearGuessInputState();
       setMessage("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Guess cleared.");
       setHint("Type a new number and press Enter.");
       focusGuessInput();
