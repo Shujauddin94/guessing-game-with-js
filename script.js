@@ -1078,6 +1078,9 @@ $(".btn_again").addEventListener("click", function () {
   focusGuessInput();
 });
 
+const isAnyModalOpen = () =>
+  $("#stats-modal").classList.contains("active") || $("#help-modal").classList.contains("active");
+
 // Allow Escape key to reset game, close stats or help modal, and R key to restart
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
@@ -1091,6 +1094,8 @@ document.addEventListener("keydown", function (e) {
     }
     $(".btn_again").click();
   }
+
+  if (isAnyModalOpen()) return;
 
   if ((e.key.toLowerCase() === "r" || e.key.toLowerCase() === "n") && document.activeElement !== $(".guess")) {
     $(".btn_again").click();
@@ -1242,6 +1247,7 @@ $("#help-modal").addEventListener("click", (e) => {
 
 // Keyboard shortcuts for help, stats, and theme
 document.addEventListener("keydown", (e) => {
+  if (isAnyModalOpen()) return;
   if (e.target.tagName.toLowerCase() === 'input') return; // Don't trigger when typing in input
   if (e.key === "?" || e.key.toLowerCase() === "h") {
     e.preventDefault();
