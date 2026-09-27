@@ -482,6 +482,15 @@ const setGameTip = (msg) => {
   }
 };
 
+const toggleGameTips = () => {
+  const tipEl = $("#game-tip");
+  const toggle = $(".btn_tips");
+  const isVisible = tipEl.style.visibility !== "hidden";
+  tipEl.style.visibility = isVisible ? "hidden" : "visible";
+  toggle.setAttribute("aria-pressed", String(!isVisible));
+  showToast(isVisible ? "Tips hidden" : "Tips visible", "info");
+};
+
 const updateTimerDisplay = () => {
   const el = $("#round-timer");
   if (!el) return;
@@ -1017,6 +1026,7 @@ $(".difficulty-select").addEventListener("change", function (e) {
 
 // Check Button Click
 $(".btn_check").addEventListener("click", processGuess);
+$(".btn_tips").addEventListener("click", toggleGameTips);
 
 $(".btn_clear_guess").addEventListener("click", function () {
   $(".guess").value = "";
@@ -1278,12 +1288,7 @@ document.addEventListener("keydown", (e) => {
     focusGuessInput();
   } else if (e.key.toLowerCase() === "g") {
     e.preventDefault();
-    const tipEl = $("#game-tip");
-    if (tipEl) {
-      const hidden = tipEl.style.visibility === "hidden";
-      tipEl.style.visibility = hidden ? "visible" : "hidden";
-      showToast(hidden ? "Tips visible" : "Tips hidden", "info");
-    }
+    toggleGameTips();
   }
 });
 

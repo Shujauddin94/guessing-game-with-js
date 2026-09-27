@@ -462,6 +462,23 @@ button:hover:not(:disabled) {
   opacity: 0.9;
 }
 
+.btn_tips {
+  position: relative;
+  bottom: 90px;
+  margin-bottom: 0.8rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+body.light-theme .btn_tips {
+  color: #333;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
 .last-action {
   position: relative;
   bottom: 70px;
