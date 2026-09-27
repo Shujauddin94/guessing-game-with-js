@@ -343,7 +343,8 @@ const toggleSound = () => {
 const focusGuessInput = () => {
   const guessInput = $(".guess");
   if (guessInput) {
-    guessInput.scrollIntoView({ behavior: "smooth", block: "center" });
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    guessInput.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
     guessInput.focus();
     guessInput.select();
   }
