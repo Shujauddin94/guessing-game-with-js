@@ -1251,6 +1251,11 @@ $("#help-modal").addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (isAnyModalOpen()) return;
   if (e.target.tagName.toLowerCase() === 'input') return; // Don't trigger when typing in input
+  if (e.key === "Enter" && $(".btn_check").disabled) {
+    e.preventDefault();
+    $(".btn_again").click();
+    return;
+  }
   if (e.key === "?" || e.key.toLowerCase() === "h") {
     e.preventDefault();
     toggleHelpModal();
