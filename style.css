@@ -750,6 +750,23 @@ body.light-theme .btn_tips {
   gap: 0.8rem;
 }
 
+.timed-mode-selector {
+  position: absolute;
+  top: 18%;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #ffe8a6;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.timed-mode-toggle {
+  accent-color: #ffe8a6;
+  cursor: pointer;
+}
+
 .difficulty-selector label {
   font-size: 1.4rem;
   color: #ffe8a6;
@@ -1162,6 +1179,11 @@ body.light-theme .message {
     /* Move difficulty up slightly */
   }
 
+  .timed-mode-selector {
+    position: static;
+    margin-bottom: 1.5rem;
+  }
+
   body.light-theme .difficulty-selector {
     background: rgba(0, 0, 0, 0.1);
   }
@@ -1172,6 +1194,10 @@ body.light-theme .message {
   }
 
   body.light-theme .difficulty-selector label {
+    color: #333;
+  }
+
+  body.light-theme .timed-mode-selector {
     color: #333;
   }
 

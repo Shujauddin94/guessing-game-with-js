@@ -30,6 +30,7 @@ let lastAction = "Game ready";
 let timerInterval = null; // Stores the active timer interval ID
 const ROUND_TIME = 60;
 let timeLeft = ROUND_TIME;
+let timedMode = localStorage.getItem("timedMode") !== "false";
 
 const SAVE_KEY = "guessMyNumberRoundSaveV1";
 const ACHIEVEMENTS_KEY = "guessMyNumberAchievementsV1";
@@ -156,6 +157,7 @@ const saveRoundState = () => {
     previousGuesses,
     round,
     difficulty,
+    timedMode,
     timeLeft,
     maxNumber,
     highscore,
@@ -189,6 +191,7 @@ const restoreRoundState = () => {
     previousGuesses = Array.isArray(snapshot.previousGuesses) ? snapshot.previousGuesses : [];
     round = Number(snapshot.round || 1);
     difficulty = snapshot.difficulty || "medium";
+    timedMode = snapshot.timedMode ?? timedMode;
     timeLeft = Number(snapshot.timeLeft ?? ROUND_TIME);
     maxNumber = Number(snapshot.maxNumber || 20);
     highscore = Number(snapshot.highscore || 0);
@@ -202,6 +205,10 @@ const restoreRoundState = () => {
     const selected = $(".difficulty-select");
     if (selected) {
       selected.value = difficulty;
+    }
+    const timedModeToggle = $(".timed-mode-toggle");
+    if (timedModeToggle) {
+      timedModeToggle.checked = timedMode;
     }
 
     $(".guess").max = maxNumber;
@@ -494,6 +501,11 @@ const toggleGameTips = () => {
 const updateTimerDisplay = () => {
   const el = $("#round-timer");
   if (!el) return;
+  if (!timedMode) {
+    el.textContent = "Off";
+    el.classList.remove("round-timer--warning");
+    return;
+  }
   el.textContent = `ÃƒÂ¢Ã‚Â Ã‚Â± ${timeLeft}s`;
   el.classList.toggle("round-timer--warning", isTimerLow());
 };
@@ -530,7 +542,7 @@ const onTimerExpired = () => {
 };
 
 const startTimer = () => {
-  if (timerInterval) return;
+  if (!timedMode || timerInterval) return;
   timerInterval = setInterval(() => {
     timeLeft--;
     updateTimerDisplay();
@@ -602,6 +614,7 @@ focusGuessInput();
 toggleControls(false);
 updateTimerDisplay();
 updateWinsLossesDisplay();
+$(".timed-mode-toggle").checked = timedMode;
 
 const setMessage = (msg) => {
   const msgEl = $(".message");
@@ -1022,6 +1035,14 @@ $(".difficulty-select").addEventListener("change", function (e) {
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   toggleControls(false);
   focusGuessInput();
+});
+
+$(".timed-mode-toggle").addEventListener("change", function (e) {
+  timedMode = e.target.checked;
+  localStorage.setItem("timedMode", String(timedMode));
+  resetGame();
+  updateTimerDisplay();
+  showToast(timedMode ? "Countdown timer enabled" : "Practice mode enabled", "info");
 });
 
 // Check Button Click
