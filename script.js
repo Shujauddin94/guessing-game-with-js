@@ -883,12 +883,17 @@ const processGuess = function () {
 
   // Handle Correct Guess scenario
   if (guess === secretNumber) {
+    const isPerfectRound = score === MAX_SCORE;
+    const timeBonus = timedMode ? Math.min(MAX_SCORE - score, Math.floor(timeLeft / 10)) : 0;
+    score += timeBonus;
     stopTimer();
     playSound("success");
-    setMessage("ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° Correct Number!");
-    setHint("ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° You found the secret number!");
+    setMessage(timeBonus > 0 ? `Correct Number! +${timeBonus} time bonus` : "ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° Correct Number!");
+    setHint(timeBonus > 0 ? `You found the secret number and earned ${timeBonus} bonus points for time left.` : "ÃƒÂ°Ã…Â¸Ã…Â½Ã¢â‚¬Â° You found the secret number!");
     setGameTip("Tip: Start a fresh round whenever you're ready.");
     setStatusPill("You win!", "win");
+    $(".score").textContent = score;
+    updateScoreBar();
     $("body").style.backgroundColor = "#25cc45";
     $(".number").textContent = secretNumber;
     $(".number").classList.remove("flip-reveal");
@@ -913,7 +918,7 @@ const processGuess = function () {
 
     unlockAchievement("first-win", "First Win", "First win unlocked");
 
-    if (score === MAX_SCORE) {
+    if (isPerfectRound) {
       unlockAchievement("perfect-score", "Perfect Score", "ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬Â¦ Perfect Score! First guess win!");
     }
 
