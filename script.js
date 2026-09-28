@@ -668,7 +668,8 @@ const getClosenessLabel = (difference) => {
   if (difference === 1) return "Very Hot";
   if (difference <= 3) return "Hot";
   if (difference <= 6) return "Warm";
-  return "Cold";
+  if (difference <= 10) return "Cold";
+  return "Very Cold";
 };
 
 const updateClosenessDisplay = () => {
@@ -680,7 +681,7 @@ const updateClosenessDisplay = () => {
   status.textContent = label;
   status.classList.toggle("is-hot", label === "Hot");
   status.classList.toggle("is-warm", label === "Warm");
-  status.classList.toggle("is-cold", label === "Cold" || label === "Exact");
+  status.classList.toggle("is-cold", label === "Cold" || label === "Very Cold" || label === "Exact");
 };
 
 const updateGuessStats = () => {
@@ -759,6 +760,10 @@ const incrementGamesPlayed = () => {
 
   if (gamesPlayed === 75) {
     unlockAchievement("seventy-five-games", "Seventy-Five Games", "75 games played unlocked");
+  }
+
+  if (gamesPlayed === 100) {
+    unlockAchievement("century-club", "Century Club", "🎖️ Century Club: 100 games played!");
   }
 };
 
