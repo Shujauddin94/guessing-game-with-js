@@ -506,7 +506,10 @@ const updateTimerDisplay = () => {
     el.classList.remove("round-timer--warning");
     return;
   }
-  el.textContent = `ÃƒÂ¢Ã‚Â Ã‚Â± ${timeLeft}s`;
+  const m = Math.floor(timeLeft / 60);
+  const s = timeLeft % 60;
+  const timeString = m > 0 ? `${m}:${s.toString().padStart(2, '0')}` : `${s}s`;
+  el.textContent = `⏳ ${timeString}`;
   el.classList.toggle("round-timer--warning", isTimerLow());
 };
 
