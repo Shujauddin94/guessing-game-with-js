@@ -1329,6 +1329,13 @@ document.addEventListener("keydown", (e) => {
   } else if (e.key.toLowerCase() === "g") {
     e.preventDefault();
     toggleGameTips();
+  } else if (e.key.toLowerCase() === "p") {
+    e.preventDefault();
+    const toggle = $(".timed-mode-toggle");
+    if (toggle) {
+      toggle.checked = !toggle.checked;
+      toggle.dispatchEvent(new Event('change'));
+    }
   }
 });
 
