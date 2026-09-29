@@ -1123,10 +1123,14 @@ $(".btn_again").addEventListener("click", function () {
 
 const isAnyModalOpen = () =>
   $("#stats-modal").classList.contains("active") || $("#help-modal").classList.contains("active");
+const isEditableTarget = (target) =>
+  target instanceof HTMLElement &&
+  (target.isContentEditable || target.matches("input, select, textarea"));
 
 // Allow Escape key to reset game, close stats or help modal, and R key to restart
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
+    if (isEditableTarget(e.target) && e.target !== $(".guess")) return;
     if ($("#stats-modal").classList.contains("active")) {
       closeStatsModal();
       return;
@@ -1139,6 +1143,8 @@ document.addEventListener("keydown", function (e) {
   }
 
   if (isAnyModalOpen()) return;
+
+  if (isEditableTarget(e.target) && e.target !== $(".guess")) return;
 
   if ((e.key.toLowerCase() === "r" || e.key.toLowerCase() === "n") && document.activeElement !== $(".guess")) {
     $(".btn_again").click();
@@ -1292,7 +1298,7 @@ $("#help-modal").addEventListener("click", (e) => {
 // Keyboard shortcuts for help, stats, and theme
 document.addEventListener("keydown", (e) => {
   if (isAnyModalOpen()) return;
-  if (e.target.tagName.toLowerCase() === 'input') return; // Don't trigger when typing in input
+  if (isEditableTarget(e.target)) return;
   if (e.key === "Enter" && $(".btn_check").disabled) {
     e.preventDefault();
     $(".btn_again").click();
