@@ -82,6 +82,7 @@ const isLowScore = () => score <= 5;
 const isTimerLow = () => timeLeft <= 10;
 const isHardMode = () => difficulty === "hard";
 const isEasyMode = () => difficulty === "easy";
+const isMediumMode = () => difficulty === "medium";
 
 // Game is now ready for player input
 
