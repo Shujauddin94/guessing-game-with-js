@@ -66,6 +66,12 @@ const isHighScoreBeaten = () => score > highscore;
 const getRemainingTime = () => Math.max(0, timeLeft);
 
 /**
+ * Retrieves the remaining attempts
+ * @returns {number} The remaining attempts
+ */
+const getRemainingAttempts = () => score;
+
+/**
  * Checks if the score is perfect
  * @returns {boolean} True if score is perfect
  */
