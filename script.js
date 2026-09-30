@@ -400,6 +400,16 @@ const clearGuessInputState = () => {
   $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct", "guess--invalid");
 };
 
+const updateUndoButton = () => {
+  const button = $(".btn_undo");
+  if (!button) return;
+
+  const roundEnded = $(".btn_check").disabled || previousGuesses.includes(secretNumber);
+  const hardModeResetPending = isHardMode() && attempts >= 3;
+  button.disabled = !previousGuesses.length || roundEnded || hardModeResetPending;
+  button.setAttribute("aria-disabled", String(button.disabled));
+};
+
 const toggleControls = (isDisabled) => {
   const guessInput = $(".guess");
   const checkButton = $(".btn_check");
@@ -413,6 +423,7 @@ const toggleControls = (isDisabled) => {
     checkButton.style.opacity = isDisabled ? "0.6" : "1";
     checkButton.setAttribute("aria-disabled", isDisabled);
   }
+  updateUndoButton();
 };
 
 // Initialize highscore display
@@ -706,6 +717,30 @@ const updateGuessStats = () => {
   updateClosenessDisplay();
   updateAchievementsDisplay();
   updateRoundBanner();
+  updateUndoButton();
+};
+
+const undoLastGuess = () => {
+  const undoButton = $(".btn_undo");
+  if (!undoButton || undoButton.disabled) return;
+
+  const undoneGuess = previousGuesses.pop();
+  score = Math.min(score + 1, MAX_SCORE);
+  attempts = Math.max(attempts - 1, 0);
+  lastGuess = previousGuesses.length ? previousGuesses[previousGuesses.length - 1] : null;
+  lastDifference = lastGuess === null ? null : Math.abs(lastGuess - secretNumber);
+
+  $(".score").textContent = score;
+  $(".guess").classList.remove("guess--feedback-low", "guess--feedback-high", "guess--feedback-correct");
+  setMessage(`Guess ${undoneGuess} undone.`);
+  setHint("Try a different number.");
+  setGameTip(`Tip: Enter a number from ${minNumber} to ${maxNumber}.`);
+  updateLastAction(`Undid guess: ${undoneGuess}`);
+  updateScoreBar();
+  updateAttemptsProgress();
+  updateGuessStats();
+  saveRoundState();
+  focusGuessInput();
 };
 
 const updateHighscore = () => {
@@ -1068,9 +1103,10 @@ $(".timed-mode-toggle").addEventListener("change", function (e) {
 
 // Check Button Click
 $(".btn_check").addEventListener("click", processGuess);
+$(".btn_undo").addEventListener("click", undoLastGuess);
 $(".btn_tips").addEventListener("click", toggleGameTips);
 
-$(".btn_clear_guess").addEventListener("click", function () {
+$(".btn_clear_guess:not(.btn_undo)").addEventListener("click", function () {
   $(".guess").value = "";
   clearGuessInputState();
   setMessage("ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Guess cleared.");
@@ -1170,6 +1206,8 @@ document.addEventListener("keydown", function (e) {
       setHint("Type a new number and press Enter.");
       focusGuessInput();
     }
+  } else if (e.key.toLowerCase() === "u") {
+    undoLastGuess();
   }
 });
 
