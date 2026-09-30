@@ -9,6 +9,15 @@
 let maxNumber = 20;
 let minNumber = 1;
 
+const getDailyChallengeDate = () => new Date().toISOString().slice(0, 10);
+const getDailyChallengeNumber = (date) => {
+  let seed = 0;
+  for (let index = 0; index < date.length; index++) {
+    seed = (seed * 31 + date.charCodeAt(index)) >>> 0;
+  }
+  return (seed % 20) + 1;
+};
+
 /**
  * Generates a random secret number based on current bounds
  * @returns {number} The valid random number
@@ -26,6 +35,8 @@ let lastDifference = null;
 let previousGuesses = [];
 let round = 1;
 let difficulty = "medium"; // easy, medium, hard
+let dailyChallenge = false;
+let dailyChallengeDate = "";
 let lastAction = "Game ready";
 let timerInterval = null; // Stores the active timer interval ID
 const ROUND_TIME = 60;
@@ -165,6 +176,8 @@ const saveRoundState = () => {
     previousGuesses,
     round,
     difficulty,
+    dailyChallenge,
+    dailyChallengeDate,
     timedMode,
     timeLeft,
     maxNumber,
@@ -191,23 +204,35 @@ const restoreRoundState = () => {
 
   try {
     const snapshot = JSON.parse(saved);
-    secretNumber = Number(snapshot.secretNumber);
+    dailyChallenge = snapshot.dailyChallenge === true;
+    dailyChallengeDate = dailyChallenge ? getDailyChallengeDate() : "";
+    const isNewDailyChallenge = dailyChallenge && snapshot.dailyChallengeDate !== dailyChallengeDate;
+    secretNumber = dailyChallenge ? getDailyChallengeNumber(dailyChallengeDate) : Number(snapshot.secretNumber);
     score = Number(snapshot.score);
     attempts = Number(snapshot.attempts || 0);
     lastGuess = snapshot.lastGuess;
     lastDifference = snapshot.lastDifference ?? null;
     previousGuesses = Array.isArray(snapshot.previousGuesses) ? snapshot.previousGuesses : [];
     round = Number(snapshot.round || 1);
-    difficulty = snapshot.difficulty || "medium";
+    difficulty = dailyChallenge ? "medium" : snapshot.difficulty || "medium";
     timedMode = snapshot.timedMode ?? timedMode;
     timeLeft = Number(snapshot.timeLeft ?? ROUND_TIME);
-    maxNumber = Number(snapshot.maxNumber || 20);
+    maxNumber = dailyChallenge ? 20 : Number(snapshot.maxNumber || 20);
     highscore = Number(snapshot.highscore || 0);
     gamesPlayed = Number(snapshot.gamesPlayed || 0);
     wins = Number(snapshot.wins || localStorage.getItem("wins") || 0);
     losses = Number(snapshot.losses || localStorage.getItem("losses") || 0);
     currentStreak = Number(snapshot.currentStreak || 0);
     bestStreak = Number(snapshot.bestStreak || 0);
+    if (isNewDailyChallenge) {
+      score = MAX_SCORE;
+      attempts = 0;
+      lastGuess = null;
+      lastDifference = null;
+      previousGuesses = [];
+      round = 1;
+      timeLeft = ROUND_TIME;
+    }
     const lastSavedAt = Number(snapshot.lastSavedAt || snapshot.savedAt || Date.now());
 
     const selected = $(".difficulty-select");
@@ -249,6 +274,7 @@ const restoreRoundState = () => {
     updateTimerDisplay();
     updateClosenessDisplay();
     updateWinsLossesDisplay();
+    if (isNewDailyChallenge) saveRoundState();
     return true;
   } catch (error) {
     localStorage.removeItem(SAVE_KEY);
@@ -498,7 +524,14 @@ const updateInputHint = () => {
 
 const updateModeBadge = () => {
   const label = capitalize(difficulty);
-  $("#mode-pill").textContent = `Mode: ${label} Ãƒâ€šÃ‚Â· Round ${round}`;
+  $("#mode-pill").textContent = dailyChallenge
+    ? `Daily Challenge: ${dailyChallengeDate}`
+    : `Mode: ${label} Ãƒâ€šÃ‚Â· Round ${round}`;
+  const dailyButton = $(".btn_daily");
+  if (dailyButton) {
+    dailyButton.textContent = dailyChallenge ? "Exit Daily Challenge" : "Play Daily Challenge";
+    dailyButton.setAttribute("aria-pressed", String(dailyChallenge));
+  }
 };
 
 const setGameTip = (msg) => {
@@ -676,7 +709,8 @@ const resetGameState = (advanceRound = true) => {
   if (advanceRound) {
     round++;
   }
-  secretNumber = generateSecretNumber();
+  if (dailyChallenge) dailyChallengeDate = getDailyChallengeDate();
+  secretNumber = dailyChallenge ? getDailyChallengeNumber(dailyChallengeDate) : generateSecretNumber();
   resetTimer();
   updateAttemptsProgress();
   updateRoundBanner();
@@ -1056,6 +1090,8 @@ const processGuess = function () {
 
 // Difficulty selector handler
 $(".difficulty-select").addEventListener("change", function (e) {
+  dailyChallenge = false;
+  dailyChallengeDate = "";
   difficulty = e.target.value;
 
   switch (difficulty) {
@@ -1091,6 +1127,27 @@ $(".difficulty-select").addEventListener("change", function (e) {
   $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
   toggleControls(false);
   focusGuessInput();
+});
+
+$(".btn_daily").addEventListener("click", function () {
+  dailyChallenge = !dailyChallenge;
+  dailyChallengeDate = dailyChallenge ? getDailyChallengeDate() : "";
+  difficulty = "medium";
+  maxNumber = 20;
+  minNumber = 1;
+  $(".difficulty-select").value = difficulty;
+  updateRangeDisplay();
+  $(".guess").max = maxNumber;
+  resetGame();
+
+  if (dailyChallenge) {
+    setMessage(`Daily challenge for ${dailyChallengeDate}. Start guessing!`);
+    setHint("Today's secret number is the same for everyone.");
+    setGameTip("Tip: Find today's number between 1 and 20.");
+    setStatusPill("Daily challenge");
+  } else {
+    setMessage("Standard Medium mode restored.");
+  }
 });
 
 $(".timed-mode-toggle").addEventListener("change", function (e) {
