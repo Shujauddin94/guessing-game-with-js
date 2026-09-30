@@ -1,0 +1,5 @@
+f7c4556 Add getRemainingAttempts helper function
+017fe9f Add isMediumMode helper function
+7a6bb45 Add keyboard shortcut for timed mode
+9195fb9 Format timer display
+e6003a0 fix: respect editable fields in shortcuts

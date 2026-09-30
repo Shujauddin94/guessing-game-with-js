@@ -1,0 +1,2006 @@
+commit f7c45567d5ce04035ec6690b1a03c1b20cd27f07
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 30 22:02:35 2026 +0500
+
+    Add getRemainingAttempts helper function
+
+commit 017fe9f4bafb53a46f45118b46de29545d8f213f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 30 22:02:08 2026 +0500
+
+    Add isMediumMode helper function
+
+commit 7a6bb45b4436646660cc76d82e97ba967462eeec
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 29 12:05:00 2026 +0000
+
+    Add keyboard shortcut for timed mode
+
+commit 9195fb930a3dc7ba52fba4147b455ca1cc24c8bf
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 29 12:00:00 2026 +0000
+
+    Format timer display
+
+commit e6003a08a852054dc2ba55d3f9133e9afa18c8ce
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 29 18:23:07 2026 +0500
+
+    fix: respect editable fields in shortcuts
+
+commit e579d4c45348a93468a96c9f1e256e36f4d25c47
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 29 18:20:39 2026 +0500
+
+    docs: list all keyboard shortcuts
+
+commit da652071033d60840b14e109af6b7f1d91e74008
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 28 23:33:07 2026 +0500
+
+    feat: add Very Cold closeness label for guesses more than 10 away
+
+commit 834020f35d1c223b34a0e2f7177a56a7842fb4ed
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 28 22:55:51 2026 +0500
+
+    feat: reward fast timed wins
+
+commit 51c81cdada7c69da643035a2e2a6e417a2572af0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 28 22:53:15 2026 +0500
+
+    feat: add untimed practice mode
+
+commit 369ba858d32924b27a025e240c94329fbcb3abb7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 27 22:55:44 2026 +0500
+
+    feat: add clickable game tips toggle
+
+commit 15fa28c76dd2174de220ed4d3b44ec0f3c32d0d0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 27 22:54:36 2026 +0500
+
+    feat: respect reduced motion preferences
+
+commit ddaa843f7ff9efe9e618e92cf6662e3feb0303d1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 27 22:53:22 2026 +0500
+
+    feat: restart round with Enter after game ends
+
+commit 6e897b8a3de8080ec4ff95dd183457983c99889a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 26 23:28:34 2026 +0500
+
+    fix: clear stale guess feedback
+
+commit d283e35559c2dc17f5a80fbe9fb0fb898e296cc1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 26 23:27:50 2026 +0500
+
+    fix: ignore shortcuts while modal is open
+
+commit 2005252ffeb342fce89af462a3fc39dd31a070cd
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 26 23:26:28 2026 +0500
+
+    fix: stop timer when round ends
+
+commit 08aa7f2bb8800172f57d4acb86fc59209013dc73
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 25 23:09:37 2026 +0500
+
+    fix: initialize average stats after declaration
+
+commit b8e0149a7c3fe99c991d9c6173bfd0273e3c8a7b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 25 23:08:24 2026 +0500
+
+    fix: clear all saved game statistics
+
+commit 4f93cb593edbfe28db3cb9e51cd7603d39ef715e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 25 23:08:00 2026 +0500
+
+    fix: reject fractional guesses
+
+commit 63df802a391ffd93db56069623f978217c3ede08
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 24 23:16:58 2026 +0500
+
+    feat: add 75-games achievement milestone to incrementGamesPlayed
+
+commit 11c34a1a27f522568b853abf5f3a0126bc7b4b62
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 24 23:14:53 2026 +0500
+
+    feat: add getRoundSummary utility for formatted round state snapshot
+
+commit 88cf598f4708d21c7f22ac4ca76088bd6ad1b2ca
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 24 23:14:05 2026 +0500
+
+    refactor: extract clearGuessInputState helper to DRY up feedback class removal
+
+commit fab91d3a4e586059b959758bd5bb4404ef1b2292
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 23 22:35:23 2026 +0500
+
+    docs: add JSDoc for copyStatsToClipboard
+
+commit adc854311947977a075cf1909a6609aeb2843049
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 23 22:34:54 2026 +0500
+
+    docs: add JSDoc for updateAvgGuessesDisplay
+
+commit 428e2e936be18b4bec54012154f0b03bb9bc4dc8
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 23 22:32:51 2026 +0500
+
+    docs: add JSDoc for getWinRatePercentage
+
+commit 8c30dca9d7586e1c6a6ba7380003a7789e62bd50
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 22 22:12:42 2026 +0500
+
+    docs: add JSDoc to saveAchievements
+
+commit fa3a8020cc77806fb90caaca0e4bb981ed848372
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 22 22:12:38 2026 +0500
+
+    docs: add JSDoc to updateAchievementsDisplay
+
+commit b9dfef7e6918602a07afdd35745a01e9da090226
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 22 22:12:33 2026 +0500
+
+    docs: add JSDoc to loadAchievements
+
+commit 439f7cdcf5dc456215e61e8a7b474b67c6393050
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 21 22:21:34 2026 +0500
+
+    Refactor: explicitly convert boolean to string for toggleSound localStorage
+
+commit a3939e2c8464e56940d0ee0ba01245ec3869c5ba
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 21 22:20:48 2026 +0500
+
+    Refactor: Make capitalize string check more robust
+
+commit 1f6aaeacb75ceb86ed0436b1b3e0f40810d44d2f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 21 22:20:01 2026 +0500
+
+    Refactor: Use strict equality for null check
+
+commit b1c435f37dbada017141b0b84942912ca936547b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 20 22:32:50 2026 +0500
+
+    Refactor capitalize function
+
+commit ab5a6cf00eb6db367297fd392047a3aa18d1e7fe
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 20 22:32:40 2026 +0500
+
+    Safeguard focusGuessInput with null check
+
+commit 44c23fd32c8cb3d26df5bae2cb2e76d4f3afa912
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 20 22:32:27 2026 +0500
+
+    Explicitly cast string in updateRoundDisplay
+
+commit de1746beaa992779e5e7449baead257cbf8485ac
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 19 22:16:08 2026 +0500
+
+    refactor(ui): safely update score bar to prevent errors when absent
+
+commit ac96fb6dfb346a03c994b4bb61a0442376738c6e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 19 22:15:56 2026 +0500
+
+    refactor(ui): safely update difficulty display to handle missing elements
+
+commit 1629870e4ceea2fa5b64459db8a3b700b64d1772
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 19 22:15:46 2026 +0500
+
+    refactor(ui): safely update game tip to prevent null reference
+
+commit abf7cfc32453de5ab2acda103c8e98199494ac56
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 18 19:58:03 2026 +0500
+
+    Refactor: Use capitalize for achievement display
+
+commit d1a9aa7f5538fddef107270754644dbe7d18f7e6
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 18 19:57:04 2026 +0500
+
+    Refactor: Extract generateSecretNumber helper
+
+commit 6d1497a4459ba1657953e3a83c0818641f55b27b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 18 19:55:44 2026 +0500
+
+    Refactor: Extract capitalize helper function
+
+commit 39a5d011ddaa0ea20cf9322b18bf4196773344a3
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 17 17:04:02 2026 +0500
+
+    docs: add JSDoc to isTimerLow
+
+commit bb50eedf0b321b63f3960d986a4ab519db686162
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 17 17:03:35 2026 +0500
+
+    docs: add JSDoc to isLowScore
+
+commit 6e3b691d914e31f65f6d83e1ca9922868ca7f6f5
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 17 17:02:58 2026 +0500
+
+    docs: add JSDoc to isPerfectScore
+
+commit 715b11769251df8db000de171599c34e469224d9
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 16 22:55:04 2026 +0500
+
+    Add timeout-loss achievement handling
+
+commit 31efeb1d30252d5ba9a783cdea9649aa1adff02a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 16 22:54:28 2026 +0500
+
+    Add first-loss achievement
+
+commit 32787ea6b3a8b6d08ff76c3bd924bb7d003cd60a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 16 22:54:00 2026 +0500
+
+    Allow clear save state on stats reset
+
+commit f66b189ace14b6fd577c89913332ca33cbf48db1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 15 22:53:44 2026 +0500
+
+    docs: add JSDoc for getRemainingTime
+
+commit 839f2bf58c1bb119676c9859022528576e6f33fb
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 15 22:53:07 2026 +0500
+
+    docs: add JSDoc for isHighScoreBeaten
+
+commit 7225a3de8d1ed2fb80236354236d877f1771dc6b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 15 22:52:34 2026 +0500
+
+    docs: add JSDoc for getScorePercentage
+
+commit eac425ad06e0813f944cbc6ac1811bd3e5a7c284
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 14 22:31:18 2026 +0500
+
+    Update session tracking comment
+
+commit f3d397d8cc393392a97a34856a794322a0b4eac1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 14 22:30:44 2026 +0500
+
+    Update wins/losses tracking comment
+
+commit 85f0c2102056ef6f5c13440722fcbf1ff410e159
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 13 22:55:38 2026 +0500
+
+    refactor: make updateStreakDisplay null-safe
+
+commit 44150e33402ac70888b5048b82bd199a5a7fd676
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 13 22:55:29 2026 +0500
+
+    refactor: make updateGamesPlayedDisplay null-safe
+
+commit f7bea346d1386f68f38e811b88852b15448a2478
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 13 22:54:57 2026 +0500
+
+    refactor: make updateRoundDisplay null-safe
+
+commit 3d3c609ddb74ae3c3aa354c51034f2e8a626389e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 12 23:31:24 2026 +0500
+
+    Add Fifty Games achievement
+
+commit b4b59c311430f38b6ed28cbe21ba883a9f0453a2
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 12 23:30:51 2026 +0500
+
+    Add Thirty Games achievement
+
+commit 07b29c5d2ca382d39a972991010dbdb502d2f0fe
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 12 23:30:14 2026 +0500
+
+    Add Twenty Games achievement
+
+commit 4d12a6a610404d88d26bfc16f7581763ef30ebab
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 11 12:00:00 2026 +0500
+
+    Use getScorePercentage helper in updateScoreBar
+
+commit f71bfda54463f78070d042f18825a56f9bcad6ff
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 11 12:00:00 2026 +0500
+
+    Extract getWinRatePercentage helper function
+
+commit c65c729d5449f309596a424f81842703bfe10194
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 10 23:55:26 2026 +0500
+
+    Refactor: use isHighScoreBeaten() helper
+
+commit 5dfc9bfb916b1faaaa7efc6c5a4915c9d3577b1d
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 10 23:54:55 2026 +0500
+
+    Refactor: use isTimerLow() helper
+
+commit 858e14ea25aa630bffc73b67545b7a5c8f3e3447
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 10 23:32:15 2026 +0500
+
+    Refactor: use isLowScore() helper
+
+commit 773328b6e7b82c2500221120240b8b5c7b880080
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 9 22:29:34 2026 +0500
+
+    Refactor: Add aria-disabled attributes and safety checks to toggleControls
+
+commit 72a7fbf2facd1875747d67cd8932638e097fd4f7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 9 22:29:12 2026 +0500
+
+    Refactor: Add safety check in setHint
+
+commit 15a471b4c026b89876300219059248055fbf4f15
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 9 22:28:47 2026 +0500
+
+    Refactor: Add safety check in setMessage
+
+commit a45bffd08f1c1a126cde912804f2662d1c9171fc
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 8 22:38:44 2026 +0500
+
+    Add documentation for unlockAchievement
+
+commit be3bb00df4d4d4436c58e7894f93b245a29eba32
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 8 22:38:18 2026 +0500
+
+    Add comment for soundEnabled
+
+commit 31eeb804e6276c3e311f258ec71bf8f5b4d84a3a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 8 22:37:42 2026 +0500
+
+    Remove console.warn on restore failure
+
+commit b1a06d3fd592d535483ffeec622dc20e27e2d8f8
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 7 21:39:18 2026 +0500
+
+    Update game reset message
+
+commit 235848007a13d4ef5c5bae77d1dbfccdedcc2272
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 7 21:38:57 2026 +0500
+
+    Update ten games achievement display text
+
+commit b2bc4366448b4b9ba9980355b370150a9f8b363c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Sep 7 21:38:38 2026 +0500
+
+    Update version from 1.6 to 1.7
+
+commit b24ecd9468d314c915e401655434d57a4deac6f7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 6 22:38:41 2026 +0500
+
+    Update highscore tip message
+
+commit 8908c5c4a65d7023d56632dc4a8d57627573f292
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 6 22:38:35 2026 +0500
+
+    Update duplicate guess warning message
+
+commit 1a1ea77a848685083d133844f188825f6123d3b0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Sep 6 22:38:29 2026 +0500
+
+    Update empty input error message
+
+commit 61a0a761a016886a13a19bea7db51548b0bde774
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 5 21:22:36 2026 +0500
+
+    Add isEasyMode utility function
+
+commit d8c51e1ad858cd70d5eb28b1d3320b566985c874
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 5 21:22:07 2026 +0500
+
+    Refactor processGuess to use isHardMode helper
+
+commit ad8da65f5f4350b62521eb1984372df65be519c4
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Sep 5 21:21:42 2026 +0500
+
+    Add isHardMode utility function
+
+commit 8c4ead6dccfdfbd7678bf7ce13e2c226c05daaae
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 4 23:52:54 2026 +0500
+
+    Add isTimerLow helper function
+
+commit 1c7ea8b789373eb7e8118cdd3ac6470485b89f88
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 4 23:52:30 2026 +0500
+
+    Add isLowScore helper function
+
+commit 559f9d2b2ed89e70631e81de6c3bbeaa2d9f82ad
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Sep 4 23:52:08 2026 +0500
+
+    Add isPerfectScore helper function
+
+commit 9bb3ab4031de77f062d5aae4c9e43ff82014a19f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 3 23:32:04 2026 +0500
+
+    Fix: Safeguard getRemainingTime to prevent negative values
+
+commit f10e891a53263fbb0d9e9922ba48ddd178ff0d40
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 3 23:31:38 2026 +0500
+
+    Refactor: Change Math.trunc to Math.floor for consistency in random generation
+
+commit b0937b73781a75147186d3d61f64b7ae7fb8364c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Sep 3 23:31:15 2026 +0500
+
+    Refactor: Initialize timeLeft with ROUND_TIME constant
+
+commit 6e5478b6f365487d7bdd47e1f5210b126f8a0ec6
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 2 21:42:31 2026 +0500
+
+    Add getRemainingTime helper function
+
+commit c58ebd5da9b1f81e057d375bb0498f2b7d33a615
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 2 21:42:02 2026 +0500
+
+    Add isHighScoreBeaten helper function
+
+commit b3bb2e763b7bc4ff5eac227b1046623bc7d62041
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Sep 2 21:41:29 2026 +0500
+
+    Add getScorePercentage helper
+
+commit b7b2dff78ad53ade62ede0a0fbb1ff87dd9a1ead
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 1 15:00:00 2026 +0000
+
+    refactor: rename winEl and lossEl to winElement and lossElement
+
+commit 9793653be6454657b8c9c702d1f3c297bf574e46
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 1 15:00:00 2026 +0000
+
+    refactor: rename el to element in updateLastAction
+
+commit d9c051f0a3b790538fbf2cd14677d8eda45d3ba2
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 1 22:25:30 2026 +0500
+
+    refactor: rename err to error in restoreRoundState
+
+commit 10fc8210f218618c9de0103d7cd997028996fd46
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 1 22:25:30 2026 +0500
+
+    refactor: rename err to error in loadAchievements
+
+commit 28a042299dc47fa8d3e65af3fa9293bbe039de56
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 1 22:24:20 2026 +0500
+
+    refactor: simplify null check in closeness label logic
+
+commit 358749faadafe22863fc41f5ecbd313a760a6a49
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 1 22:23:48 2026 +0500
+
+    refactor: simplify initial secret number generation arithmetic
+
+commit d5de043eaa461e266ab5ccb90abaa8c10245b2da
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 1 22:20:14 2026 +0500
+
+    chore: bump version to 1.6
+
+commit 66d866da3a12cdda0a5539815c427c6d613cef95
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 1 22:19:57 2026 +0500
+
+    feat: add total guesses to stats modal
+
+commit ce62998fe98b237e298b60da080ce40ac67982b4
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Sep 1 22:19:37 2026 +0500
+
+    fix: update wins/losses display on game over loss
+
+commit b63c2bfb73ec51f0ce8bc16193c69c99742d37d9
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 31 22:27:50 2026 +0500
+
+    feat: add G key shortcut to toggle game tips visibility
+
+commit 6f38136dbb6d376819e04a95ec5a613e5ff12d31
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 31 22:26:38 2026 +0500
+
+    feat: add average guesses per game tracker and display
+
+commit ca1f75a76db850b4356caec6aa765994806b58b8
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 31 22:24:54 2026 +0500
+
+    feat: add Perfect Score achievement for first-guess win
+
+commit d9c23d7fe783e4665a1bbd731aa84e25e4eb325c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 30 23:06:11 2026 +0500
+
+    ux: extend toast display duration from 2200ms to 2800ms
+
+commit c8519afc21e890493a1cc38a03ed89f7ad3103fd
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 30 23:05:36 2026 +0500
+
+    fix: call updateStreakDisplay in clear-stats to reset best-streak UI
+
+commit 1bfc673e5f3723757d30362afa32951a7aa19b2e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 30 23:04:48 2026 +0500
+
+    refine closeness tiers: add Very Hot for distance of 1
+
+commit 13aac68ce2e72942f21cf1f359875cfba21bbccd
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 29 22:29:13 2026 +0500
+
+    Also reset wins/losses when clearing stats
+
+commit 1aa2166a88822dcab56fa7c5bb59cdfb3af37751
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 29 22:28:08 2026 +0500
+
+    Reset document.title on game reset
+
+commit 18df2ca5d6a145bca316b92062728a317e5e1793
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 29 22:26:18 2026 +0500
+
+    Fix status pill win modifier
+
+commit 10a14a6b5166e6f33267bba92c34daa4a2ec40e2
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 28 22:55:21 2026 +0500
+
+    docs(script): add JSDoc for processGuess
+
+commit 4a88cf99129765f83a5fd855dc96a19679cfdfd7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 28 22:54:49 2026 +0500
+
+    docs(script): add JSDoc for updateScoreBar
+
+commit 828e1909cc5906a6423706eef2bea8994a18a53e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 28 22:53:46 2026 +0500
+
+    docs(script): add JSDoc for shortcut selector
+
+commit b5382288bcbff6e30a0cd0ada44111694d9a1e5d
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 27 22:57:31 2026 +0500
+
+    feat: handle min/max range in secret number generation
+
+commit 0dec7683355babfb71405ceb65de10edfcb601ac
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 27 22:57:03 2026 +0500
+
+    feat: use minNumber in guess validation messages
+
+commit 4407d5188778633304508c144b771c1cab036a60
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 27 22:56:29 2026 +0500
+
+    feat: use minNumber for UI display texts
+
+commit 8bf79f4a482578a740c3051bb14598c5192b91ce
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 26 23:07:45 2026 +0500
+
+    chore: specify correct guess section
+
+commit 48c4bdb7c86f1560e646cb1d34fff2aeeace4da2
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 26 23:07:36 2026 +0500
+
+    chore: describe empty input handling
+
+commit 08203cec3f91c942d107281be9e5252f080a46f5
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 26 23:07:26 2026 +0500
+
+    chore: update message functionality comment
+
+commit bcee5d1e18a55cac84abce98ecedd0a6ac484e10
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Aug 25 23:09:36 2026 +0500
+
+    Improve input validation for guess (prevent whitespace)
+
+commit 79666ca1fb4f7120fd76bec5ed87ef21d2ea846e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 24 23:15:31 2026 +0500
+
+    feat: add v shortcut for volume
+
+commit c188e53ac8b6e5ee3e1c257f0800309732cc0fcd
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 24 23:14:54 2026 +0500
+
+    feat: add difficulty level display to hint
+
+commit fc3c69e70a084967f513d046a4e75476f05e18da
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 24 23:14:16 2026 +0500
+
+    feat: add ten games achievement
+
+commit 613973eca9eb74ec5f8e7795bb86b067117484d6
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 23 23:05:57 2026 +0500
+
+    Update footer text
+
+commit 505e23338ce38967299ae8ce8173102818c0a5a0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 23 23:05:47 2026 +0500
+
+    Update meta description
+
+commit 6f9fa57276a82daeb383ba088a7c38e582882a21
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 23 23:05:38 2026 +0500
+
+    Update page title
+
+commit 048edc1b75e87137d86570955f6ba2fd98f0c0a0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 22 23:31:04 2026 +0500
+
+    Refactor difficulty display text interpolation
+
+commit eb4ef702ec2613938a5217d2ce7504487ff9dcfc
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 22 23:29:10 2026 +0500
+
+    Refactor incrementing round
+
+commit e7c2ce5f5df2328d31c5ace88ee91994d76fe4c2
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 22 23:05:08 2026 +0500
+
+    Refactor win rate formatting
+
+commit 4e19e484e68897f349b668c1b22f936c0a098577
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 21 23:04:58 2026 +0500
+
+    Refactor wins and losses default values
+
+commit 97d4b279ad9d3f4c5961321c2e0b8422dc28777b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 21 23:04:36 2026 +0500
+
+    Refactor highscore, gamesPlayed, streaks default values
+
+commit 6829c1d86c141aa785a7f1cd595a2e0f70657f6c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 20 12:00:00 2026 +0500
+
+    docs: Update version number in style.css to 1.2
+
+commit 1a7473cabc70de5cad893882adf3a1f9b845364d
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 20 12:00:00 2026 +0500
+
+    docs: Update version number in script.js to 1.5
+
+commit 5337a2ff357b2bec4a2003664b16b8f90656ea91
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 19 22:58:36 2026 +0500
+
+    docs: map 'i' shortcut in help modal
+
+commit 0afc61b781c9b581c67fbf62b5213ad9a270ca6d
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 19 22:57:53 2026 +0500
+
+    feat: add 'i' keyboard shortcut to focus guess input
+
+commit 23478c18ddbd1c526f02842ce6df47d34d2d0559
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Aug 18 21:20:46 2026 +0500
+
+    UI: Clarify 'Game stats' in copy text
+
+commit a030ac81043eae5f0a910cdb928c225e60f7ecba
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Aug 18 21:20:07 2026 +0500
+
+    UI: Add exclamation and sparkle to footer
+
+commit f470594aae1eb08144c24ef4db4d17f266071458
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 17 22:14:02 2026 +0500
+
+    chore: add inline comment for timer interval in script
+
+commit aaac87329583294efb79291ad2a5bca1c06d95f5
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 17 22:13:55 2026 +0500
+
+    docs: add meta description to index
+
+commit 0735b1f759013390cba1fe833ec94bed3f44f97a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 16 22:03:29 2026 +0500
+
+    Feature 2: Add previous game score tracker
+
+commit 737a26ce9594becba52c461e93d1ce49e3f067d7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 16 22:01:45 2026 +0500
+
+    Feature 1: Add session games counter to main display
+
+commit f35f09eeec05a3e9c84ec202d4d466841d9ab003
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 15 23:11:29 2026 +0500
+
+    feat: add visual attempts progress bar
+    
+    - Add visual progress bar showing remaining guess attempts
+    - Display remaining/total attempts ratio
+    - Update progress bar dynamically as player makes guesses
+    - Show color gradient indicating attempt usage
+    - Improves user experience with clear visual feedback
+
+commit 691bfb2c2c12c6646b1dc0d6d289869adf8d6890
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 15 23:09:38 2026 +0500
+
+    feat: add high score badge and win rate display
+    
+    - Add prominent high score badge in header with trophy emoji
+    - Add win rate percentage display alongside wins/losses
+    - Update JavaScript to track and display win rate calculation
+    - Enhance visual feedback with styled badge elements
+
+commit 251b55a853b9e7424c8f3d50f806564823290d01
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 14 23:55:08 2026 +0500
+
+    Add session games counter that tracks games played in current session
+
+commit 1d4d2d289591e7d23b71150e45b2600d5b111955
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 14 23:54:06 2026 +0500
+
+    Add win rate percentage to game statistics display
+
+commit b7608f1c1ef441a27375de925a6ed56461ee33bd
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 13 23:04:31 2026 +0500
+
+    Add contributor guidelines
+
+commit 4f15e125555e68608580ba626f48cb240b8e6294
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 13 23:04:15 2026 +0500
+
+    Add CHANGELOG documentation
+
+commit f0eca4269e3de53190d90f90c0c2669bd8597775
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 13 23:03:59 2026 +0500
+
+    Add MIT License file
+
+commit 33fbf148ff8c8c9362a0eee30492b7845d5c7a0c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 12 23:31:01 2026 +0500
+
+    Docs: add changelog for recent UI updates
+
+commit 6355d6bda2c85f4395191d95c8b38f26bc1c873e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 12 23:30:52 2026 +0500
+
+    Improve button hover feedback
+
+commit e7e75a4741ae0afb09efb7495960482650821369
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 12 23:30:38 2026 +0500
+
+    Add persistent wins/losses tracking and UI
+
+commit 98a16b8a2ebbdda7e57d2e8b60f189d79f764593
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Aug 11 21:02:56 2026 +0500
+
+    Add guess usage readout
+
+commit 6fad92f0fad6b91b3f00f0f808f5ffc40ac39368
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Aug 11 21:02:22 2026 +0500
+
+    Add last save timestamp
+
+commit 88f36d95d15b9d383bcb87c57e7bfaaaa14c9cfa
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Aug 11 21:01:48 2026 +0500
+
+    Add visible best streak display
+
+commit f8b3dae67910ab7ff078c9ac5c0ddf0f6c019f81
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 10 21:50:47 2026 +0500
+
+    Add visible range readout
+
+commit cf40686c318c14d030657a3cac5364b2f22a7494
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 10 21:50:18 2026 +0500
+
+    Add last-action feedback readout
+
+commit eeb60416b45f31499323e967e6112ae5f16b6722
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 10 21:20:17 2026 +0500
+
+    Improve accessibility state for UI toggles
+
+commit 53a55c22d123ecc4995426ab29341da07a1b1ec7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 10 21:19:56 2026 +0500
+
+    Revert "Add three small UX improvements"
+    
+    This reverts commit 6060b0994f5de69ee62c150e22a3bd5bfaec2176.
+
+commit 6060b0994f5de69ee62c150e22a3bd5bfaec2176
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 10 21:05:27 2026 +0500
+
+    Add three small UX improvements
+
+commit f276541d724bf7410b6d56dca85600f4825b0df3
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 9 23:15:49 2026 +0500
+
+    Add achievement notifications and tracking
+
+commit 2b9c3fbdc851b57c9a38ac2ed3fefed590328782
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 9 23:14:36 2026 +0500
+
+    Add round save and restore support
+
+commit 5863551016020ff2c7f2dc66c9efb4b535846fd1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 9 23:13:40 2026 +0500
+
+    Add closeness status display
+
+commit bbc2bdb98975aeffb871c14690865a80f2611f34
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 8 23:14:12 2026 +0500
+
+    Add current streak display
+
+commit e00331b26b44ddf2d87bc4fbb70550be248e4316
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 8 23:13:49 2026 +0500
+
+    Add round timer display
+
+commit 30b3ed3e8baa31556a050d5331cfd65f2a044a15
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 8 23:11:56 2026 +0500
+
+    made changes
+
+commit bf4cc0b80d85dfe0c0ea7fa422a5008f7e8ae535
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 7 20:55:22 2026 +0500
+
+    feat: 3D flip-reveal animation on number box when player wins
+
+commit 21aa9fee21284c98d9c831a8e92582f25c419148
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 7 20:54:35 2026 +0500
+
+    feat: score bar danger warning with red pulse animation at 5 or fewer chances
+
+commit e2ef8f9a904e61c8a297037cea637cc64a032217
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Aug 7 20:53:46 2026 +0500
+
+    feat: glassmorphism buttons and Inter Google Font for premium UI
+
+commit 53e2c67a51773015d4c4cf0f856d0b8a2546430b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 6 23:06:49 2026 +0500
+
+    Feat: Include difficulty level in copied stats
+
+commit 6aee90321e4fadcf17f48d817dddf8200f5b60df
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Aug 6 23:02:56 2026 +0500
+
+    Refactor: Introduce MAX_SCORE constant
+
+commit 21404c427517f7ca3c5d2c8ff2e98225a64e7607
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 5 13:30:00 2026 +0500
+
+    Add JSDoc for setStatusPill
+
+commit 6ada5273e7f5040928eb33b92d8f28acb58f36da
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 5 13:15:00 2026 +0500
+
+    Add JSDoc for updateRoundBanner
+
+commit dfceeabf2f9220ba9bca673b4a43c88bef17b1ee
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Aug 5 13:00:00 2026 +0500
+
+    Update version to 1.3
+
+commit c7a6a57a6ec54e2e37e2dd84a39eedf55a4347af
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Aug 4 23:28:31 2026 +0500
+
+    Update document title dynamically on status change
+
+commit bfea8eaec8c3fe6209640259a9a777d9a0ae6fb5
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Aug 4 23:28:01 2026 +0500
+
+    Add smooth scrolling to guess input focus
+
+commit e174994a20cfd189a4718c29e4687d7b3e45d755
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Aug 4 23:27:16 2026 +0500
+
+    Add m keyboard shortcut for toggling sound
+
+commit 656c79bd35ebbc6315473e490a3001b31f9005b0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Aug 3 20:56:27 2026 +0500
+
+    added mobile responsive and sound effects
+
+commit 0bce554211b1c8d64d7799563a99d0e9a7ab6f2c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 2 23:15:12 2026 +0500
+
+    feat: add keyboard shortcuts for modals and theme
+
+commit 4f3cf08257b58fd64dac518b3f28d3828a819ddc
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Aug 2 23:13:07 2026 +0500
+
+    chore: remove development console.log statements for production build
+
+commit b6a131e541a6dad01e377aaa943e425d47323b72
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 1 23:27:39 2026 +0500
+
+    Add third change
+
+commit 5198e33908a93e8915f8b8037dd9b2c176100ce0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 1 23:27:18 2026 +0500
+
+    Add second change
+
+commit 6f36bf94c894fbb8c56f5917f1abd8ff87d4339e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Aug 1 23:26:42 2026 +0500
+
+    Add first change
+
+commit 5b3dbd2aacb13fbc1cd86047693786958c06c143
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 31 23:15:26 2026 +0500
+
+    Add third thing
+
+commit 0aa5bb892c0701090608ee650ff3c0b81e465d0a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 31 23:15:03 2026 +0500
+
+    Add second thing
+
+commit 426d5772d480d137d13669a31a294da3c22f96d6
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 31 23:14:34 2026 +0500
+
+    Add first thing
+
+commit a317bff642bbdf459cb3d57380aa2f0d48d1293a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 30 21:14:49 2026 +0500
+
+    added update epsilon
+
+commit ea22db41448b4a0333bab189b5526914082abd48
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 30 21:14:45 2026 +0500
+
+    added update delta
+
+commit f8a1ec55a5e61849bbf586beb1484e1fabab9a04
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 30 21:12:15 2026 +0500
+
+    added update gamma
+
+commit b1a348050857f5b56da4b6be7dedd7a2fb564cc7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 30 21:12:11 2026 +0500
+
+    added update beta
+
+commit 484cc4b6700a7c49d83ea41235cb61c12bb4f42e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 30 21:12:04 2026 +0500
+
+    added update alpha
+
+commit c1b0afccf92a1a201c93dbf8911639554e9f5725
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 29 22:58:34 2026 +0500
+
+    added third small thing
+
+commit 1832afdea8e1d98adda2d3275da8bba5fd73ed84
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 29 22:58:28 2026 +0500
+
+    added second small thing
+
+commit eb9ca3ab8aa5c7f2b8ec3c4bfe590f5c857cc58a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 29 22:58:17 2026 +0500
+
+    added first small thing
+
+commit e69e9e643e4e5a3f2890f6b5faafd17277e3d437
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 28 23:50:35 2026 +0500
+
+    Add third small change comment
+
+commit 3f03bc9817111b0b127425a51388cdab27a09d95
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 28 23:50:18 2026 +0500
+
+    Add second small change comment
+
+commit 14095bff50ab203c01ad5aaac07ea5d21178db96
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 28 23:50:05 2026 +0500
+
+    Add first small change comment
+
+commit 89527cd067f326c748b3a94cb7519b66f5f64ba6
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 27 23:21:53 2026 +0500
+
+    Update script description with version
+
+commit a0202c90e54f6281e854a43af32d9278e2eebfe2
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 27 23:21:30 2026 +0500
+
+    Update stylesheet description with version
+
+commit 0a2d40c3f0742d11dce9c0debb98db43205c16d9
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 27 23:21:10 2026 +0500
+
+    Update console log with version
+
+commit c19f3a8e783b7296d6ec33f22d5695621773ee20
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 26 23:23:17 2026 +0500
+
+    style: remove trailing closing bracket
+
+commit 119ff1ef278770ac0e214869d8cc9ac06403b339
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 26 23:22:48 2026 +0500
+
+    style: update header comment
+
+commit 1f6bc234510365a75c5dcd8d7f46ea01a540451f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 26 23:22:16 2026 +0500
+
+    docs: update features list
+
+commit 1e831ca006db424f592520115e959b8a8eddc30f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 25 23:15:56 2026 +0500
+
+    /
+
+commit 0cc656a593b1242ea27fe561c912db9f5411dc7f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 25 23:15:21 2026 +0500
+
+    .
+
+commit a0f93b092355822a192cbf5c6c0603a7945a5ed4
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 24 23:45:45 2026 +0500
+
+    line 536
+
+commit 2a2a0b5fa7639448ea2edfd20d5ab18256748373
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 24 23:45:16 2026 +0500
+
+    ..
+
+commit 13515b855772f0794a68c13c5366aaa83b38a7de
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 23 23:27:54 2026 +0500
+
+    added js
+
+commit 789fa83e31912ffcf90f439ae8fd0ad4e1bcbabc
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 23 23:27:30 2026 +0500
+
+    added js
+
+commit acaafe75a160adf605c1d76b9e795f7a68354553
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 22 23:15:59 2026 +0500
+
+    fixed
+
+commit 318d5ab000245880559f5d7f9f9dae6834a1b042
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 22 23:15:23 2026 +0500
+
+    fix
+
+commit d580df0cbd9779334155e865d755be4cc19b983c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 21 22:58:45 2026 +0500
+
+    ..
+
+commit cda82694b81d2ed9fc757f43d686015ff66f4962
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 21 22:58:21 2026 +0500
+
+    ..
+
+commit 66c11777ac34a4c49823b48c5f4a46eeae7770c0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 20 23:18:07 2026 +0500
+
+    fixed
+
+commit af9e6f735f075ac9676436b6700ba99064391bf2
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 20 23:17:23 2026 +0500
+
+    fix
+
+commit e4b008a5d780ec14c6528e60891e87a153f4d70a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 19 23:16:36 2026 +0500
+
+    610
+
+commit a3201b9f5ba1bf4069715edb21b797b5c5e2136b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 19 23:16:13 2026 +0500
+
+    610
+
+commit 34c2a4a2925bab2f6189b0e42866e20ae9e9f116
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 18 23:12:25 2026 +0500
+
+    .
+
+commit bef52afd684d71f8ceec9138ea23b7cff598006d
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 18 23:11:54 2026 +0500
+
+    ;
+
+commit dbc1648164772122152cc93d59357e3b961ee3b0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 17 23:05:07 2026 +0500
+
+    added closeStatsModal
+
+commit edca0245f10807760341abb7b90ae1e7bd857119
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 17 23:04:18 2026 +0500
+
+    commented
+
+commit 646e3a6beed929d9a74ea29ef1c32bf5a764bac0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 16 23:20:36 2026 +0500
+
+    ;
+
+commit 3909544ae54dcb4809473e13f0436171d39c9aeb
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 16 23:20:04 2026 +0500
+
+    .
+
+commit d529a6159014665e7a15f8bb25de89c63bee5b1d
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 15 23:02:11 2026 +0500
+
+    fix line 21
+
+commit 4041e540f25637970e9ae9b9ec2f4b64cb3bed2c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 15 23:01:46 2026 +0500
+
+    .
+
+commit 6ce87572a6ca577d30c467b5d797de921673aac4
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 14 23:05:50 2026 +0500
+
+    added line
+
+commit 86292bb772caafb448a7d5cc2c4fae90def59bb2
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 14 23:05:21 2026 +0500
+
+    removed line 92
+
+commit e34f61f8f7b68a5148e99fae7a0b319637171216
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 13 22:54:21 2026 +0500
+
+    fix line 81
+
+commit 5513b44fba6a4af4750b6ec325e2a7ae4591c422
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 13 22:53:51 2026 +0500
+
+    html added
+
+commit 715fda17c59ac4c662fe231fbdb47e26df3d9d3e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 12 23:59:00 2026 +0500
+
+    added js
+
+commit e377f1dc41b7f39b925f904e0497b88d95676668
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 12 23:57:48 2026 +0500
+
+    added js
+
+commit bb21ec64cc5103e52b8f31534b853aa049e26634
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 11 20:38:05 2026 +0500
+
+    Add help modal toggle shortcut
+
+commit 2ab238d41ba0a25b66b962289a6b3db518d6b35c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 11 20:37:48 2026 +0500
+
+    Improve stats copy fallback
+
+commit b17ba5ea5354fd7f33d41aaaee7418f20a517bdd
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 11 20:37:30 2026 +0500
+
+    Add live round banner summary
+
+commit 809f3716ad12ed18fc8cbc86c869cbd269550d5e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 10 23:18:17 2026 +0500
+
+    feat(game): add resetGame() and wire Reset button
+
+commit 375b40f537fcbb92635ef4ff82b2661c51b9b90d
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 10 23:18:00 2026 +0500
+
+    feat(ui): add Reset button to controls
+
+commit c9f4a2d153dad4ce947bf36a910c44f27413f4cc
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 10 23:17:44 2026 +0500
+
+    chore: add quick start and keyboard shortcuts to README
+
+commit b8a9eac4c2a3d8c657de0cbcd4c9d2f3d470deb5
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 9 23:33:06 2026 +0500
+
+    Allow Escape key to close help modal as well as stats modal
+
+commit 04b67e8447eec7a0989a8ac27352f1c6bcfb0372
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 9 23:32:37 2026 +0500
+
+    Preserve round number when clearing stats by making resetGameState optional
+
+commit 7e4764a5d64eece12acaa16d1e6c3fe06340d719
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 9 23:32:01 2026 +0500
+
+    Add persistent highscore update on win and reusable range display helper
+
+commit c11ac7cedd0789095a1131d10b0393fd283ee3af
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 8 23:29:58 2026 +0500
+
+    Add playful footer note
+
+commit a6e46f91130d6280f840a21f6e62cd4957e36ffa
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 8 23:29:38 2026 +0500
+
+    Add round progress banner
+
+commit da993094467d099923c031b40ee505f152087dd4
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 8 23:29:03 2026 +0500
+
+    Add focus hint for first-time players
+
+commit f17a994ca8e5feebb356d18187be6ff035b3c22c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 7 20:57:12 2026 +0500
+
+    Replace console log with inline documentation comment
+
+commit cb4e519f086658b96ea678154a10b05d034f5fad
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 7 20:56:56 2026 +0500
+
+    Add debug logging for secret number
+
+commit 8aa162a7e34a3d9a37f66e01b53951567d4662f0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jul 7 20:56:41 2026 +0500
+
+    Remove redundant console logs
+
+commit e1283881067f5b4b9723d9f3665ebbdc1f43aa44
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 6 23:55:44 2026 +0500
+
+    Make mode and tips update dynamically
+
+commit 21383f05d52e17774378031832b3716fe9ba3f5b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 6 23:55:07 2026 +0500
+
+    Add live game tip message
+
+commit 20e9adc67578ddbab3c9ff4a559b70e735462b2c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jul 6 23:54:40 2026 +0500
+
+    Add mode badge to game header
+
+commit 6048ef805a4ffbbfe832cae8395d7934d19f26b0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 5 23:24:56 2026 +0500
+
+    Improve console logging for game events and statistics tracking
+
+commit 24fe9cbe1d2bc51f88c3f30e0ccd583243463eb5
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 5 23:23:32 2026 +0500
+
+    Add current and best streak display to statistics modal
+
+commit 4b22eeaaeb71e35e05165406ba4ee3b8a763dbd1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jul 5 23:22:59 2026 +0500
+
+    Add keyboard shortcuts help modal with ? key shortcut
+
+commit 81afb59964172551a7274d9eb385d9a44a3b9a51
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 4 23:14:05 2026 +0500
+
+    feat: add difficulty emoji indicators
+    
+    - Map difficulty levels to emojis (🟢 🟡 🔴)
+    - Display emoji next to difficulty name
+    - Visual difficulty level identification
+
+commit b6ffc30646359e598ad29c678fe4dccd66d36f7f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 4 23:13:37 2026 +0500
+
+    feat: add copy stats to clipboard button
+    
+    - Add copyStatsToClipboard() function
+    - Format stats nicely for sharing
+    - Add Copy Stats button to UI
+    - Show feedback when stats copied
+
+commit b0d60b148819e69b83f84a537c6464bebba17e51
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jul 4 23:13:10 2026 +0500
+
+    feat: add win streak tracking
+    
+    - Add currentStreak and bestStreak variables
+    - Track consecutive wins and reset on loss
+    - Persist streaks in localStorage
+    - Clear streaks when stats are reset
+
+commit 1e997f19889a67fcf22fa0310aad2b791d6e5f32
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 3 23:23:48 2026 +0500
+
+    docs: add file header comments to style.css explaining theme and responsive design
+
+commit 0d32e868628ffaba62e7243d5dd1ad1138d1ff2c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 3 23:22:50 2026 +0500
+
+    docs: add file header comments to script.js explaining game logic and features
+
+commit 5c51a445589081a546c72d338d5c5915a7256881
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jul 3 23:22:27 2026 +0500
+
+    docs: add file header comments to HTML explaining the game purpose and features
+
+commit 2c3c5f6cbbe3a3d4d462c49d07dbbeb8330804f3
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 2 23:09:58 2026 +0500
+
+    Close stats modal with Escape key when open
+
+commit 347d25665e8303ba6ad8c3634a7e40a4e1dd0ed6
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 2 23:09:33 2026 +0500
+
+    Add sound toggle button with persistence
+
+commit 30290da58b08e1df9e0a17cf777a56176027b55a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jul 2 23:08:38 2026 +0500
+
+    Fix win flow to increment games played on correct guess
+
+commit 1092fc8d1a0cb5a877444285a863882cf237343a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 1 23:17:35 2026 +0500
+
+    Add JSDoc comments to key functions
+
+commit 63b9cc21f93e55620c01a92ece874d77804f391d
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 1 23:17:14 2026 +0500
+
+    Add .gitignore file
+
+commit f47e6674355d2a84e132c51e8b3d7fd289570a5f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jul 1 23:16:59 2026 +0500
+
+    Add favicon to the page
+
+commit a54c9be7a391e8b712f59ae07042cc2e13f706e1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 30 23:26:20 2026 +0500
+
+    feat: add game statistics modal panel with detailed stats display
+
+commit 213b3ba79f3d565717a9116df45632c395b85d86
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 30 23:25:39 2026 +0500
+
+    feat: add sound feedback for guesses (success, error, warm)
+
+commit 373539d45304634a3519ccabf628390b5b021184
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 30 23:25:22 2026 +0500
+
+    feat: add dark/light theme toggle button
+
+commit 14189b77213b41f4b2b5075a3c4d4216dd7002b1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jun 29 23:33:03 2026 +0500
+
+    Auto-reset hard mode after three failed guesses
+
+commit 3b5e81106d486b8c86428bf0a826eb5944f57f3b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jun 29 23:32:32 2026 +0500
+
+    Reset games played counter when clearing stats
+
+commit d2a91ce3d98907f81e1fb15e3468d6baf26a9575
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jun 29 23:31:50 2026 +0500
+
+    Add clear guess button, games played display, and duplicate guess warning
+
+commit 305a71c1dd7008f806d7a4a8236413a0bb6ee6d9
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jun 28 23:26:08 2026 +0500
+
+    style: improve shortcut hint and disabled check button hover
+
+commit a36e7020de85a57f5dc747a8c9c7b9677571b2a2
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jun 28 23:25:40 2026 +0500
+
+    feat: show losing status pill on game over
+
+commit 402d99b61d393817a9ee3ffcff23e6a77ed95a23
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jun 28 23:23:41 2026 +0500
+
+    feat: add status pill updates and clear-guess shortcut
+
+commit 9c6b8a6ab13806e011c987c4512c02bc32c9c54a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jun 27 23:15:49 2026 +0500
+
+    style: add invalid guess styling
+
+commit 321bc1a8a0b6b3b5ac6bf3d418efc818227f9fc3
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jun 27 23:15:49 2026 +0500
+
+    feat: show current difficulty label in UI
+
+commit ef5d468139383f72417d7a07701ef94fc9f1f5a7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jun 27 23:15:48 2026 +0500
+
+    feat: add restart shortcut guidance and restart key shortcut
+
+commit 98aa1088c916a29a2e9c0753815623a0abe10d23
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jun 26 23:21:10 2026 +0500
+
+    feat: add color feedback for guesses (red/blue/green)
+
+commit 864303c4d74314383f07c6c2f6b83099e7da5896
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jun 26 23:20:36 2026 +0500
+
+    feat: add clear stats button with confirmation
+
+commit 279e52e52043662eef0935cc5a9bc3a771d4a67b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jun 26 23:20:10 2026 +0500
+
+    feat: add difficulty selector (Easy/Medium/Hard)
+
+commit 6c4c77cb903a89b64900711cd96810448b5fe423
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jun 25 23:27:45 2026 +0500
+
+    Polish guess input focus state
+
+commit f81d5ee8473329b6257575922559b2d86579b30e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jun 25 23:27:29 2026 +0500
+
+    Add live status pill styling
+
+commit 11a104f3803a718e8b4a8b0cc13ba19b2d7d40c7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jun 25 23:27:05 2026 +0500
+
+    Add clickable number focus shortcut
+
+commit 9c1a71b1c45b750b1a6a2afd12ff7e2d9303f002
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jun 24 23:23:11 2026 +0500
+
+    Add round status message
+
+commit 75cb07b7585b706007c3ec28d13ae84519be1abf
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jun 24 23:22:59 2026 +0500
+
+    Add score meter caption
+
+commit f184be648d64b051677eb402b45ea8dccdfacc6f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jun 24 23:22:50 2026 +0500
+
+    Add friendly subtitle to header
+
+commit 78781742c1303d24ead844c41be8eaf2b37b0f15
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 23 22:30:30 2026 +0500
+
+    Add keyboard shortcut badge
+
+commit 6e8e6955abb0fb44e3351977fa725a98b5726772
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 23 22:30:20 2026 +0500
+
+    Add win burst animation
+
+commit b26b40118479c84fe2c7babe104a4286f85059c6
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 23 22:30:04 2026 +0500
+
+    Add round counter to game UI
+
+commit 56b2a08953ce6bd42f917978cc94c2c4a7563292
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jun 22 22:05:31 2026 +0500
+
+    Polish button and score bar styling
+
+commit 274174a64885b771711ab5ac83f4c7af979294f4
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jun 22 22:04:04 2026 +0500
+
+    Improve invalid input feedback
+
+commit a9fb3324f453c9b80246d5938fc4dc3d0efc8ebc
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jun 22 22:03:12 2026 +0500
+
+    Add previous guess history
+
+commit 375b7fdb90c86c8c1aa723f9f789e7543b574aac
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jun 21 21:37:12 2026 +0500
+
+    Refactor reset flow for game logic
+
+commit 4647e4e1b882402c5440004ea2ecf97f4b984f60
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jun 21 21:36:37 2026 +0500
+
+    Polish button and score bar styling
+
+commit bf550c203b61288829f2379ce180908de14e44e1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jun 21 21:35:42 2026 +0500
+
+    Improve accessibility labels
+
+commit 7a801644b281e38d69eb930e48d344b9e9eb85b6
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jun 20 22:28:11 2026 +0500
+
+    Add last guess display
+
+commit fa54e0527ed720134745defbc9228c61d2fed362
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jun 20 22:27:27 2026 +0500
+
+    Add attempt counter
+
+commit af98498e9eb71052996a55ccb9c6f530adf17605
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jun 20 22:25:13 2026 +0500
+
+    Add hint feedback
+
+commit f1b98ba8ffe79e9b7c0dc06ba5f1b3599a1b9ce0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jun 19 23:28:29 2026 +0500
+
+    style: improve controls and placeholder visuals
+
+commit ed00533b0604e133a23d694de36856e6c7097cef
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jun 19 23:28:17 2026 +0500
+
+    ui: show reset hint in controls
+
+commit 345aae54716bced1f03c36e49c1c0fb8b4168540
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jun 19 23:28:07 2026 +0500
+
+    docs: improve README instructions
+
+commit 7368c470a3980329c669106e17fb0f29eb5c7488
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jun 18 21:57:46 2026 +0500
+
+    Disable controls after game over
+
+commit 9bbbba026045f93294f140f7a8423bab41e82fbd
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jun 18 21:57:30 2026 +0500
+
+    Improve button and input styling
+
+commit d66557ef826fcb16196bb1f9b7b524058ae0d59f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jun 18 21:56:57 2026 +0500
+
+    Add theme color meta tag
+
+commit 831ecfc5d28da0fb89435689100743da6bf03058
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jun 17 23:27:08 2026 +0500
+
+    Polish button and field styling
+
+commit 37561d0bb1b49818f8b228c3a3230f5e32cd2363
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jun 17 23:27:03 2026 +0500
+
+    Refine input focus behavior
+
+commit f21410dcf15a25aca5112839a65551422be32268
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jun 17 23:26:57 2026 +0500
+
+    Improve markup accessibility
+
+commit 1f34a64d80e0abad243b6f00e9732da631b3cb03
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 16 23:22:20 2026 +0500
+
+    Make layout more responsive
+
+commit 0bc7501d717a0671224df1e9ff2cffec64cddffb
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 16 23:20:26 2026 +0500
+
+    Improve input focus and mobile-friendly behavior
+
+commit f3b1b6cf310415914d5f4e68a56ff8762ae29cb9
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 16 23:18:34 2026 +0500
+
+    Polish game UI text and helper hint
+
+commit 8485c9599981fc43f13f1dc9d9c928308fffaf0e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jun 15 23:23:23 2026 +0500
+
+    feat: persist highscore using localStorage
+
+commit da36859bfa1d2205b3beb474bd0358b888e5f0db
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jun 15 23:22:56 2026 +0500
+
+    feat: auto-focus input field after each guess
+
+commit e4657bfa1b78483d0867fc02a55b68286d9cb723
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Mon Jun 15 23:22:39 2026 +0500
+
+    feat: clear input field after each guess
+
+commit de31b4afb71931fe5bce083c53a7ff6bec809f48
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jun 14 23:16:38 2026 +0500
+
+    Fix CSS width typo and add button hover transitions
+
+commit befacc1a01dffbce9d9ceeacbc25cd0caa61fe64
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jun 14 23:16:12 2026 +0500
+
+    Validate guess range and show helpful message
+
+commit 8fe338e77184fbbc7bb1741d82e76f59e72c01b1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Jun 14 23:15:40 2026 +0500
+
+    Add numeric input constraints for guess field
+
+commit 6bda2661a37ac8424d9461aac2313c80f2686072
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jun 13 22:10:57 2026 +0500
+
+    feat: Add visual score progress bar
+
+commit ef5a1292903cb2bf4fe3523a4ce2922bfd0dd531
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jun 13 22:07:36 2026 +0500
+
+    feat: Add Escape key to reset game
+
+commit fbb2826962c20c3d73b5108a7ec8b6fdc7f5340f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sat Jun 13 22:07:13 2026 +0500
+
+    feat: Add Enter key support for guess input
+
+commit 45ea2fd87b538e789e119d1c16e5d18e9d34e3d0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jun 12 22:14:06 2026 +0500
+
+    Add small line 3
+
+commit 5739d1fa372755cdd4406ee27c4d29d3a010df07
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jun 12 22:13:50 2026 +0500
+
+    Add small line 2
+
+commit a204b715585c1f81f5c20c1faeadb69be56e4f78
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Jun 12 22:13:20 2026 +0500
+
+    Add small line 1
+
+commit fadc739080a3dc0911d00c8cb127fc4023bf2402
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jun 11 22:19:55 2026 +0500
+
+    Add event listeners initialization log
+
+commit b024e527316832befa856bf2d471be9a0abc0d9a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jun 11 22:19:23 2026 +0500
+
+    Add timestamp console log
+
+commit c4769b9ad0ef095e32f29ceacc679be8d596aa4a
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Thu Jun 11 22:18:52 2026 +0500
+
+    Add game ready console log
+
+commit 87ece51afc6f391c9b244b926041183849b2d4c7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jun 10 22:17:33 2026 +0500
+
+    Add reset round log
+
+commit 67b73cf115fc104dee50268125da4e17e2e90ec3
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jun 10 22:17:19 2026 +0500
+
+    Add no-input debug log
+
+commit 33f2b88e9fd231f8bce93e1c592f38659ebeb12e
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Jun 10 22:16:57 2026 +0500
+
+    Add initialization log line
+
+commit d9b232614adc3dec152abead2dda2781d56691a4
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 9 23:03:50 2026 +0500
+
+    chore: add replay prompt log
+
+commit 369e0a9bece148a04cc395cd34c2b2b14abb0d72
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 9 23:03:26 2026 +0500
+
+    chore: add ready state log
+
+commit c00717c9cc93a11a885ec5b139f38378adca5107
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Tue Jun 9 23:03:11 2026 +0500
+
+    chore: add initial load log
+
+commit bd1eed45978a8e3bea30fb500c14ffafbff346c0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Dec 24 21:55:05 2025 +0500
+
+    readme changes
+
+commit 426a3511baa7d82a4fb2322012d2bdb7255cd91b
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Wed Dec 24 21:52:20 2025 +0500
+
+    readme changes
+
+commit 42d50e368a8dd6c63bc350a08198905a531fb1d1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Fri Dec 5 15:25:56 2025 +0500
+
+    added better UI AND FIX AGAIN BUTTON TO PLAY AGAIN
+
+commit 1d3581a1c15c9c72023990f7ef319901b1a44885
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Nov 30 08:26:20 2025 +0500
+
+    fixes
+
+commit e2466a7b86702ec0b0e57984715888b7eed4542c
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Nov 30 08:25:16 2025 +0500
+
+    folder
+
+commit 9050b77b9abc559c6ec206fb92801bfb9ad742e6
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Nov 30 08:23:32 2025 +0500
+
+    future improvements
+
+commit cbfda1eb20fe3a5b58551795ea0114c40a2274e1
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Nov 30 08:21:23 2025 +0500
+
+    add readme
+
+commit b166d153648541afb7d2f42403ccbf5d66cfb17f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   Sun Nov 30 08:16:40 2025 +0500
+
+    game with js

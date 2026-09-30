@@ -1,0 +1,59 @@
+commit f7c45567d5ce04035ec6690b1a03c1b20cd27f07
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-30 22:02:35 +0500
+
+    Add getRemainingAttempts helper function
+
+commit 017fe9f4bafb53a46f45118b46de29545d8f213f
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-30 22:02:08 +0500
+
+    Add isMediumMode helper function
+
+commit 7a6bb45b4436646660cc76d82e97ba967462eeec
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-29 12:05:00 +0000
+
+    Add keyboard shortcut for timed mode
+
+commit 9195fb930a3dc7ba52fba4147b455ca1cc24c8bf
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-29 12:00:00 +0000
+
+    Format timer display
+
+commit e6003a08a852054dc2ba55d3f9133e9afa18c8ce
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-29 18:23:07 +0500
+
+    fix: respect editable fields in shortcuts
+
+commit e579d4c45348a93468a96c9f1e256e36f4d25c47
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-29 18:20:39 +0500
+
+    docs: list all keyboard shortcuts
+
+commit da652071033d60840b14e109af6b7f1d91e74008
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-28 23:33:07 +0500
+
+    feat: add Very Cold closeness label for guesses more than 10 away
+
+commit 834020f35d1c223b34a0e2f7177a56a7842fb4ed
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-28 22:55:51 +0500
+
+    feat: reward fast timed wins
+
+commit 51c81cdada7c69da643035a2e2a6e417a2572af0
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-28 22:53:15 +0500
+
+    feat: add untimed practice mode
+
+commit 369ba858d32924b27a025e240c94329fbcb3abb7
+Author: Shujauddin94 <shujauddin9432@gmail.com>
+Date:   2026-09-27 22:55:44 +0500
+
+    feat: add clickable game tips toggle

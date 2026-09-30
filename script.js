@@ -727,7 +727,7 @@ const getClosenessLabel = (difference) => {
   if (difference <= 10) return "Cold";
   return "Very Cold";
 };
-
+// update
 const updateClosenessDisplay = () => {
   const status = $("#closeness-status");
   if (!status) return;

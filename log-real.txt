@@ -1,0 +1,5 @@
+﻿28a0422 refactor: simplify null check in closeness label logic Tue Sep 1 22:24:20 2026 +0500 shujauddin9432@gmail.com
+358749f refactor: simplify initial secret number generation arithmetic Tue Sep 1 22:23:48 2026 +0500 shujauddin9432@gmail.com
+d5de043 chore: bump version to 1.6 Tue Sep 1 22:20:14 2026 +0500 shujauddin9432@gmail.com
+66d866d feat: add total guesses to stats modal Tue Sep 1 22:19:57 2026 +0500 shujauddin9432@gmail.com
+ce62998 fix: update wins/losses display on game over loss Tue Sep 1 22:19:37 2026 +0500 shujauddin9432@gmail.com
