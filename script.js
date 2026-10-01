@@ -65,6 +65,20 @@ let sessionGames = 0;
  * @returns {number} The score percentage
  */
 const getScorePercentage = () => (score / MAX_SCORE) * 100;
+
+/**
+ * Returns a letter grade based on the current score percentage
+ * @returns {string} The letter grade: S, A, B, C, D, or F
+ */
+const getScoreGrade = () => {
+  const pct = getScorePercentage();
+  if (pct === 100) return "S";
+  if (pct >= 80) return "A";
+  if (pct >= 60) return "B";
+  if (pct >= 40) return "C";
+  if (pct >= 20) return "D";
+  return "F";
+};
 /**
  * Checks if the current score is higher than the recorded highscore
  * @returns {boolean} True if highscore is beaten
@@ -804,9 +818,10 @@ const updateHighscore = () => {
 const getRoundSummary = () => {
   const guessWord = previousGuesses.length === 1 ? "guess" : "guesses";
   const streakText = currentStreak > 0 ? `${currentStreak}-game streak` : "no active streak";
+  const grade = getScoreGrade();
   return [
     `Round ${round} \u00b7 ${capitalize(difficulty)} mode`,
-    `Score: ${score}/${MAX_SCORE} \u00b7 ${attempts} ${guessWord} made`,
+    `Score: ${score}/${MAX_SCORE} (Grade: ${grade}) \u00b7 ${attempts} ${guessWord} made`,
     `Highscore: ${highscore} \u00b7 ${streakText}`,
     previousGuesses.length ? `Guesses so far: ${previousGuesses.join(", ")}` : "No guesses yet"
   ].join("\n");
