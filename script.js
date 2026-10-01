@@ -102,6 +102,19 @@ const isEasyMode = () => difficulty === "easy";
 const isMediumMode = () => difficulty === "medium";
 const isSecretNumberEven = () => secretNumber % 2 === 0;
 
+/**
+ * Returns a motivational emoji representing the player's current win streak
+ * @param {number} streak - The current win streak count
+ * @returns {string} An emoji reflecting streak intensity
+ */
+const getStreakEmoji = (streak) => {
+  if (streak >= 10) return "🏆";
+  if (streak >= 5) return "🔥";
+  if (streak >= 3) return "⚡";
+  if (streak >= 1) return "✨";
+  return "";
+};
+
 // Game is now ready for player input
 
 /**
@@ -470,7 +483,8 @@ const updateGamesPlayedDisplay = () => {
 const updateStreakDisplay = () => {
   const cEl = $(".current-streak");
   const bEl = $(".best-streak");
-  if (cEl) cEl.textContent = currentStreak;
+  const emoji = getStreakEmoji(currentStreak);
+  if (cEl) cEl.textContent = emoji ? `${currentStreak} ${emoji}` : currentStreak;
   if (bEl) bEl.textContent = bestStreak;
 };
 
