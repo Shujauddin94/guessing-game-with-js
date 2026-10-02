@@ -763,9 +763,11 @@ const updateClosenessDisplay = () => {
   const difference = lastDifference;
   const label = getClosenessLabel(difference);
   status.textContent = label;
+  status.classList.toggle("is-exact", label === "Exact");
+  status.classList.toggle("is-very-hot", label === "Very Hot");
   status.classList.toggle("is-hot", label === "Hot");
   status.classList.toggle("is-warm", label === "Warm");
-  status.classList.toggle("is-cold", label === "Cold" || label === "Very Cold" || label === "Exact");
+  status.classList.toggle("is-cold", label === "Cold" || label === "Very Cold");
 };
 
 const updateGuessStats = () => {
