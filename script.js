@@ -1044,6 +1044,9 @@ const processGuess = function () {
     }
     localStorage.setItem("currentStreak", currentStreak);
     updateStreakDisplay();
+    if (currentStreak === 5) {
+      unlockAchievement("lucky-streak", "Lucky Streak", "🔥 Lucky Streak: 5 wins in a row!");
+    }
   } else {
     if (score > 1) {
       playSound("error");
