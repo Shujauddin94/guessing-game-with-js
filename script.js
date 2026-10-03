@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Guess My Number - Game Logic
  * Handles core game mechanics: number generation, guessing, scoring, and user interactions
  * Features: Difficulty levels, hint system, sound effects, theme toggle, statistics tracking, and countdown timer
@@ -756,6 +756,22 @@ const getClosenessLabel = (difference) => {
   if (difference <= 10) return "Cold";
   return "Very Cold";
 };
+/**
+ * Returns an emoji representing how close the guess is to the secret number
+ * @param {string} label - The closeness label from getClosenessLabel
+ * @returns {string} An emoji matching the closeness level
+ */
+const getClosenessEmoji = (label) => {
+  const map = {
+    "Exact": "\uD83C\uDFAF",
+    "Very Hot": "\uD83D\uDD25",
+    "Hot": "\u2600\uFE0F",
+    "Warm": "\uD83C\uDF21\uFE0F",
+    "Cold": "\u2744\uFE0F",
+    "Very Cold": "\uD83E\uDD76"
+  };
+  return map[label] || "";
+};
 // update
 const updateClosenessDisplay = () => {
   const status = $("#closeness-status");
@@ -763,7 +779,8 @@ const updateClosenessDisplay = () => {
 
   const difference = lastDifference;
   const label = getClosenessLabel(difference);
-  status.textContent = label;
+  const emoji = getClosenessEmoji(label);
+  status.textContent = emoji ? `${emoji} ${label}` : label;
   status.classList.toggle("is-exact", label === "Exact");
   status.classList.toggle("is-very-hot", label === "Very Hot");
   status.classList.toggle("is-hot", label === "Hot");
