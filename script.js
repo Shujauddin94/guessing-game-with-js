@@ -35,6 +35,7 @@ let lastDifference = null;
 let previousGuesses = [];
 let round = 1;
 let difficulty = "medium"; // easy, medium, hard
+const DEFAULT_BG_COLOR = "rgba(88, 16, 32, 0.897)";
 let dailyChallenge = false;
 let dailyChallengeDate = "";
 let lastAction = "Game ready";
@@ -1158,7 +1159,7 @@ $(".difficulty-select").addEventListener("change", function (e) {
   $(".number").textContent = "?";
   $(".guess").value = "";
   clearGuessInputState();
-  $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
+  $("body").style.backgroundColor = DEFAULT_BG_COLOR;
   toggleControls(false);
   focusGuessInput();
 });
@@ -1221,7 +1222,7 @@ function resetGame() {
   $(".number").textContent = "?";
   $(".guess").value = "";
   clearGuessInputState();
-  $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
+  $("body").style.backgroundColor = DEFAULT_BG_COLOR;
   toggleControls(false);
   focusGuessInput();
 }
@@ -1253,7 +1254,7 @@ $(".btn_again").addEventListener("click", function () {
   $(".guess").value = "";
   clearGuessInputState();
 
-  $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
+  $("body").style.backgroundColor = DEFAULT_BG_COLOR;
   $(".number").classList.remove("pop");
   toggleControls(false);
   focusGuessInput();
@@ -1346,7 +1347,7 @@ $(".btn_clear_stats").addEventListener("click", function () {
     $(".number").textContent = "?";
     $(".guess").value = "";
     clearGuessInputState();
-    $("body").style.backgroundColor = "rgba(88, 16, 32, 0.897)";
+    $("body").style.backgroundColor = DEFAULT_BG_COLOR;
     toggleControls(false);
     focusGuessInput();
   }
