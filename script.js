@@ -92,6 +92,18 @@ const isHighScoreBeaten = () => score > highscore;
 const getRemainingTime = () => Math.max(0, timeLeft);
 
 /**
+ * Formats a duration in seconds into a human-readable string
+ * @param {number} seconds - The number of seconds to format
+ * @returns {string} Formatted duration e.g. "1m 05s" or "45s"
+ */
+const formatDuration = (seconds) => {
+  const s = Math.max(0, Math.floor(seconds));
+  const m = Math.floor(s / 60);
+  const rem = s % 60;
+  return m > 0 ? `${m}m ${String(rem).padStart(2, "0")}s` : `${s}s`;
+};
+
+/**
  * Retrieves the remaining attempts
  * @returns {number} The remaining attempts
  */
@@ -914,6 +926,7 @@ Current Round: ${round}
 Highscore: ${highscore}
 Current Streak: ${currentStreak}
 Best Streak: ${bestStreak}
+Time Remaining: ${timedMode ? formatDuration(timeLeft) : "Off"}
 Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None yet"}`;
 
   const successMessage = () => {
