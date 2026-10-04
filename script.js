@@ -509,6 +509,12 @@ const updateStreakDisplay = () => {
  */
 const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
 
+/**
+ * Calculates guess accuracy for the current round as a percentage of attempts remaining
+ * @returns {number} Percentage of score remaining (100 = no misses, 0 = all used)
+ */
+const getGuessAccuracy = () => Math.round((score / MAX_SCORE) * 100);
+
 const updateWinsLossesDisplay = () => {
   const winElement = $(".wins");
   const lossElement = $(".losses");
@@ -1411,6 +1417,8 @@ const openStatsModal = () => {
   const winRate = gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
   $(".stat-win-rate").textContent = `${winRate}%`;
   $(".stat-history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
+  const accuracyEl = $(".stat-accuracy");
+  if (accuracyEl) accuracyEl.textContent = `${getGuessAccuracy()}%`;
   $("#stats-modal").classList.add("active");
 };
 
