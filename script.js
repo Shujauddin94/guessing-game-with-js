@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Guess My Number - Game Logic
  * Handles core game mechanics: number generation, guessing, scoring, and user interactions
  * Features: Difficulty levels, hint system, sound effects, theme toggle, statistics tracking, and countdown timer
@@ -526,6 +526,19 @@ const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPla
  * @returns {number} Percentage of score remaining (100 = no misses, 0 = all used)
  */
 const getGuessAccuracy = () => Math.round((score / MAX_SCORE) * 100);
+
+/**
+ * Returns a qualitative rating based on guess accuracy percentage
+ * @param {number} accuracy - The accuracy percentage (0-100)
+ * @returns {string} Descriptive rating (e.g., "Pinpoint", "Great", "Good", "Fair", "Needs Practice")
+ */
+const getAccuracyRating = (accuracy) => {
+  if (accuracy >= 90) return "Pinpoint";
+  if (accuracy >= 75) return "Great";
+  if (accuracy >= 50) return "Good";
+  if (accuracy >= 25) return "Fair";
+  return "Needs Practice";
+};
 
 const updateWinsLossesDisplay = () => {
   const winElement = $(".wins");
@@ -1431,7 +1444,10 @@ const openStatsModal = () => {
   $(".stat-win-rate").textContent = `${winRate}%`;
   $(".stat-history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
   const accuracyEl = $(".stat-accuracy");
-  if (accuracyEl) accuracyEl.textContent = `${getGuessAccuracy()}%`;
+  if (accuracyEl) {
+    const accuracy = getGuessAccuracy();
+    accuracyEl.textContent = `${accuracy}% (${getAccuracyRating(accuracy)})`;
+  }
   $("#stats-modal").classList.add("active");
 };
 
