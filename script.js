@@ -539,6 +539,12 @@ const updateStreakDisplay = () => {
 const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
 
 /**
+ * Calculates the average number of guesses per game
+ * @returns {string} Formatted average guesses or fallback dash
+ */
+const getAverageGuesses = () => (gamesPlayed > 0 ? (totalGuesses / gamesPlayed).toFixed(1) : "—");
+
+/**
  * Calculates guess accuracy for the current round as a percentage of attempts remaining
  * @returns {number} Percentage of score remaining (100 = no misses, 0 = all used)
  */
@@ -900,9 +906,8 @@ const getRoundSummary = () => {
  * Updates the average guesses display in the UI
  */
 const updateAvgGuessesDisplay = () => {
-  const avg = gamesPlayed > 0 ? (totalGuesses / gamesPlayed).toFixed(1) : "ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â";
   const el = $(".avg-guesses");
-  if (el) el.textContent = avg;
+  if (el) el.textContent = getAverageGuesses();
 };
 
 updateAvgGuessesDisplay();
@@ -1452,6 +1457,8 @@ updateSoundButton();
 const openStatsModal = () => {
   $(".stat-games").textContent = gamesPlayed;
   $(".stat-total-guesses").textContent = totalGuesses;
+  const avgGuessesEl = $(".stat-avg-guesses");
+  if (avgGuessesEl) avgGuessesEl.textContent = getAverageGuesses();
   $(".stat-session-games").textContent = sessionGames;
   $(".stat-round").textContent = round;
   $(".stat-highscore").textContent = highscore;
