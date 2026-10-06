@@ -80,6 +80,23 @@ const getScoreGrade = () => {
   if (pct >= 20) return "D";
   return "F";
 };
+
+/**
+ * Returns an emoji indicator for a score grade
+ * @param {string} grade - The letter grade (S, A, B, C, D, or F)
+ * @returns {string} Emoji representing the grade
+ */
+const getScoreGradeEmoji = (grade) => {
+  const map = {
+    "S": "🌟",
+    "A": "🥇",
+    "B": "🥈",
+    "C": "🥉",
+    "D": "⚠️",
+    "F": "❌"
+  };
+  return map[grade] || "🎯";
+};
 /**
  * Checks if the current score is higher than the recorded highscore
  * @returns {boolean} True if highscore is beaten
@@ -870,9 +887,10 @@ const getRoundSummary = () => {
   const guessWord = previousGuesses.length === 1 ? "guess" : "guesses";
   const streakText = currentStreak > 0 ? `${currentStreak}-game streak` : "no active streak";
   const grade = getScoreGrade();
+  const gradeEmoji = getScoreGradeEmoji(grade);
   return [
     `Round ${round} \u00b7 ${capitalize(difficulty)} mode`,
-    `Score: ${score}/${MAX_SCORE} (Grade: ${grade}) \u00b7 ${attempts} ${guessWord} made`,
+    `Score: ${score}/${MAX_SCORE} (Grade: ${grade} ${gradeEmoji}) \u00b7 ${attempts} ${guessWord} made`,
     `Highscore: ${highscore} \u00b7 ${streakText}`,
     previousGuesses.length ? `Guesses so far: ${previousGuesses.join(", ")}` : "No guesses yet"
   ].join("\n");
