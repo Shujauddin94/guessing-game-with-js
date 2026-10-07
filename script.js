@@ -539,6 +539,12 @@ const updateStreakDisplay = () => {
 const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
 
 /**
+ * Formats the player's win/loss record
+ * @returns {string} Formatted record e.g. "5W - 2L"
+ */
+const getWinLossRecord = () => `${wins}W - ${losses}L`;
+
+/**
  * Calculates the average number of guesses per game
  * @returns {string} Formatted average guesses or fallback dash
  */
@@ -958,6 +964,7 @@ const copyStatsToClipboard = () => {
 ÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚ÂÃƒÂ¢Ã¢â‚¬ÂÃ‚Â
 Difficulty: ${difficulty.charAt(0).toUpperCase()}${difficulty.slice(1)}
 Games Played: ${gamesPlayed}
+Win/Loss Record: ${getWinLossRecord()}
 Current Round: ${round}
 Highscore: ${highscore}
 Current Streak: ${currentStreak}
@@ -1467,6 +1474,8 @@ const openStatsModal = () => {
   $(".stat-best-streak").textContent = bestStreak;
   const winRate = gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
   $(".stat-win-rate").textContent = `${winRate}%`;
+  const winLossEl = $(".stat-win-loss");
+  if (winLossEl) winLossEl.textContent = getWinLossRecord();
   $(".stat-history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
   const accuracyEl = $(".stat-accuracy");
   if (accuracyEl) {
