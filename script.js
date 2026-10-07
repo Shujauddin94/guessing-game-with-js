@@ -97,6 +97,15 @@ const getScoreGradeEmoji = (grade) => {
   };
   return map[grade] || "🎯";
 };
+
+/**
+ * Returns the score grade combined with its indicator emoji
+ * @returns {string} Formatted score grade e.g. "S 🌟" or "A 🥇"
+ */
+const getScoreGradeWithEmoji = () => {
+  const grade = getScoreGrade();
+  return `${grade} ${getScoreGradeEmoji(grade)}`;
+};
 /**
  * Checks if the current score is higher than the recorded highscore
  * @returns {boolean} True if highscore is beaten
@@ -970,6 +979,7 @@ Highscore: ${highscore}
 Current Streak: ${currentStreak}
 Best Streak: ${bestStreak}
 Time Remaining: ${timedMode ? formatDuration(timeLeft) : "Off"}
+Score Grade: ${getScoreGradeWithEmoji()}
 Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None yet"}`;
 
   const successMessage = () => {
@@ -1481,6 +1491,10 @@ const openStatsModal = () => {
   if (accuracyEl) {
     const accuracy = getGuessAccuracy();
     accuracyEl.textContent = `${accuracy}% (${getAccuracyRating(accuracy)})`;
+  }
+  const scoreGradeEl = $(".stat-score-grade");
+  if (scoreGradeEl) {
+    scoreGradeEl.textContent = getScoreGradeWithEmoji();
   }
   $("#stats-modal").classList.add("active");
 };
