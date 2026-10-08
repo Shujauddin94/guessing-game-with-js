@@ -169,6 +169,19 @@ const getStreakEmoji = (streak) => {
   return "";
 };
 
+/**
+ * Returns a descriptive status label for the current win streak
+ * @returns {string} e.g. "On fire! 🔥 (5)", "Building ⚡ (3)", or "No streak"
+ */
+const getStreakStatus = () => {
+  if (currentStreak === 0) return "No streak";
+  const emoji = getStreakEmoji(currentStreak);
+  if (currentStreak >= 10) return `Legendary ${emoji} (${currentStreak})`;
+  if (currentStreak >= 5) return `On fire! ${emoji} (${currentStreak})`;
+  if (currentStreak >= 3) return `Building ${emoji} (${currentStreak})`;
+  return `Started ${emoji} (${currentStreak})`;
+};
+
 // Game is now ready for player input
 
 /**
@@ -993,6 +1006,7 @@ Current Streak: ${currentStreak}
 Best Streak: ${bestStreak}
 Time Remaining: ${timedMode ? formatDuration(timeLeft) : "Off"}
 Score Grade: ${getScoreGradeWithEmoji()}
+Streak Status: ${getStreakStatus()}
 Previous Guesses: ${previousGuesses.length ? previousGuesses.join(", ") : "None yet"}`;
 
   const successMessage = () => {
