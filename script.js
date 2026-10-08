@@ -60,6 +60,7 @@ let previousScore = localStorage.getItem("previousScore") ? Number(localStorage.
 
 // Session games tracking (resets on page load)
 let sessionGames = 0;
+let sessionWins = 0;
 
 /**
  * Calculates current score as a percentage of max score
@@ -546,6 +547,12 @@ const updateStreakDisplay = () => {
  * @returns {number} The win rate percentage
  */
 const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
+
+/**
+ * Calculates the session win rate as a percentage of session games
+ * @returns {number} The session win rate percentage
+ */
+const getSessionWinRate = () => sessionGames > 0 ? Math.round((sessionWins / sessionGames) * 100) : 0;
 
 /**
  * Formats the player's win/loss record
@@ -1119,6 +1126,7 @@ const processGuess = function () {
     incrementGamesPlayed();
     // record win
     wins++;
+    sessionWins++;
     localStorage.setItem("wins", wins);
     updateWinsLossesDisplay();
 
@@ -1483,6 +1491,8 @@ const openStatsModal = () => {
   const avgGuessesEl = $(".stat-avg-guesses");
   if (avgGuessesEl) avgGuessesEl.textContent = getAverageGuesses();
   $(".stat-session-games").textContent = sessionGames;
+  const sessionWinRateEl = $(".stat-session-win-rate");
+  if (sessionWinRateEl) sessionWinRateEl.textContent = `${getSessionWinRate()}%`;
   $(".stat-round").textContent = round;
   $(".stat-highscore").textContent = highscore;
   $(".stat-attempts").textContent = attempts;
