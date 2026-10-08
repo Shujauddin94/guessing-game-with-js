@@ -554,6 +554,12 @@ const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPla
 const getWinLossRecord = () => `${wins}W - ${losses}L`;
 
 /**
+ * Calculates current loss rate percentage
+ * @returns {number} The loss rate percentage
+ */
+const getLossRate = () => gamesPlayed > 0 ? Math.round((losses / gamesPlayed) * 100) : 0;
+
+/**
  * Calculates the average number of guesses per game
  * @returns {string} Formatted average guesses or fallback dash
  */
@@ -1486,6 +1492,8 @@ const openStatsModal = () => {
   $(".stat-win-rate").textContent = `${winRate}%`;
   const winLossEl = $(".stat-win-loss");
   if (winLossEl) winLossEl.textContent = getWinLossRecord();
+  const lossRateEl = $(".stat-loss-rate");
+  if (lossRateEl) lossRateEl.textContent = `${getLossRate()}%`;
   $(".stat-history").textContent = previousGuesses.length ? previousGuesses.join(", ") : "None yet";
   const accuracyEl = $(".stat-accuracy");
   if (accuracyEl) {
