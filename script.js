@@ -170,16 +170,17 @@ const getStreakEmoji = (streak) => {
 };
 
 /**
- * Returns a descriptive status label for the current win streak
+ * Returns a descriptive status label for a win streak
+ * @param {number} streak - The streak count; defaults to the current streak
  * @returns {string} e.g. "On fire! 🔥 (5)", "Building ⚡ (3)", or "No streak"
  */
-const getStreakStatus = () => {
-  if (currentStreak === 0) return "No streak";
-  const emoji = getStreakEmoji(currentStreak);
-  if (currentStreak >= 10) return `Legendary ${emoji} (${currentStreak})`;
-  if (currentStreak >= 5) return `On fire! ${emoji} (${currentStreak})`;
-  if (currentStreak >= 3) return `Building ${emoji} (${currentStreak})`;
-  return `Started ${emoji} (${currentStreak})`;
+const getStreakStatus = (streak = currentStreak) => {
+  if (streak === 0) return "No streak";
+  const emoji = getStreakEmoji(streak);
+  if (streak >= 10) return `Legendary ${emoji} (${streak})`;
+  if (streak >= 5) return `On fire! ${emoji} (${streak})`;
+  if (streak >= 3) return `Building ${emoji} (${streak})`;
+  return `Started ${emoji} (${streak})`;
 };
 
 // Game is now ready for player input
@@ -1011,6 +1012,7 @@ Current Round: ${round}
 Highscore: ${highscore}
 Current Streak: ${currentStreak}
 Best Streak: ${bestStreak}
+Best Streak Status: ${getStreakStatus(bestStreak)}
 Time Remaining: ${timedMode ? formatDuration(timeLeft) : "Off"}
 Score Grade: ${getScoreGradeWithEmoji()}
 Streak Status: ${getStreakStatus()}
@@ -1521,6 +1523,8 @@ const openStatsModal = () => {
   $(".stat-attempts").textContent = attempts;
   $(".stat-current-streak").textContent = currentStreak;
   $(".stat-best-streak").textContent = bestStreak;
+  const bestStreakStatusEl = $(".stat-best-streak-status");
+  if (bestStreakStatusEl) bestStreakStatusEl.textContent = getStreakStatus(bestStreak);
   const winRate = gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
   $(".stat-win-rate").textContent = `${winRate}%`;
   const winLossEl = $(".stat-win-loss");
@@ -1619,8 +1623,6 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
-
-
 
 
 
