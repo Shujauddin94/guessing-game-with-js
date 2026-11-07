@@ -568,6 +568,12 @@ const getWinRatePercentage = () => gamesPlayed > 0 ? Math.round((wins / gamesPla
 const getSessionWinRate = () => sessionGames > 0 ? Math.round((sessionWins / sessionGames) * 100) : 0;
 
 /**
+ * Formats the current session's win/loss record
+ * @returns {string} Formatted record e.g. "3W - 1L"
+ */
+const getSessionWinLossRecord = () => `${sessionWins}W - ${sessionGames - sessionWins}L`;
+
+/**
  * Formats the player's win/loss record
  * @returns {string} Formatted record e.g. "5W - 2L"
  */
@@ -1000,6 +1006,7 @@ const copyStatsToClipboard = () => {
 Difficulty: ${difficulty.charAt(0).toUpperCase()}${difficulty.slice(1)}
 Games Played: ${gamesPlayed}
 Win/Loss Record: ${getWinLossRecord()}
+Session Win/Loss Record: ${getSessionWinLossRecord()}
 Current Round: ${round}
 Highscore: ${highscore}
 Current Streak: ${currentStreak}
@@ -1507,6 +1514,8 @@ const openStatsModal = () => {
   $(".stat-session-games").textContent = sessionGames;
   const sessionWinRateEl = $(".stat-session-win-rate");
   if (sessionWinRateEl) sessionWinRateEl.textContent = `${getSessionWinRate()}%`;
+  const sessionWinLossEl = $(".stat-session-win-loss");
+  if (sessionWinLossEl) sessionWinLossEl.textContent = getSessionWinLossRecord();
   $(".stat-round").textContent = round;
   $(".stat-highscore").textContent = highscore;
   $(".stat-attempts").textContent = attempts;
@@ -1610,7 +1619,6 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
-
 
 
 
